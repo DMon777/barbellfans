@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarbellFans</title>
+
+</head>
+<body>
+
+
+<style>
+
+    ul.menu {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+    ul.menu li {
+        float: left;
+        list-style: none;
+    }
+    ul.menu li a {
+        display: block;
+        padding: 8px 20px 10px;
+        text-decoration: none;
+    }
+    ul.menu li ul {
+        visibility: hidden;
+        opacity:0;
+        padding-left: 10px;
+        -webkit-transition: all 1000ms;
+    -moz-transition: all 1000ms;
+    -o-transition: all 1000ms;
+    transition: all 1000ms;
+    }
+    ul.menu li:hover ul {
+
+        visibility: visible;
+        opacity:1;
+
+        position: absolute;
+    }
+    ul.menu li:hover ul li {
+        float: none;
+    }
+    ul.menu li:hover ul li a {
+        padding: 6px 0 8px;
+    }
+
+
+</style>
+
+<ul class="menu">
+    <li>
+        <a href="#">Главная</a>
+    </li>
+    <li>
+        <a href="#">Меню 1</a>
+        <ul>
+            <li>
+                <a href="#">Подменю 1</a>
+            </li>
+            <li>
+                <a href="#">Подменю 2</a>
+            </li>
+            <li>
+                <a href="#">Подменю 3</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">Меню 2</a>
+        <ul>
+            <li>
+                <a href="#">Подменю4</a>
+            </li>
+            <li>
+                <a href="#">Подменю 5</a>
+            </li>
+            <li>
+                <a href="#">Подменю 6</a>
+            </li>
+            <li>
+                <a href="#">Подменю7</a>
+            </li>
+            <li>
+                <a href="#">Подменю 8</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+</body>
+</html>
