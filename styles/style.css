@@ -108,7 +108,7 @@ input{
     position:absolute;bottom:20px;right:20px;background-color:rgba(47,48,59,0.7);padding: 20px 20px 7px;;
 }
     .auth_error_message{
-        font-style:italic;color: #e9001b;text-align:center;font-size:14px;display:block;font-family: 'Ubuntu';
+        font-style:italic;color: #e9001b;text-align:center;font-size:12px;display:block;font-family: 'Ubuntu';
         margin-bottom: 10px; margin-top: -10px;
     }
     #auth_form input[name="auth_login"], #auth_form input[name="auth_password"]{
@@ -210,6 +210,24 @@ width:66%;float:left;
      width:80%;margin:0 auto;display:block;
  }
 
+ #share{
+     position:relative;float:right;margin-top:-10px;
+ }
+    #share_icon{
+        position:absolute;right:0;cursor:pointer;
+        transition:all 0.3s ease;
+    }
+
+    #share a>img{
+        height:20px;
+    }
+
+    #share a{
+        display:none;
+        padding-left: 7px;
+    }
+
+
  /* comments */
 .comment_form{
     margin: 10px 0 20px;
@@ -228,6 +246,9 @@ width:66%;float:left;
 .comment{
     margin-left: 20px;
 }
+    .comment_error_message{
+        color:#e9001b;text-align:center;display:none;
+    }
     .comment .user_avatar{
         width:15%;float:left;display:block;
     }
@@ -248,8 +269,11 @@ width:66%;float:left;
         }
 
         .answer_form{
-            ;margin-bottom:20px;width:100%;
+            margin-bottom:20px;width:100%;display:none;position:relative;overflow:hidden;
         }
+            .answer_form .close_icon{
+                position:absolute;top:5px;right: 5px;width:24px;cursor:pointer;
+            }
 
 
 

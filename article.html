@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="JS/jQuery.js"></script>
-    <script type="text/javascript" src="JS/menu.js"></script>
+    <script type="text/javascript" src="JS/scripts.js"></script>
 </head>
 <body>
     <header id = "header_top">
@@ -143,23 +143,23 @@
                  <img src="images/count_views.png" alt = "views">  <span>21</span>
             </div>
 
-            <div id="share">
 
-             <img src="images/share_icon.png" alt="share" id="share_icon">
-             <nav>
+
+             <nav id="share">
+                 <img src="images/share_icon.png" alt="share" id="share_icon">
                  <a href = ""> <img src="images/vk_share.png" alt="vk"></a>
                  <a href = ""> <img src="images/facebook_share.png" alt="facebook"></a>
                  <a href = ""> <img src="images/odnoklassniki_share.png" alt="odnoklassniki"></a>
                  <a href = ""> <img src="images/google_share.png" alt="google+"></a>
              </nav>
 
-            </div>
             <div class = "clear"></div>
 
         </article>
 
         <div id = "comments_block" class="content_block">
             <h1>Комментарии</h1>
+            <p> Ваш e-mail не будет опубликован. </p>
             <div class="comment_form">
                 <form method="post" action = "">
                     <textarea placeholder="Комментарий..."></textarea><br>
@@ -167,6 +167,7 @@
                     <input type="text" name = "email" placeholder = "e-mail"><br>
                     <input type="submit" value = "опубликовать" name="send_comment" class="button">
                 </form>
+                <p class="comment_error_message">сообщение об ошибке!!!</p>
             </div>
 
             <div id = "comments">
@@ -190,6 +191,8 @@
                             <input type="text" name = "email" placeholder = "e-mail"><br>
                             <input type="submit" value = "опубликовать" name="send_comment" class="button">
                         </form>
+                        <p class="comment_error_message">сообщение об ошибке!!!</p>
+                        <img src = "images/close_icon2.png" alt = "close" class="close_icon">
                     </div>
 
                     <div class="clear"></div>
@@ -205,7 +208,17 @@
                                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             </p>
                             <span class="answer">ответить</span>
+                        </div>
 
+                        <div class="answer_form">
+                            <form method="post" action = "">
+                                <textarea placeholder="Комментарий..."></textarea><br>
+                                <input type="text" name = "name" placeholder = "Имя"><br>
+                                <input type="text" name = "email" placeholder = "e-mail"><br>
+                                <input type="submit" value = "опубликовать" name="send_comment" class="button">
+                            </form>
+                            <p class="comment_error_message">сообщение об ошибке!!!</p>
+                            <img src = "images/close_icon2.png" alt = "close" class="close_icon">
                         </div>
 
                         <div class="clear"></div>
@@ -221,6 +234,17 @@
                                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                                 </p>
                                 <span class="answer">ответить</span>
+                            </div>
+
+                            <div class="answer_form">
+                                <form method="post" action = "">
+                                    <textarea placeholder="Комментарий..."></textarea><br>
+                                    <input type="text" name = "name" placeholder = "Имя"><br>
+                                    <input type="text" name = "email" placeholder = "e-mail"><br>
+                                    <input type="submit" value = "опубликовать" name="send_comment" class="button">
+                                </form>
+                                <p class="comment_error_message">сообщение об ошибке!!!</p>
+                                <img src = "images/close_icon2.png" alt = "close" class="close_icon">
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -239,6 +263,19 @@
                         </p>
                         <span class="answer">ответить</span>
                     </div>
+
+
+                    <div class="answer_form">
+                        <form method="post" action = "">
+                            <textarea placeholder="Комментарий..."></textarea><br>
+                            <input type="text" name = "name" placeholder = "Имя"><br>
+                            <input type="text" name = "email" placeholder = "e-mail"><br>
+                            <input type="submit" value = "опубликовать" name="send_comment" class="button">
+                        </form>
+                        <p class="comment_error_message">сообщение об ошибке!!!</p>
+                        <img src = "images/close_icon2.png" alt = "close" class="close_icon">
+                    </div>
+
                     <div class="clear"></div>
                 </div>
             </div>
