@@ -26,6 +26,10 @@ input{
     border:none;outline:none;
 }
 
+ul{
+    list-style:none;
+}
+
 .clear{
     clear:both;
 }
@@ -53,7 +57,7 @@ input{
         float:left;margin:26px 0 0 40px;
     }
         #header_top ul{
-            margin-left: 40px;list-style: none;
+            margin-left: 40px;
         }
             #header_top ul li{
                 display: inline-block;padding-right: 20px;height:65px;color:#e2e2e3;font-size:24px;
@@ -94,9 +98,6 @@ input{
     .social_icons{
         position:absolute;bottom:20px;left:20px;
     }
-        .social_icons ul{
-            list-style: none;
-        }
             .social_icons ul li{
                 display: inline-block;
             }
@@ -275,8 +276,25 @@ width:66%;float:left;
                 position:absolute;top:5px;right: 5px;width:24px;cursor:pointer;
             }
 
+/* sitemap content */
+#sitemap_content ul{
+    margin-left:20px;
+}
+    #sitemap_content ul li a{
+        color:#2f303b;
+    }
+        #sitemap_content ul li a:hover{
+            text-decoration: underline;
+        }
 
+/* registration */
 
+#registration_form{
+
+}
+    #registration_form input{
+        display:block;
+    }
                                             /*============================
                                                        SIDEBAR
                                             ============================*/
@@ -289,7 +307,7 @@ aside{
         display: block;
     }
     #subscription a{
-        margin:10px auto 0;width:116px;
+        margin:10px auto 0;width:92px;
         display: block;
     }
 
@@ -362,9 +380,6 @@ footer{
         float:right;margin:-125px 20px 0 0;
 
     }
-        #social_network ul{
-            list-style: none;
-        }
             #social_network ul li{
                 text-align:center;
             }
