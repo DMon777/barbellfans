@@ -35,7 +35,8 @@ ul{
 }
 
 .button{
-    color:#2f303b;border:1px solid #2f303b;padding:5px 25px;text-transform: uppercase;/* Настройки для кнопки */
+    color:#2f303b;border:1px solid #2f303b;padding:5px 10px;text-transform: uppercase;
+    background:none;/* Настройки для кнопки */
 }
     .button:hover{
         color:#d1bf3c;border:1px solid #d1bf3c;
@@ -152,7 +153,7 @@ ul{
     #search input[name="search"]{
         background-image: url("../images/search_icon.png");background-color: transparent;
         background-position: center center;background-repeat: no-repeat;border: medium none;
-        cursor: pointer;height: 40px;position: absolute;right: 20px;top: 5px; width: 45px;
+        cursor: pointer;height: 42px;position: absolute;right: 20px;top: 5px; width: 45px;
     }
 
 #bread_crumbs{
@@ -172,6 +173,9 @@ ul{
 main{
 width:66%;float:left;
 }
+article{
+    min-height:500px;
+}
 
 .content_block{/* НАСТРОЙКИ ДЛЯ БЛОКА С КОНТЕНТОМ */
     background-color:rgba(255,255,255,0.8);border-top:4px solid #d2801f;/* orange */
@@ -180,10 +184,6 @@ width:66%;float:left;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-    main .main_articles{
-
-    }
         main .publication_date{
             font-family:'Ubuntu';font-size:14px;font-style:italic;margin:10px 0;
         }
@@ -212,7 +212,7 @@ width:66%;float:left;
  }
 
  #share{
-     position:relative;float:right;margin-top:-10px;
+     position:relative;float:right;height:27px;margin-top:-3px;
  }
     #share_icon{
         position:absolute;right:0;cursor:pointer;
@@ -236,13 +236,14 @@ width:66%;float:left;
 .comment_form textarea,.answer_form textarea{
     width:100%;height:195px;border:1px solid #2F303B;margin-bottom:10px;
     padding:10px 0 0 10px;font-family: "Ubuntu";color:#2f303b;box-sizing:border-box;
+    resize:vertical;background:none;
 }
 .comment_form input[type = "text"],.answer_form input[type = "text"]{
     width:100%;height:40px;border:1px solid #2F303B;margin-bottom:10px;box-sizing: border-box;
-    padding-left:10px;font-family: "Ubuntu";color:#2f303b;font-size:16px;
+    padding-left:10px;font-family: "Ubuntu";color:#2f303b;font-size:16px;background:none;
 }
 .comment_form input[type = "submit"],.answer_form input[type = "submit"]{
-    display:block;margin:0 auto 10px;
+    display:block;margin:0 auto 10px;background:none;
 }
 .comment{
     margin-left: 20px;
@@ -289,11 +290,35 @@ width:66%;float:left;
 
 /* registration */
 
-#registration_form{
-
+#form{
+    width:300px;margin:0 auto;
 }
-    #registration_form input{
-        display:block;
+    #form p{
+        margin-bottom:5px;text-align:center;font-size:14px;
+    }
+    #form input[type = "text"],#form input[type = "password"]{
+        width:100%;height:40px;border:1px solid #2f303b;padding:8px 0 10px 10px;;box-sizing:border-box;
+        background:none;
+    }
+    #captcha_number{
+        margin:0 auto;width:60%;
+    }
+    #form #captcha_input{
+        width:40px;
+    }
+    #form input[type = "submit"]{
+        margin:5px auto 0;display:block;
+    }
+    #form .registration_error_message{
+        text-align:center;font-size:12px;color:#e9001b;display:block;
+    }
+    #registration_message,.reconstruction_message{
+        text-align:center;
+    }
+
+    #form textarea{
+        width:100%;height:200px;border:1px solid #2f303b;background:none;padding:10px 10px 0 10px;box-sizing:border-box;
+        resize: vertical;
     }
                                             /*============================
                                                        SIDEBAR
@@ -311,8 +336,12 @@ aside{
         display: block;
     }
 
+    #tags h1{
+        margin-bottom:10px;
+    }
+
     #tags a {
-        text-transform: lowercase;margin-left:5px;
+      text-transform: lowercase;margin-left:5px;
       display:inline-block;margin-bottom:5px;
     }
 
