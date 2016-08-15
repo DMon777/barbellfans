@@ -27,5 +27,18 @@ $(document).ready(function(){
 
     });
 
+    $("#menu_icon").bind("click",function(){
+
+        $("#adaptive_menu>ul").slideToggle();
+
+    });
+
+    $("#adaptive_menu span").bind("click",function(){
+
+            $(this).next().slideToggle(200);
+
+
+    })
+
 
 });
