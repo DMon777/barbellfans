@@ -151,31 +151,53 @@ ul{
          width:280px;height:36px;margin-bottom:10px;opacity: 0.9;padding-left:45px;box-sizing: border-box;
         font-style:italic;font-size:12px;background-color: #e2e2e3;
     }
-    #auth_form input[name="auth_login"]{
+
+    #adaptive_auth_form input[name="auth_login"], #adaptive_auth_form input[name="auth_password"]{
+        width:280px;height:36px;margin-bottom:10px;opacity: 0.9;padding-left:45px;box-sizing: border-box;
+        font-style:italic;font-size:12px;background-color: #e2e2e3;
+    }
+
+
+    #auth_form input[name="auth_login"],#adaptive_auth_form input[name="auth_login"]{
         background-image:url('../images/login_icon.png');background-repeat: no-repeat;
         background-position: 10px 7px;background-size:20px;
     }
-    #auth_form input[name="auth_password"]{
+    #auth_form input[name="auth_password"],#adaptive_auth_form input[name="auth_password"]{
         background-image:url('../images/passowrd_icon.png');background-repeat: no-repeat;
         background-position: 10px 7px;background-size:20px;
     }
 
-    #auth_form input[name="enter"]{
+    #auth_form input[name="enter"],#adaptive_auth_form input[name="enter"]{
         background:none;color:#e2e2e3;border:1px solid #e2e2e3;padding:5px 25px;text-transform: uppercase;
         font-size:14px;cursor:pointer;margin:0 auto;display:block;
     }
     #auth_form input[name="enter"]:hover{
         color:#d1bf3c;border:1px solid #d1bf3c;
     }
-    #forgot{
+    #forgot,#adaptive_forgot{
         color:#e2e2e3;margin:5px auto 0;width:72%;
     }
-        #forgot a{
+        #forgot a,#adaptive_forgot a{
             color:#e2e2e3;font-style:italic;font-size:14px;font-family: "Ubuntu";
         }
         #forgot a:hover{
             text-decoration:underline;
         }
+
+    #adaptive_auth{
+        display:none;position:absolute;top:0;width:100%;background-color:rgba(47,48,59,0.96);z-index:10;
+        padding:20px 0;
+    }
+        #header_background #auth_icon{
+            width:36px;position:absolute;right:20px;bottom:20px;
+        }
+        #adaptive_auth_form>form{
+            text-align:center;
+        }
+        #adaptive_forgot{
+            text-align:center;
+        }
+
 
 #search{
     width:100%;position:relative;margin-top: -3px;
@@ -472,6 +494,14 @@ footer{
     }
 
     #header_top #adaptive_menu{
+        display:block;
+    }
+
+    #auth{
+        display:none;
+    }
+
+    #adaptive_auth{
         display:block;
     }
 
