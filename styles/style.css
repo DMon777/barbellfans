@@ -100,7 +100,6 @@ ul{
          display:none;
      }
 
-
         #adaptive_menu .inner_menu{
             margin-top:2px;display:none;
         }
@@ -113,12 +112,8 @@ ul{
         }
 
          #adaptive_menu ul li span{
-             border-bottom:2px solid #e2e2e3;display:block;width:100%;padding:2px 0 5px 20px;
+             border-bottom:2px solid #e2e2e3;display:block;padding:2px 0 5px 20px;
          }
-
-
-
-
 
 #logo{
     float:right;margin:5px 40px 0 0;
@@ -185,11 +180,16 @@ ul{
         }
 
     #adaptive_auth{
-        display:none;position:absolute;top:0;width:100%;background-color:rgba(47,48,59,0.96);z-index:10;
-        padding:20px 0;
+        display:none;position:absolute;top:0;width:100%;
+        background-color:rgba(47,48,59,0.96);z-index:10;padding:84px 0;
     }
         #header_background #auth_icon{
-            width:36px;position:absolute;right:20px;bottom:20px;
+            width:36px;position:absolute;right:20px;bottom:20px;display:none;
+            cursor:pointer;
+        }
+
+        #header_background #auth_close{
+            width:36px;position:absolute;right:20px;top:20px;cursor:pointer;
         }
         #adaptive_auth_form>form{
             text-align:center;
@@ -477,7 +477,7 @@ footer{
     #header_top #menu{
        margin:26px 0 0 20px;
     }
-        #header_top ul {
+        #header_top #menu ul {
             margin-left: 0;
         }
 
@@ -493,6 +493,10 @@ footer{
         display:none;
     }
 
+    #header_background #auth_icon{
+        display:block;
+    }
+
     #header_top #adaptive_menu{
         display:block;
     }
@@ -502,7 +506,204 @@ footer{
     }
 
     #adaptive_auth{
-        display:block;
+
     }
 
+}
+
+@media screen and (max-width:768px){
+
+   main{
+       width:94%;float:none;margin:0 auto;
+   }
+
+    aside{
+        width:94%;float:none;overflow: hidden;margin: 0 auto;
+    }
+
+    #subscription img{
+        width:100px;
+    }
+
+
+}
+
+@media screen and (max-width:640px){
+
+    #header_top{
+        height:60px;
+    }
+
+    #adaptive_menu{
+        margin-top:4px;
+    }
+
+    #logo>img{
+        width:240px;
+    }
+
+    #adaptive_menu > ul{
+        margin-top:0;
+    }
+}
+
+@media screen and (max-width:480px){
+
+    .social_icons{
+        bottom:1px;
+    }
+
+    #header_background .social_icons ul li img{
+        width:30px;
+    }
+
+    #header_background #auth_icon{
+        width:30px;bottom:5px;
+    }
+
+    #header_top{
+        height:45px;
+    }
+
+
+    #adaptive_menu{
+        margin-top:2px;
+    }
+
+    #adaptive_menu #menu_icon{
+        height:40px;
+    }
+
+    #adaptive_menu > ul{
+        margin-top:-2px;
+    }
+
+    #logo > img {
+        width: 180px;
+    }
+
+    main{
+        width:100%;margin:0;
+    }
+
+    aside{
+        width:100%;margin: 0;
+    }
+
+}
+
+@media screen and (max-width:360px){
+
+    #adaptive_auth_form input[name="auth_login"], #adaptive_auth_form input[name="auth_password"]{
+        width:240px;padding-left:40px;
+    }
+
+
+    #navigation{
+        width:240px;
+    }
+
+    #navigation #arrow_left {
+        background-position: 9px 8px;
+        background-size: 14px 19px;
+        height: 22px;
+        width: 7px;
+    }
+
+
+
+    #navigation #arrow_right {
+        background-position: 12px 8px;
+        background-size: 14px 19px;
+        height: 22px;
+        width: 7px;
+    }
+
+    #navigation a, #navigation span {
+        font-size: 18px;
+        padding: 6px 14px;
+    }
+
+    #search input[name="search_string"] {
+        font-size: 14px;
+        height: 36px;
+
+    }
+
+    #search input[name="search"] {
+        background-size: 21px 21px;
+        height: 21px;
+        top: 8px;
+        width: 24px;
+    }
+
+    #bread_crumbs {
+        font-size: 14px;
+        margin: 6px 0 6px 20px;
+    }
+
+    #adaptive_menu {
+        margin-top: 5px;
+    }
+
+
+    #adaptive_menu #menu_icon {
+        height: 33px;
+        margin-left:5px;
+    }
+
+    #adaptive_menu ul li, #header_top #adaptive_menu ul li a {
+        font-size: 18px;
+    }
+
+    #logo {
+        margin: 5px 5px 0 0;
+    }
+
+    #logo > img {
+        width: 160px;
+    }
+
+    .social_icons{
+        left:5px;
+    }
+
+    #header_background #auth_icon{
+        right:5px;width:25px;
+    }
+
+
+    #header_background .social_icons ul li img {
+        padding-right: 4px;
+        width: 25px;
+    }
+
+    #captcha_number{
+        width:80%;
+    }
+
+    #form{
+        width:94%;
+    }
+
+    footer{
+        height: 110px;
+    }
+    
+    footer nav{
+        width:45%;
+        margin: 5px 0 0 5px;
+    }
+
+    #social_network {
+        margin: -105px 5px 0 0;
+    }
+
+    footer a,footer h3,footer p{
+        font-size:14px;
+    }
+
+    #copyright{
+        margin-top:90px;
+    }
 }

@@ -34,11 +34,20 @@ $(document).ready(function(){
     });
 
     $("#adaptive_menu span").bind("click",function(){
-
             $(this).next().slideToggle(200);
+    });
 
 
-    })
+    $("#auth_icon").bind("click",function(){
 
+        $(this).fadeOut(100);
+        $("#adaptive_auth").slideDown(500);
+
+    });
+
+    $("#auth_close").bind("click",function(){
+        $("#adaptive_auth").slideUp(100);
+        $("#auth_icon").fadeIn(500);
+    });
 
 });
