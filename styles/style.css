@@ -338,10 +338,10 @@ width:66%;float:left;
         color:#e9001b;text-align:center;display:none;
     }
     .comment .user_avatar{
-        width:15%;float:left;display:block;
+        width:100px;float:left;display:block;margin-right:10px;
     }
     .comment .text_comment{
-        float:right;width:82%;
+        width:100%;
     }
         .text_comment .user_login{
             font-weight:bold;font-family: 'Ubuntu';margin-right:20px;
@@ -406,6 +406,12 @@ width:66%;float:left;
         width:100%;height:200px;border:1px solid #2f303b;background:none;padding:10px 10px 0 10px;box-sizing:border-box;
         resize: vertical;
     }
+
+    #edit_avatar{
+        width:220px;display:block;margin:0 auto;cursor:pointer;
+    }
+
+
                                             /*============================
                                                        SIDEBAR
                                             ============================*/
