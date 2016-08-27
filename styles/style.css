@@ -66,6 +66,8 @@ ul{
             #header_top #menu ul li{
                 display: inline-block;padding-right: 20px;height:65px;color:#e2e2e3;font-size:24px;
             }
+
+        
                 #header_top #menu ul li a{
                     color:#e2e2e3;font-size:24px;
                 }
@@ -97,7 +99,7 @@ ul{
         }
 
      #adaptive_menu>ul{
-        margin-top:14px;position:absolute;background-color:rgba(47,48,59,0.96);width:100%;padding:10px 0 20px 0;
+        margin-top:17px;position:absolute;background-color:rgba(47,48,59,0.96);width:100%;padding:10px 0 20px 0;
          display:none;
      }
 
@@ -117,7 +119,7 @@ ul{
          }
 
 #logo{
-    float:right;margin:5px 40px 0 0;
+    float:right;margin:0 40px 0 0;
 }
 
 #header_background {
@@ -259,7 +261,7 @@ ul{
                                             ============================*/
 
 main{
-width:66%;float:left;
+width:70%;float:left;
 }
 
 
@@ -293,13 +295,25 @@ width:66%;float:left;
         }
  /* full article content */
 
- .full_article_image{
-     width:80%;margin:0 auto;display:block;
- }
+.full_article_image{
+    width:80%;margin:0 auto;display:block;
+}
 
- #share{
-     position:relative;float:right;height:27px;margin-top:-3px;
- }
+#article_tags p{
+    font-family:"Ubuntu";font-size:14px;font-style:italic;margin:-10px 0 10px 0;text-indent:0;
+}
+
+#article_tags a{
+    color:#2f303b;
+}
+
+#article_tags a:hover{
+    text-decoration:underline;
+}
+
+#share{
+    position:relative;float:right;height:27px;margin-top:-3px;
+}
     #share_icon{
         position:absolute;right:0;cursor:pointer;
         transition:all 0.3s ease;
@@ -411,13 +425,16 @@ width:66%;float:left;
         width:220px;display:block;margin:0 auto;cursor:pointer;
     }
 
+#page404{
+    display:block;margin:0 auto;width:60%;
 
+}
                                             /*============================
                                                        SIDEBAR
                                             ============================*/
 
 aside{
-    float:right;width:32%;box-sizing:border-box;
+    float:right;width:28%;box-sizing:border-box;
 }
     #subscription img{
         margin:0 auto;
@@ -518,7 +535,7 @@ footer{
         }
 
     #logo{
-       margin:5px 20px 0 0;
+       margin:0 20px 0 0;
     }
 
 }
@@ -575,7 +592,7 @@ footer{
     }
 
     #logo>img{
-        width:240px;
+        width:155px;
     }
 
     #adaptive_menu > ul{
@@ -619,7 +636,7 @@ footer{
     }
 
     #logo > img {
-        width: 180px;
+       width:110px;
     }
 
 
@@ -742,10 +759,6 @@ footer{
 
     #logo {
         margin: 5px 5px 0 0;
-    }
-
-    #logo > img {
-        width: 160px;
     }
 
     .social_icons{
