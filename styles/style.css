@@ -213,7 +213,7 @@ table{
 
 
     #forgot,#adaptive_forgot{
-        color:#e2e2e3;margin:5px auto 0;width:72%;
+        color:#e2e2e3;margin:5px auto 0;
     }
         #forgot a,#adaptive_forgot a{
             color:#e2e2e3;font-style:italic;font-size:14px;font-family: "Ubuntu";
@@ -609,7 +609,7 @@ footer{
         margin-top:4px;
     }
 
-    #logo>img{
+    #logo img{
         width:155px;
     }
 
@@ -625,7 +625,7 @@ footer{
 @media screen and (max-width:480px){
 
     .social_icons{
-        bottom:1px;
+        bottom:5px;
     }
 
     #header_background .social_icons ul li img{
@@ -633,7 +633,7 @@ footer{
     }
 
     #header_background #auth_icon{
-        width:30px;bottom:5px;
+        width:30px;bottom:10px;
     }
 
     #header_top{
@@ -653,7 +653,7 @@ footer{
         margin-top:-2px;
     }
 
-    #logo > img {
+    #logo img {
        width:110px;
     }
 
