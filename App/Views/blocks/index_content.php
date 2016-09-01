@@ -1,11 +1,11 @@
 <div id = "bread_crumbs">
-    <a href = "#">главная /</a>  <span>хлебные крошки</span>
+    <a href = "http://<?=SITE_NAME;?>/index">главная /</a><span> <?=$bread_crumbs;?> </span>
 </div>
 
 <main>
 
-
-    <? for($i = 0;$i < count($articles);$i++): ?>
+        <?if($articles):?>
+    <? for($i = 0;$i < count($articles);$i++):?>
      <article class="content_block">
          <h1><?=$articles[$i]['title'];?></h1>
          <p class  = "publication_date">
@@ -20,11 +20,17 @@
              <img src="/images/count_views.png" alt = "views">  <span><?=$articles[$i]['quantity_views'];?></span>
          </div>
 
-         <a href = "/article/id/<?=$articles[$i]['id'];?>" class = "read_more button"> читать далее... </a>
+         <a href = "http://<?=SITE_NAME;?>/article/id/<?=$articles[$i]['id'];?>" class = "read_more button"> читать далее... </a>
          <div class = "clear"></div>
-
      </article>
     <? endfor; ?>
+
+    <?else:?>
+    <article class="content_block">
+      <p> В данной категории пока что нет ни одной статьи , но мы над этим усердно работаем , так что потерпи качок! </p>
+    </article>
+    <?endif;?>
+
 
     <?if($navigation):?>
 
@@ -32,9 +38,8 @@
             <table>
                 <tr>
                     <?if($navigation['arrow_back']):?>
-                    <td> <a href="/<?=$href;?>/page/<?=$navigation['arrow_back'];?>" id = "arrow_left">  </a> </td>
+                    <td> <a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['arrow_back'];?>" id = "arrow_left">  </a> </td>
                     <?endif;?>
-
 
                     <? if($navigation['current']):?>
                         <td> <span class = "current_page"> <?=$navigation['current'];?> </span> </td>
@@ -42,16 +47,15 @@
 
                     <? if($navigation['next']):?>
                     <? foreach($navigation['next'] as $val):?>
-                        <td><a href="/<?=$href;?>/page/<?=$val;?>"><?=$val;?></a></td>
+                        <td><a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$val;?>"><?=$val;?></a></td>
                     <? endforeach;?>
                     <? endif;?>
 
                         <? if($navigation['arrow_forward']):?>
                             <td>
-                                <a href = "/<?=$href;?>/page/<?=$navigation['arrow_forward'];?>" id = "arrow_right"></a>
+                                <a href = "http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['arrow_forward'];?>" id = "arrow_right"></a>
                             </td>
                         <? endif;?>
-
                 </tr>
 
             </table>

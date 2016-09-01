@@ -26,10 +26,7 @@ class Articles_Model extends Abstract_Model
         return self::$db->prepared_select($sql)[0]['title'];
     }
 
-    public function get_category_title($category_name){
-        $sql = "SELECT title_in_menu FROM categories WHERE category_name='$category_name'";
-        return self::$db->prepared_select($sql)[0]['title_in_menu'];
-    }
+
 
 
     public function get_all_categories(){

@@ -19,7 +19,13 @@ class Navigation {
     }
 
     public function get_navigation($total_posts){
+
+        if($total_posts <= $this-> posts_by_one_page){
+            return false;
+        }
+
         $total_pages = ceil($total_posts/$this->posts_by_one_page);
+
         $navigation_array  = [];
         if($this->current_page != 1){
             $navigation_array['arrow_back'] = $this->current_page-1;

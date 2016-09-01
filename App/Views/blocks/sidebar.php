@@ -12,7 +12,7 @@
         <h1> Теги </h1>
 
         <?foreach($all_tags as $key => $val):?>
-            <a href = "/tags/title/<?=$val['href'];?>" class="button"> <?=$val['title'];?> </a>
+            <a href = "http://<?=SITE_NAME;?>/tags/title/<?=$val['href'];?>" class="button"> <?=$val['title'];?> </a>
         <?endforeach;?>
 
     </div>

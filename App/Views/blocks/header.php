@@ -16,35 +16,22 @@
 <header id = "header_top">
 
     <nav id="menu">
-        <ul>
-            <li>
-                <a href="#"> Главная </a>
-            </li>
-            <li>
-                Тренировки
-
-                <ul class = "inner_menu">
-                    <li> <a href="#"> Набор массы </a></li>
-                    <li> <a href="#"> Системы тренировок </a></li>
-                    <li> <a href="#"> Натуральный тренинг </a></li>
-                </ul>
-
-            </li>
-            <li>
-                Питание
-
-                <ul class = "inner_menu">
-                    <li> <a href="#"> Набор массы </a></li>
-                    <li> <a href="#"> Похудение </a></li>
-                    <li> <a href="#"> Добавки </a></li>
-                </ul>
-
-            </li>
-            <li>
-                <a href="#"> Мотивация </a>
-            </li>
-        </ul>
-
+            <ul>
+        <?foreach($menu as $key => $val):?>
+            <?if(count($val['children'] ) > 0):?>
+               <li>
+                   <?=$val['title'];?>
+                   <ul class = "inner_menu">
+                    <?foreach ($val['children'] as $k => $v):?>
+                        <li> <a href="http://<?=SITE_NAME;?>/<?=$v['href']?>"> <?=$v['title'];?></a></li>
+                    <?endforeach;?>
+                       </ul>
+               </li>
+            <?else:?>
+                <li> <a href="http://<?=SITE_NAME;?>/<?=$val['href']?>"> <?=$val['title'];?></a></li>
+           <?endif;?>
+        <?endforeach;?>
+            </ul>
     </nav>
 
     <nav id="adaptive_menu">
@@ -52,38 +39,27 @@
         <img id = "menu_icon" src="/images/menu_icon.png" alt = "menu">
 
         <ul>
-            <li>
-                <span>  <a href="#"> Главная </a></span>
-            </li>
-            <li>
-                <span> Тренировки </span>
+            <?foreach($menu as $key => $val):?>
+                <?if(count($val['children'] ) > 0):?>
+                    <li>
+                       <span> <?=$val['title'];?> </span>
+                        <ul class = "inner_menu">
+                            <?foreach ($val['children'] as $k => $v):?>
+                                <li> <span> <a href="http://<?=SITE_NAME;?>/<?=$v['href']?>"> <?=$v['title'];?></a> </span> </li>
+                            <?endforeach;?>
+                        </ul>
+                    </li>
+                <?else:?>
+                    <li> <span> <a href="http://<?=SITE_NAME;?>/<?=$val['href']?>"> <?=$val['title'];?></a> </span> </li>
+                <?endif;?>
+            <?endforeach;?>
 
-                <ul class = "inner_menu">
-                    <li> <span> <a href="#">  Набор массы  </a> </span> </li>
-                    <li> <span><a href="#"> Системы тренировок </a>  </span></li>
-                    <li><span> <a href="#"> Натуральный тренинг </a>  </span></li>
-                </ul>
-
-            </li>
-            <li>
-                <span> Питание </span>
-
-                <ul class = "inner_menu">
-                    <li><span> <a href="#"> Набор массы </a></span></li>
-                    <li> <span><a href="#"> Похудение </a></span></li>
-                    <li> <span><a href="#"> Добавки </a></span></li>
-                </ul>
-
-            </li>
-            <li>
-                <span>  <a href="#"> Мотивация </a></span>
-            </li>
         </ul>
 
     </nav>
 
     <div id = "logo">
-        <a href = "/index"><img src="/images/logo.png" alt = "barbellfans"></a>
+        <a href = "http://<?=SITE_NAME;?>/index"><img src="/images/logo.png" alt = "barbellfans"></a>
     </div>
 
     <div class = "clear"></div>

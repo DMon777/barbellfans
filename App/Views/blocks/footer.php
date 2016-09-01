@@ -1,7 +1,7 @@
 <footer>
     <nav>
-        <a href = ""> <img src="/images/feedback.png" alt = "feedback"> Обратная связь </a><br>
-        <a href = ""> <img src="/images/sitemap.png" alt = "sitemap"> Карта сайта </a>
+        <a href = "http://<?=SITE_NAME;?>/feedback"> <img src="/images/feedback.png" alt = "feedback"> Обратная связь </a><br>
+        <a href = "http://<?=SITE_NAME;?>/sitemap"> <img src="/images/sitemap.png" alt = "sitemap"> Карта сайта </a>
     </nav>
 
     <p id = "copyright"> 2016 &copy;barbellfans.ru все права защищены   </p>

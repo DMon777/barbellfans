@@ -16,7 +16,11 @@ class Menu_Model extends Abstract_Model
         return self::$instance = new self;
     }
 
-
+    public function get_bread_crumbs($category_id){
+        $category_name = Category_Model::instance()->get_category_name($category_id);
+        $sql = "SELECT title,href FROM menu WHERE title='$category_name'";
+        return self::$db->prepared_select($sql)[0];
+    }
 
     public function make_menu_tree($start_level = 0){
 
