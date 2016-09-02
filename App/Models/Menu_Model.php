@@ -22,6 +22,14 @@ class Menu_Model extends Abstract_Model
         return self::$db->prepared_select($sql)[0];
     }
 
+    public function get_category_parent($title){// как выяснилось функия пока не нужна но удалять пока не буду , вдруг пригодиться.
+        $sql = "SELECT parent_id FROM menu WHERE title='$title'";
+        $parent_id = self::$db->prepared_select($sql)[0]['parent_id'];
+        $sql2 = "SELECT title FROM menu WHERE id=".$parent_id;
+        return self::$db->prepared_select($sql2)[0]['title'];
+    }
+
+
     public function make_menu_tree($start_level = 0){
 
         $sql = "SELECT * FROM menu WHERE parent_id=".$start_level." ORDER BY sorting ASC";

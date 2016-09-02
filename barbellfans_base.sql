@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Авг 31 2016 г., 23:14
+-- Время создания: Сен 02 2016 г., 15:57
 -- Версия сервера: 5.5.48
 -- Версия PHP: 7.0.4
 
@@ -107,16 +107,16 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `category_name`, `title_in_menu`) VALUES
-(1, 'exircises', 'Упражнения'),
+(1, 'exercises', 'Упражнения'),
 (2, 'natural_training', 'Натуральный тренинг'),
-(3, 'training_sistems', 'Систесмы тренировок'),
+(3, 'training_system', 'Системы тренировок'),
 (4, 'for_girls', 'Для девушек'),
 (5, 'diets', 'Диеты'),
-(6, 'dobavki', 'Добавки'),
+(6, 'supplements', 'Добавки'),
 (7, 'weight_loss', 'Для похудения'),
-(8, 'biographis', 'Биографии спортсменов'),
+(8, 'biography', 'Биографии спортсменов'),
 (9, 'motivation', 'Мотивация'),
-(10, 'psicology', 'Психология'),
+(10, 'psychology', 'Психология'),
 (11, 'news', 'Новости'),
 (12, 'calculators', 'Калькуляторы');
 
@@ -181,18 +181,18 @@ CREATE TABLE IF NOT EXISTS `menu` (
 INSERT INTO `menu` (`id`, `title`, `href`, `parent_id`, `sorting`) VALUES
 (1, 'Главная', 'index', 0, 1),
 (2, 'Тренировки', '', 0, 2),
-(3, 'Упражнения', 'categories/id/exircises', 2, 1),
-(4, 'Натуральный тренингг', 'categories/id/natural_training', 2, 2),
-(5, 'Системы тренировок', 'categories/id/training_sistems', 2, 3),
+(3, 'Упражнения', 'categories/id/exercises', 2, 1),
+(4, 'Натуральный тренинг', 'categories/id/natural_training', 2, 2),
+(5, 'Системы тренировок', 'categories/id/training_system', 2, 3),
 (6, 'Для девушек', 'categories/id/for_girls', 2, 4),
 (7, 'Питание', '', 0, 2),
 (8, 'Диеты', 'categories/id/diets', 7, 1),
-(9, 'Дабавки', 'categories/id/dobavki', 7, 2),
+(9, 'Дабавки', 'categories/id/supplements', 7, 2),
 (10, 'Для похудения', 'categories/id/weight_loss', 7, 3),
 (11, 'Разное', '', 0, 3),
-(12, 'Биографии спортсменов', 'categories/id/biographis', 11, 1),
+(12, 'Биографии спортсменов', 'categories/id/biography', 11, 1),
 (13, 'Мотивация', 'categories/id/motivation', 11, 2),
-(14, 'Психология', 'categories/id/psicology', 11, 3),
+(14, 'Психология', 'categories/id/psychology', 11, 3),
 (15, 'Новости', 'categories/id/news', 11, 4),
 (16, 'Калькуляторы', 'categories/id/calculators', 11, 5);
 

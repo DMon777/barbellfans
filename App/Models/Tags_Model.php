@@ -21,6 +21,11 @@ class Tags_Model extends Abstract_Model
         return self::$db->prepared_select($sql);
     }
 
+    public function get_tag_title($href){
+        $sql = "SELECT title FROM tags WHERE href='$href'";
+        return self::$db->prepared_select($sql)[0]['title'];
+    }
+
 
 
 }

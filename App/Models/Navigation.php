@@ -20,7 +20,7 @@ class Navigation {
 
     public function get_navigation($total_posts){
 
-        if($total_posts <= $this-> posts_by_one_page){
+        if($total_posts <= $this->posts_by_one_page){
             return false;
         }
 

@@ -21,14 +21,6 @@ class Articles_Model extends Abstract_Model
         return $result;
     }
 
-    public function get_tag_title($href){
-        $sql = "SELECT title FROM tags WHERE href='$href'";
-        return self::$db->prepared_select($sql)[0]['title'];
-    }
-
-
-
-
     public function get_all_categories(){
         $sql = "SELECT * FROM categories";
         $categories = self::$db->prepared_select($sql);
