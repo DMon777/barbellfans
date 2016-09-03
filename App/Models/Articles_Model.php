@@ -15,11 +15,6 @@ class Articles_Model extends Abstract_Model
         return self::$instance = new self;
     }
 
-    public function get_tags($article_id){
-        $sql  = "SELECT id,title,href from tags JOIN articles_tags ON articles_tags.tag_id = tags.id WHERE articles_tags.article_id =".$article_id;
-        $result = self::$db->prepared_select($sql);
-        return $result;
-    }
 
     public function get_all_categories(){
         $sql = "SELECT * FROM categories";
@@ -30,7 +25,7 @@ class Articles_Model extends Abstract_Model
         return $categories;
     }
 
-    protected function get_articles_by_category_id($category_id){
+    public function get_articles_by_category_id($category_id){
         $sql = "SELECT id,title FROM articles WHERE category=".$category_id;
         return self::$db->prepared_select($sql);
     }
@@ -43,7 +38,7 @@ class Articles_Model extends Abstract_Model
     public function get_article($article_id){
         $sql = "SELECT * FROM articles RIGHT JOIN likes ON articles.id=likes.article_id WHERE id=".$article_id;
         $result = self::$db->prepared_select($sql)[0];
-        $result['tags'] = $this->get_tags($result['id']);
+        $result['tags'] = Tags_Model::instance()->get_tags($result['id']);
         return $result;
     }
 

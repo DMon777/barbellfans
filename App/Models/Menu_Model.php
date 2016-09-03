@@ -17,8 +17,7 @@ class Menu_Model extends Abstract_Model
     }
 
     public function get_bread_crumbs($category_id){
-        $category_name = Category_Model::instance()->get_category_name($category_id);
-        $sql = "SELECT title,href FROM menu WHERE title='$category_name'";
+        $sql = "SELECT title,href FROM menu WHERE id=".$category_id;
         return self::$db->prepared_select($sql)[0];
     }
 
@@ -27,6 +26,38 @@ class Menu_Model extends Abstract_Model
         $parent_id = self::$db->prepared_select($sql)[0]['parent_id'];
         $sql2 = "SELECT title FROM menu WHERE id=".$parent_id;
         return self::$db->prepared_select($sql2)[0]['title'];
+    }
+
+    public function get_category_title($category_name){
+        $sql = "SELECT title FROM menu WHERE category_name='$category_name'";
+        return self::$db->prepared_select($sql)[0]['title'];
+    }
+
+    public function get_category_id($category_name){
+        $sql = "SELECT id from menu WHERE category_name='$category_name'";
+        return self::$db->prepared_select($sql)[0]['id'];
+    }
+
+    public function make_sitemap_tree(){
+        $sitemap_tree = $this->make_menu_tree();
+
+
+        for($i = 0;$i <= count($sitemap_tree);$i++){
+
+            if(count($sitemap_tree[$i]['children']) > 0){
+
+                for($t = 0;$t <= count($sitemap_tree[$i]['children']);$t++){
+
+                    $articles = Articles_Model::instance()->get_articles_by_category_id($sitemap_tree[$i]['children'][$t]['id']);
+                    if($articles){
+                        $sitemap_tree[$i]['children'][$t]['articles'] = $articles;
+                    }
+                }
+            }
+        }
+
+        return $sitemap_tree;
+
     }
 
 

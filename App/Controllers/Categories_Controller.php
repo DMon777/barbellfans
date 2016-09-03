@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\Category_Model;
+use App\Models\Menu_Model;
 use App\Models\Navigation;
 
 class Categories_Controller extends Base_Controller
@@ -22,8 +23,8 @@ class Categories_Controller extends Base_Controller
         $this->current_page = $params['page'] ?? 1;
         $this->navigation_object = new Navigation($this->current_page,$this->table_name);
         $this->category_name = $params['id'];
-        $this->title .= Category_Model::instance()->get_category_title($this->category_name);
-        $this->bread_crumbs = Category_Model::instance()->get_category_title($this->category_name);
+        $this->title .= Menu_Model::instance()->get_category_title($this->category_name);
+        $this->bread_crumbs = Menu_Model::instance()->get_category_title($this->category_name);
         $this->href = 'categories/id/'.$this->category_name;
         $this->articles = $this->navigation_object->get_articles_by_category($this->category_name);
         $this->total_posts = $this->navigation_object->count_articles_by_category($this->category_name);

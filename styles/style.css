@@ -397,8 +397,11 @@ article ul,article ol{
 
 /* sitemap content */
 #sitemap_content ul{
-    margin-left:20px;
+    margin-left:20px;list-style:none;
 }
+    #sitemap_content h3{
+        text-align:left;margin:5px 0;
+    }
     #sitemap_content ul li a{
         color:#2f303b;
     }

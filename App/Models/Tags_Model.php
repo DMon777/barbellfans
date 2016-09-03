@@ -26,6 +26,12 @@ class Tags_Model extends Abstract_Model
         return self::$db->prepared_select($sql)[0]['title'];
     }
 
+    public function get_tags($article_id){
+        $sql  = "SELECT id,title,href from tags JOIN articles_tags ON articles_tags.tag_id = tags.id WHERE articles_tags.article_id =".$article_id;
+        $result = self::$db->prepared_select($sql);
+        return $result;
+    }
+
 
 
 }

@@ -62,26 +62,20 @@ class Navigation {
     }
 
     public function count_articles_by_category($category_name){
-        $category_id = $this->get_category_id($category_name);
-        $sql = "SELECT COUNT(*) as count from articles WHERE category=".$category_id['category_id'];
+        $category_id = Menu_Model::instance()->get_category_id($category_name);
+        $sql = "SELECT COUNT(*) as count from articles WHERE category=".$category_id;
         return (int)self::$db->prepared_select($sql)[0]['count'];
     }
 
     public function get_articles_by_category($category_name){
-       $category_id = $this->get_category_id($category_name);
+       $category_id = Menu_Model::instance()->get_category_id($category_name);
         $shift = $this->posts_by_one_page*($this->current_page - 1);
         $sql2 = "SELECT id,title,small_article,quantity_views,publication_date,image,count_likes
         FROM articles RIGHT JOIN likes ON articles.id = likes.article_id
-          WHERE category = ".$category_id['category_id']."  LIMIT $shift,$this->posts_by_one_page";
+          WHERE category = ".$category_id."  LIMIT $shift,$this->posts_by_one_page";
         $result = self::$db->prepared_select($sql2);
         return $result;
     }
-
-    protected function get_category_id($category_name){
-        $sql = "SELECT category_id from categories WHERE category_name='$category_name'";
-        return self::$db->prepared_select($sql)[0];
-    }
-
 
 
     protected function get_tag_id($tag_name){
@@ -107,7 +101,7 @@ class Navigation {
         $result = self::$db->prepared_select($sql);
 
         foreach($result as $key => $val){
-            $result[$key]['tags'] = Articles_Model::instance()->get_tags($val['id']);
+            $result[$key]['tags'] = Tags_Model::instance()->get_tags($val['id']);
         }
         return $result;
     }
