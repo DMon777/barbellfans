@@ -16,7 +16,7 @@ class Articles_Model extends Abstract_Model
     }
 
 
-    public function get_all_categories(){
+    public function get_all_categories(){//функуция не понадобиться но пока не удаляю
         $sql = "SELECT * FROM categories";
         $categories = self::$db->prepared_select($sql);
         foreach ($categories as $key => $val) {

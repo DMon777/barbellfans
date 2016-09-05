@@ -99,7 +99,11 @@
                     <input type = "submit" name = "enter" value="ВОЙТИ">
 
                 </form>
-                <div id="forgot"> <a href="">Забыли логин</a> | <a href="">Забыли пароль</a> | <a href="">Регистрация</a></div>
+                <div id="forgot">
+                    <a href="http://<?=SITE_NAME;?>/forgot/item/login">Забыли логин</a> |
+                    <a href="http://<?=SITE_NAME;?>/forgot/item/password">Забыли пароль</a> |
+                    <a href="http://<?=SITE_NAME;?>/registration">Регистрация</a>
+                </div>
             </div>
 
         </div>
@@ -119,7 +123,11 @@
                     <input type = "submit" name = "enter" value="ВОЙТИ">
 
                 </form>
-                <div id="adaptive_forgot"> <a href="">Забыли логин</a> | <a href="">Забыли пароль</a> | <a href="">Регистрация</a></div>
+                <div id="adaptive_forgot">
+                    <a href="http://<?=SITE_NAME;?>/forgot/item/login">Забыли логин</a> |
+                    <a href="http://<?=SITE_NAME;?>/forgot/item/password">Забыли пароль</a> |
+                    <a href="http://<?=SITE_NAME;?>/registration">Регистрация</a>
+                </div>
             </div>
 
 
@@ -128,7 +136,7 @@
     </div>
 
     <div id = "search">
-        <form method = "post" action = "">
+        <form method = "get" action = "/search/query/">
             <input type="text" name = "search_string" placeholder="Search...">
             <input type="submit" name="search" value = "">
         </form>

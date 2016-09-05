@@ -19,14 +19,13 @@ class Sitemap_Controller extends Base_Controller
 
         $this->categories_tree = Menu_Model::instance()->make_sitemap_tree();
 
-        $this->print_array($this->categories_tree);
     }
 
     protected function output(){
 
         $this->content = $this->render([
             'menu'       => $this->menu,
-            'categories' => $this->categories
+            'categories_tree' => $this->categories_tree
         ],
             'App/Views/blocks/sitemap_content');
 

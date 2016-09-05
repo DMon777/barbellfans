@@ -26,78 +26,40 @@
         <h2>Статьи</h2>
 
         <ul>
-            <li> <h3>Тренировки</h3>
-                <ul>
-                    <li><h4>Набор массы</h4>
+            <?foreach($categories_tree as $key => $val):?>
+                <?if(!empty($val['children'])): ?>
+                    <li>
+                        <h3> <?=$val['title']?> </h3>
 
-                        <ul>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                        </ul>
+                        <?foreach($val['children'] as $k => $v): ?>
+                            <ul>
+                                <li>
+                                  <h4>
+                                      <a href="http://<?=SITE_NAME;?>/<?=$v['href']?>"> <?=$v['title']?> </a>
+                                  </h4>
+                                    <?if($v['articles']):?>
+                                        <?foreach($v['articles'] as $num => $item):?>
+                                            <ul>
+                                                <li>
+                                                    <a href="http://<?=SITE_NAME;?>/article/id/<?=$item['id']?>"> <?=$item['title'];?> </a>
+                                                </li>
+                                            </ul>
+                                         <?endforeach;?>
+                                    <?endif;?>
+                                </li>
+                            </ul>
+                        <?endforeach;?>
                     </li>
 
-                    <li><h4>Системы тренировок</h4>
-
-                        <ul>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                        </ul>
-
+                    <?else:?>
+                    <li>
+                        <h3>
+                            <a href = "http://<?=SITE_NAME;?>/<?=$val['href'];?>"><?=$val['title']?></a>
+                        </h3>
                     </li>
-                    <li><h4>Натуральный тренинг</h4>
-
-                        <ul>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-
-            <li> <h3>Питание</h3>
-
-                <ul>
-                    <li><h4>Набор массы</h4>
-
-                        <ul>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                        </ul>
-
-                    </li>
-
-                    <li><h4>Диета</h4>
-
-                        <ul>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                        </ul>
-
-                    </li>
-                    <li><h4>Добавки</h4>
-
-                        <ul>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                            <li><a href=""> Название статьи </a> </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-
+                <?endif;?>
+            <?endforeach;?>
         </ul>
-
 
         <div class = "clear"></div>
 

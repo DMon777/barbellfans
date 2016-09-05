@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 03 2016 г., 23:02
+-- Время создания: Сен 05 2016 г., 12:48
 -- Версия сервера: 5.5.48
 -- Версия PHP: 7.0.4
 
@@ -231,7 +231,34 @@ INSERT INTO `tags` (`id`, `title`, `href`) VALUES
 -- Индексы таблицы `articles`
 --
 ALTER TABLE `articles`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD FULLTEXT KEY `title` (`title`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `full_article` (`full_article`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `title_2` (`title`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `full_article_2` (`full_article`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `title_3` (`title`,`small_article`,`full_article`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `title_4` (`title`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `small_article` (`small_article`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `full_article_3` (`full_article`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `title_5` (`title`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `full_article_4` (`full_article`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `small_article_2` (`small_article`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `title_6` (`title`,`small_article`,`full_article`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `title_7` (`title`,`small_article`,`full_article`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `title_8` (`title`,`full_article`);
 
 --
 -- Индексы таблицы `articles_tags`

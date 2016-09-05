@@ -41,7 +41,6 @@ class Menu_Model extends Abstract_Model
     public function make_sitemap_tree(){
         $sitemap_tree = $this->make_menu_tree();
 
-
         for($i = 0;$i <= count($sitemap_tree);$i++){
 
             if(count($sitemap_tree[$i]['children']) > 0){
@@ -55,9 +54,7 @@ class Menu_Model extends Abstract_Model
                 }
             }
         }
-
         return $sitemap_tree;
-
     }
 
 
