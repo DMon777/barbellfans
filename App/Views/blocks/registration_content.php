@@ -7,36 +7,45 @@
     <article class="content_block">
         <h1>Регистрация</h1>
 
-        <div id="form">
-            <form method="post" action="#">
+        <?if($message):?>
+        <p><?=$message;?></p>
 
-                <p>Логин</p>
-                <input type="text" name="login"><br>
-                <span class = 'registration_error_message'>Сообщение об ошибке</span>
+        <?else:?>
 
-                <p>E -mail</p>
-                <input type="text" name="email"><br>
-                <span class = 'registration_error_message'>Сообщение об ошибке</span>
+            <div id="form">
+                <form method="post" action="" id="registration_form">
 
-                <p>Пароль</p>
-                <input type="password" name="password"><br>
-                <span class = 'registration_error_message'>Сообщение об ошибке</span>
+                    <p>Логин</p>
+                    <input type="text" name="login" id="login"><br>
+                    <span class = 'registration_error_message login_error'></span>
 
-                <p>Повторите пароль</p>
-                <input type="password" name="confirm_password"><br>
-                <span class = 'registration_error_message'>Сообщение об ошибке</span>
+                    <p>E -mail</p>
+                    <input type="text" name="email" id="email"><br>
+                    <span class = 'registration_error_message email_error'></span>
 
-                <p>Капчпа</p>
-                <div id = "captcha_number"> Двадцать один - 3 =  <input type="text" name="captcha" id = "captcha_input"> </div>
-                <span class = 'registration_error_message'>Сообщение об ошибке</span>
+                    <p>Пароль</p>
+                    <input type="password" name="password" id = "password"><br>
+                    <span class = 'registration_error_message password_error'></span>
 
-                <input type="submit" name="registration" value="Зарегестрироваться" class="button">
-            </form>
+                    <p>Повторите пароль</p>
+                    <input type="password" name="confirm_password" id = "confirm_password"><br>
+                    <span class = 'registration_error_message confirm_password_error'></span>
 
-        </div>
+                    <p>Капча</p>
 
-        <p id="registration_message">Сообщение об удачной или неудачной регистрации</p>
+                    <input type="hidden" name = "rand_number" value="<?=$rand_number;?>" id = "rand_number">
+                    <div id = "captcha_number"> Двадцать один - <?=$rand_number;?> =  <input type="text" name="captcha" id = "captcha">
 
+                    </div>
+                    <span class = 'registration_error_message captcha_error'></span>
+
+                    <input type="button" name="registration" value="Зарегестрироваться" class="button" id="registration_submit">
+                </form>
+
+            </div>
+
+            <p id="registration_message"></p>
+        <?endif;?>
 
         <div class = "clear"></div>
 

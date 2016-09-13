@@ -15,9 +15,9 @@ class Comments_Model extends Abstract_Model
         return self::$instance = new self;
     }
 
-    public function insert_comment($text_comment,$parent_id,$article_id,$user_login,$user_id,$avatar){
-        return self::$db->pdo_insert('comments',['parent_id','article_id','text_comment','user_login','user_id','avatar'],
-            [$parent_id,$article_id,$text_comment,$user_login,$user_id,$avatar]);
+    public function insert_comment($parent_id,$article_id,$text_comment,$user_login,$email,$avatar){
+        return self::$db->pdo_insert('comments',['parent_id','article_id','text_comment','user_login','email','avatar'],
+            [$parent_id,$article_id,$text_comment,$user_login,$email,$avatar]);
     }
 
     public function make_comments_tree($article_id,$start = 0){

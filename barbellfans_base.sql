@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 05 2016 г., 12:48
+-- Время создания: Сен 13 2016 г., 11:14
 -- Версия сервера: 5.5.48
 -- Версия PHP: 7.0.4
 
@@ -44,8 +44,8 @@ CREATE TABLE IF NOT EXISTS `articles` (
 --
 
 INSERT INTO `articles` (`id`, `title`, `keywords`, `description`, `category`, `small_article`, `full_article`, `quantity_views`, `publication_date`, `image`) VALUES
-(1, 'Статья о приседаниях', 'приседания', 'приседания', 3, 'вводная статья про приседания вводная статья про приседания вводная статья про приседания вводная статья про приседания\r\nвводная статья про приседания ', ' полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания', 0, 1468867443, 'squats.jpg'),
-(2, 'Как накачать пресс', 'как накачать пресс', 'как накачать пресс', 5, ' вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс ', 'полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс', 0, 1468867443, 'press.jpg'),
+(1, 'Статья о приседаниях', 'приседания', 'приседания', 3, 'вводная статья про приседания вводная статья про приседания вводная статья про приседания вводная статья про приседания\r\nвводная статья про приседания ', ' полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания полная статья про приседания', 40, 1468867443, 'squats.jpg'),
+(2, 'Как накачать пресс', 'как накачать пресс', 'как накачать пресс', 5, ' вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс ', 'полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс', 15, 1468867443, 'press.jpg'),
 (3, 'Как накачать бицепс', 'Как накачать бицепс', 'Как накачать бицепс', 5, 'Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс ', 'Полная статья о том как накачать бицепс Полная статья о том как накачать бицепс Полная статья о том как накачать бицепс Полная статья о том как накачать бицепс Полная статья о том как накачать бицепс Полная статья о том как накачать бицепсПолная статья о том как накачать бицепс Полная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепс м Полная статья о том как накачать бицепс', 0, 1468867443, 'biceps.jpg'),
 (4, 'Жим лежа', 'Жим лежа', 'Жим лежа', 3, 'Вводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежам  Вводаня статья о жиме лежа Вводаня статья о жиме лежаВводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежаВводаня статья о жиме лежа', 'Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежаПолная статья о жиме лежа  Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежаПолная статья о жиме лежаПолная статья о жиме лежа Полная статья о жиме лежаПолная статья о жиме лежа', 0, 1468867443, 'bench_press.jpg'),
 (5, 'Статья о подтягиваниях', 'Статья о подтягиваниях', 'Статья о подтягиваниях', 3, 'Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях ', 'Полная статья о подтягиваниях олная статья о подтягиваниях  олная статья о подтягиваниях м м олная статья о подтягиваниях олная статья о подтягиваниях олная статья о подтягиваниях олная статья о подтягиванияхолная статья о подтягиванияхолная статья о подтягиваниях олная статья о подтягиваниях олная статья о подтягиваниях олная статья о подтягиваниях', 0, 1468867443, 'pullups_back.jpg'),
@@ -123,6 +123,53 @@ INSERT INTO `categories` (`category_id`, `category_name`, `title_in_menu`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `categories_subscribe`
+--
+
+CREATE TABLE IF NOT EXISTS `categories_subscribe` (
+  `id` int(11) unsigned NOT NULL,
+  `subscriber_id` int(11) unsigned NOT NULL,
+  `category_id` int(11) unsigned NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `categories_subscribe`
+--
+
+INSERT INTO `categories_subscribe` (`id`, `subscriber_id`, `category_id`) VALUES
+(4, 2, 9),
+(3, 2, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `comments`
+--
+
+CREATE TABLE IF NOT EXISTS `comments` (
+  `comment_id` int(11) unsigned NOT NULL,
+  `article_id` int(11) unsigned NOT NULL,
+  `parent_id` int(11) unsigned NOT NULL,
+  `text_comment` text NOT NULL,
+  `user_login` varchar(55) NOT NULL,
+  `email` varchar(55) NOT NULL,
+  `avatar` varchar(100) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `article_id`, `parent_id`, `text_comment`, `user_login`, `email`, `avatar`) VALUES
+(1, 1, 0, 'sdf', 'Dimon', 'bessalov88@mail.ru', 'default_avatar.jpg'),
+(2, 2, 0, 'test commments', 'valik', 'valisf@slfj.ru', 'default_avatar.jpg'),
+(3, 2, 0, 'test2', 'Dimon', 'bessalov88@mail.ru', 'default_avatar.jpg'),
+(4, 1, 0, 'sdfsf', 'sfsfsf', 'asvava@sfs.ru', 'default_avatar.jpg'),
+(5, 1, 0, 'sdf', 'sdf', 'sdfsf@asfs.ru', 'default_avatar.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `likers`
 --
 
@@ -131,6 +178,13 @@ CREATE TABLE IF NOT EXISTS `likers` (
   `article_id` int(11) unsigned NOT NULL,
   `user_login` varchar(55) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `likers`
+--
+
+INSERT INTO `likers` (`like_id`, `article_id`, `user_login`) VALUES
+(1, 1, 'Dimon');
 
 -- --------------------------------------------------------
 
@@ -149,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `likes` (
 --
 
 INSERT INTO `likes` (`like_id`, `article_id`, `count_likes`) VALUES
-(1, 1, 0),
+(1, 1, 1),
 (2, 2, 0),
 (3, 3, 0),
 (4, 4, 0),
@@ -200,6 +254,27 @@ INSERT INTO `menu` (`id`, `title`, `category_name`, `href`, `parent_id`, `sortin
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `subscribers`
+--
+
+CREATE TABLE IF NOT EXISTS `subscribers` (
+  `id` int(11) unsigned NOT NULL,
+  `email` varchar(55) NOT NULL,
+  `name` varchar(55) NOT NULL,
+  `activate` int(1) unsigned NOT NULL DEFAULT '0',
+  `code` int(11) unsigned NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `subscribers`
+--
+
+INSERT INTO `subscribers` (`id`, `email`, `name`, `activate`, `code`) VALUES
+(2, 'bessalov88@mail.ru', 'Dimon', 1, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `tags`
 --
 
@@ -222,6 +297,29 @@ INSERT INTO `tags` (`id`, `title`, `href`) VALUES
 (6, 'плечи', 'sholders'),
 (7, 'кардио', 'cardio'),
 (8, 'трицепс', 'triceps');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL,
+  `login` varchar(55) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `email` varchar(55) NOT NULL,
+  `avatar` varchar(55) NOT NULL DEFAULT 'default_avatar.jpg',
+  `role` varchar(20) NOT NULL DEFAULT 'User'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `login`, `password`, `email`, `avatar`, `role`) VALUES
+(1, 'Dimon', '$2y$10$g4wBg4YlkbuvbcTZLmZxNO7KzZoz3sRS/UeIChEuR0.6w1HSmW.b2', 'bessalov88@mail.ru', 'default_avatar.jpg', 'Administrator'),
+(2, 'dvvdd', '$2y$10$7siIBUnnIngUmlBmh2iTfubNrLyyjzjfgnDyWBgM.JKSREwsdc1cW', 'bessalov88@mail.rudf', 'default_avatar.jpg', 'User');
 
 --
 -- Индексы сохранённых таблиц
@@ -273,6 +371,18 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`category_id`);
 
 --
+-- Индексы таблицы `categories_subscribe`
+--
+ALTER TABLE `categories_subscribe`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`comment_id`);
+
+--
 -- Индексы таблицы `likes`
 --
 ALTER TABLE `likes`
@@ -285,9 +395,21 @@ ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `subscribers`
+--
+ALTER TABLE `subscribers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `tags`
 --
 ALTER TABLE `tags`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -310,6 +432,16 @@ ALTER TABLE `articles_tags`
 ALTER TABLE `categories`
   MODIFY `category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
+-- AUTO_INCREMENT для таблицы `categories_subscribe`
+--
+ALTER TABLE `categories_subscribe`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `comment_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT для таблицы `likes`
 --
 ALTER TABLE `likes`
@@ -320,10 +452,20 @@ ALTER TABLE `likes`
 ALTER TABLE `menu`
   MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
+-- AUTO_INCREMENT для таблицы `subscribers`
+--
+ALTER TABLE `subscribers`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT для таблицы `tags`
 --
 ALTER TABLE `tags`
   MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -90,10 +90,23 @@
 
         <div id = "auth">
 
-            <div id="auth_form">
-                <p class = "auth_error_message"> Логин и/или пароль введены неверно! </p>
+        <?if($_SESSION['auth']['user']):?>
+            <div class = "auth_user">
+                <p>Добро пожаловать на сайт <br><?=$_SESSION['auth']['user']?></p>
+                <a href="http://<?=SITE_NAME;?>/edit_profile" class = "edit_profile"> редактировать профиль </a>
+                <a href = "http://<?=SITE_NAME;?>/logout" class = "exit" > выйти </a>
 
-                <form method="post" action="">
+            </div>
+
+        <?else:?>
+
+            <div id="auth_form">
+
+                <?if($_SESSION['auth']['error_message']):?>
+                    <p class = "auth_error_message"><?=$_SESSION['auth']['error_message'];?> </p>
+                <?endif;?>
+
+                <form method = "post" action = "">
                     <input type="text" name="auth_login" placeholder="логин"><br>
                     <input type="password" name="auth_password" placeholder="пароль"> <br>
                     <input type = "submit" name = "enter" value="ВОЙТИ">
@@ -105,33 +118,46 @@
                     <a href="http://<?=SITE_NAME;?>/registration">Регистрация</a>
                 </div>
             </div>
-
+        <?endif;?>
         </div>
 
         <img id="auth_icon" src="/images/auth_icon.png" alt = "auth">
 
         <div id = "adaptive_auth">
-
             <img id = "auth_close" src="/images/close_icon1.png" alt = "close">
 
-            <div id="adaptive_auth_form">
-                <p class = "auth_error_message"> Логин и/или пароль введены неверно! </p>
+            <?if($_SESSION['auth']['user']):?>
+                <div class = "auth_user">
+                    <p>Добро пожаловать на сайт<br> <?=$_SESSION['auth']['user'];?></p>
+                    <a href="http://<?=SITE_NAME;?>/edit_profile" class = "edit_profile"> редактировать профиль </a>
+                    <a href = "http://<?=SITE_NAME;?>/logout" class = "exit" > выйти </a>
 
-                <form method="post" action="">
-                    <input type="text" name="auth_login" placeholder="логин"><br>
-                    <input type="password" name="auth_password" placeholder="пароль"><br>
-                    <input type = "submit" name = "enter" value="ВОЙТИ">
-
-                </form>
-                <div id="adaptive_forgot">
-                    <a href="http://<?=SITE_NAME;?>/forgot/item/login">Забыли логин</a> |
-                    <a href="http://<?=SITE_NAME;?>/forgot/item/password">Забыли пароль</a> |
-                    <a href="http://<?=SITE_NAME;?>/registration">Регистрация</a>
                 </div>
-            </div>
+            <?else:?>
 
+                <div id="adaptive_auth_form">
+                    <?if($_SESSION['auth']['error_message']):?>
+                        <p class = "auth_error_message"><?=$_SESSION['auth']['error_message'];?> </p>
+                    <?endif;?>
+
+                    <form method="post" action="">
+                        <input type="text" name="auth_login" placeholder="логин"><br>
+                        <input type="password" name="auth_password" placeholder="пароль"><br>
+                        <input type = "submit" name = "enter" value="ВОЙТИ">
+
+                    </form>
+                    <div id="adaptive_forgot">
+                        <a href="http://<?=SITE_NAME;?>/forgot/item/login">Забыли логин</a> |
+                        <a href="http://<?=SITE_NAME;?>/forgot/item/password">Забыли пароль</a> |
+                        <a href="http://<?=SITE_NAME;?>/registration">Регистрация</a>
+                    </div>
+                </div>
+
+            <?endif;?>
 
         </div>
+
+
 
     </div>
 

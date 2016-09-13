@@ -16,7 +16,8 @@
              <?=$articles[$i]['small_article'];?>
          </p>
          <div class = "views_likes">
-             <a href = ""> <img src="/images/count_likes.png" alt = "likes"> </a> <span><?=$articles[$i]['count_likes'];?></span>
+             <input type="hidden" class = "article_id" value="<?=$articles[$i]['id'];?>">
+              <img src="/images/count_likes.png" alt = "likes" class = "likes_img">  <span class="count_likes"><?=$articles[$i]['count_likes'];?></span>
              <img src="/images/count_views.png" alt = "views">  <span><?=$articles[$i]['quantity_views'];?></span>
          </div>
 

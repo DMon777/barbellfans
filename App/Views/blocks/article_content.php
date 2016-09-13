@@ -33,10 +33,10 @@
         </div>
 
         <div class = "views_likes">
-            <a href = ""> <img src="/images/count_likes.png" alt = "likes"> </a> <span><?=$article['count_likes'];?></span>
+            <input type="hidden" class = "article_id" value="<?=$article['id'];?>">
+            <img src="/images/count_likes.png" alt = "likes" class = "likes_img">  <span class = "count_likes"><?=$article['count_likes'];?></span>
             <img src="/images/count_views.png" alt = "views">  <span><?=$article['quantity_views'];?></span>
         </div>
-
 
 
         <div id="share">
@@ -57,16 +57,28 @@
 
     <div id = "comments_block" class="content_block">
         <h1>Комментарии</h1>
-        <p> Ваш e-mail не будет опубликован. </p>
-        <div class="comment_form">
-            <form method="post" action = "">
-                <textarea placeholder="Комментарий..."></textarea><br>
-                <input type="text" name = "name" placeholder = "Имя"><br>
-                <input type="text" name = "email" placeholder = "e-mail"><br>
-                <input type="submit" value = "опубликовать" name="send_comment" class="button">
-            </form>
-            <p class="comment_error_message">сообщение об ошибке!!!</p>
-        </div>
+
+        <?if($_SESSION['auth']['user']):?>
+            <div class="comment_form">
+                <form method="post" action = "">
+                    <textarea placeholder="Комментарий..." name="text_comment"></textarea><br>
+                    <input type="submit" value = "опубликовать" name="send_comment" class="button">
+                </form>
+                <p class="comment_error_message">сообщение об ошибке!!!</p>
+            </div>
+
+        <?else:?>
+            <p> Ваш e-mail не будет опубликован. </p>
+            <div class="comment_form">
+                <form method="post" action = "">
+                    <textarea placeholder="Комментарий..." name="text_comment"></textarea><br>
+                    <input type="text" name = "name" placeholder = "Имя"><br>
+                    <input type="text" name = "email" placeholder = "e-mail"><br>
+                    <input type="submit" value = "опубликовать" name="send_comment" class="button">
+                </form>
+                <p class="comment_error_message">сообщение об ошибке!!!</p>
+            </div>
+        <?endif;?>
 
         <div id = "comments">
             <div class="comment">
@@ -85,8 +97,10 @@
                 <div class="answer_form">
                     <form method="post" action = "">
                         <textarea placeholder="Комментарий..."></textarea><br>
-                        <input type="text" name = "name" placeholder = "Имя"><br>
-                        <input type="text" name = "email" placeholder = "e-mail"><br>
+                        <?if(!$_SESSION['auth']['user']):?>
+                            <input type="text" name = "name" placeholder = "Имя"><br>
+                            <input type="text" name = "email" placeholder = "e-mail"><br>
+                        <?endif;?>
                         <input type="submit" value = "опубликовать" name="send_comment" class="button">
                     </form>
                     <p class="comment_error_message">сообщение об ошибке!!!</p>
@@ -110,7 +124,7 @@
 
                     <div class="answer_form">
                         <form method="post" action = "">
-                            <textarea placeholder="Комментарий..."></textarea><br>
+                            <textarea placeholder="Комментарий..." ></textarea><br>
                             <input type="text" name = "name" placeholder = "Имя"><br>
                             <input type="text" name = "email" placeholder = "e-mail"><br>
                             <input type="submit" value = "опубликовать" name="send_comment" class="button">

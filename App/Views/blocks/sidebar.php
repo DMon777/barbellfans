@@ -4,7 +4,7 @@
         <h1> Подписаться на обновления </h1>
         <p>Подписавшись на обновления по email вы всегда первым будете узнавать о выходе новых статей на нашем сайте!</p>
         <img src="/images/subscribe_image.png" alt = "subscribe">
-        <a href = "" class="button"> подписаться </a>
+        <a href = "http://<?=SITE_NAME;?>/subscribe" class="button"> подписаться </a>
 
     </div>
 

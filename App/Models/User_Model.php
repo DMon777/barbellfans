@@ -15,15 +15,12 @@ class User_Model extends Abstract_Model
         return self::$instance = new self;
     }
 
-    public function reg_user($login,$password,$email,$code){
+    public function reg_user($login,$password,$email){
         $password = password_hash($password,PASSWORD_DEFAULT);
-        return self::$db->pdo_insert('users',['login','password','mail','code'],
-                               [$login,$password,$email,$code] );
+        return self::$db->pdo_insert('users',['login','password','email'],
+                               [$login,$password,$email] );
     }
 
-    public function activate_user($code,$table){
-        return self::$db->pdo_update($table,['code','activate'],['',1],['code' => $code]);
-    }
 
     public function check_busy_login($login){
         if(isset($_SESSION['auth']['user'])){
@@ -53,7 +50,7 @@ class User_Model extends Abstract_Model
             }
         }
 
-        $sql = "SELECT mail FROM users WHERE mail='$email'";
+        $sql = "SELECT email FROM users WHERE email='$email'";
         $result = self::$db->prepared_select($sql);
         if($result){
             return true;
@@ -88,7 +85,7 @@ class User_Model extends Abstract_Model
     }
 
     public function get_user($login){
-        $sql = "SELECT * FROM users WHERE login='$login'"." AND activate=1";
+        $sql = "SELECT id,login,email,avatar,role FROM users WHERE login='$login'";
         return self::$db->prepared_select($sql)[0];
     }
 

@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
     $(".answer").bind('click',function(){
 
         $(this).css('display','none');
@@ -37,17 +38,49 @@ $(document).ready(function(){
             $(this).next().slideToggle(200);
     });
 
-
     $("#auth_icon").bind("click",function(){
 
-        $(this).fadeOut(100);
+        $(this).css('opacity','0');
         $("#adaptive_auth").slideDown(500);
 
     });
 
     $("#auth_close").bind("click",function(){
         $("#adaptive_auth").slideUp(100);
-        $("#auth_icon").fadeIn(500);
+        $("#auth_icon").css('opacity','1');
     });
+
+    $("#select_all").bind('click', function (){
+
+
+
+       if(!$(this).is(":checked")){
+           $(".categories_checkbox").prop("checked", false) ;
+       }
+        else{
+           $(".categories_checkbox").prop("checked", true) ;
+       }
+    })
+
+    $(".likes_img").bind('click',function(){
+
+        var article_id = $(this).siblings('.article_id').val();
+        var that = $(this);
+        $.ajax({
+            url:'/ajax/method/add_like',
+            type:'post',
+            data:{article_id:article_id},
+            success:function(result){
+                if(result == "Извини,но нужно авторизоваться,иначе никак."){
+                    alert(result);
+                }
+                else{
+                    that.siblings('.count_likes').html(result);
+                }
+            }
+
+        });
+    });
+
 
 });

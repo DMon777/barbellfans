@@ -20,6 +20,10 @@ class Article_Controller extends Base_Controller
     protected $comments;
     protected $comments_map;
     protected $bread_crumbs;
+    protected $message;
+    protected $user_login;
+    protected $email;
+    protected $avatar;
 
     protected function input($params = []){
         parent::input();
@@ -31,12 +35,13 @@ class Article_Controller extends Base_Controller
         $this->description = $this->article['description'];
         $this->bread_crumbs = Menu_Model::instance()->get_bread_crumbs($this->article['category']);
 
-      //  Articles_Model::instance()->add_views($this->article_id,$this->article['quantity_views']);
+        Articles_Model::instance()->add_views($this->article_id,$this->article['quantity_views']);
 
 
-      /*  if(isset($_SESSION['auth']['user'])){
+       if(isset($_SESSION['auth']['user'])){
             $this->user = User_Model::instance()->get_user($_SESSION['auth']['user']);
         }
+
 
         if($_POST['send_comment']){
             $this->send_comment();
@@ -44,7 +49,7 @@ class Article_Controller extends Base_Controller
 
         if($_POST['send_answer']){
            $this->send_answer();
-        }*/
+        }
 
         $this->comments_map = Comments_Model::instance()->make_comments_tree($this->article_id);
 
@@ -91,12 +96,29 @@ class Article_Controller extends Base_Controller
         $this->parent_id    = $_POST['parent_id'] ?? 0;
         $this->text_comment = $this->clean_str($_POST['text_comment']);
 
+
         if(strlen($this->text_comment) < 1){
             return false;
         }
 
-        Comments_Model::instance()->insert_comment($this->text_comment,$this->parent_id,$this->article_id,
-            $this->user['login'],$this->user['id'],$this->user['avatar']);
+        if($this->user){
+            $this->user_login = $this->user['login'];
+            $this->email = $this->user['email'];
+            $this->avatar = $this->user['avatar'];
+        }
+        else{
+            $this->user_login = $this->clean_str($_POST['name']);
+            $this->email = $this->clean_str($_POST['email']);
+            if(!preg_match("/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/"
+                ,$this->email )){
+                $this->message = "Вы что-то напутали , не может быть такого email адреса.";
+                return false;
+            }
+            $this->avatar = 'default_avatar.jpg';
+        }
+
+        Comments_Model::instance()->insert_comment($this->parent_id,$this->article_id,
+            $this->text_comment,$this->user_login,$this->email,$this->avatar);
     }
 
 

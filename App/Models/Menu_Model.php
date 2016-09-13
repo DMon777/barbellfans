@@ -75,7 +75,7 @@ class Menu_Model extends Abstract_Model
     }
 
     public function get_categories(){
-        $sql = "SELECT * FROM menu WHERE parent_id > 0 ORDER BY sorting ASC";
+        $sql = "SELECT * FROM menu WHERE parent_id > 0";
         return self::$db->prepared_select($sql);
     }
 

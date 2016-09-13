@@ -1,5 +1,5 @@
 <div id = "bread_crumbs">
-    <a href = "http:<?=SITE_NAME;?>/index">главная /</a>  <span>Обратная связь</span>
+    <a href = "http://<?=SITE_NAME;?>/index">главная /</a>  <span>Обратная связь</span>
 </div>
 
 <main>

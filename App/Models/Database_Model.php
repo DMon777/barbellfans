@@ -74,6 +74,7 @@ class Database_Model
         }
         $sql = rtrim($sql,',');
         $sql .= ") ";
+
         $result = $this->pdo->prepare($sql);
 
         for($i=1;$i<=count($values);$i++){

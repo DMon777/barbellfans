@@ -14,8 +14,15 @@ abstract class Main_Controller
     protected $page;
     protected $close = false;
 
-
     protected function input($params = []){
+        if(isset($_SESSION['auth']['error_message'])){
+            unset($_SESSION['auth']['error_message']);
+        }
+
+        if($_POST['enter']){
+            $this->auth_user($_POST['auth_login'],$_POST['auth_password']);
+        }
+
         $this->close_page();
     }
 
@@ -91,6 +98,27 @@ abstract class Main_Controller
             }
         }
         return true;
+    }
+
+    protected function auth_user($login,$password){
+
+        if(strlen($login) < 1  || strlen($password) < 1){
+            $_SESSION['auth']['error_message'] = "Вы ввели не все данные,будте повнимательнее!";
+            return false;
+        }
+
+
+        if(User_Model::instance()->auth_user($login,$password)){
+            unset($_SESSION['auth']['error_message']);
+            $_SESSION['auth']['user'] = $login;
+            return true;
+        }
+
+        else{
+            $_SESSION['auth']['error_message'] = "Логин и/или пароль введены неверно!";
+            return false;
+        }
+
     }
 
     protected function print_array($array){//отладочная функция потом удалю ;)

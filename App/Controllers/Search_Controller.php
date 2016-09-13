@@ -17,8 +17,6 @@ class Search_Controller extends Base_Controller
         $this->search_string = $_GET['search_string'];
         $this->search_result = Articles_Model::instance()->get_search_results($this->search_string);
 
-        $this->print_array($this->search_result);
-
     }
 
     protected function output(){
