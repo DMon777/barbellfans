@@ -32,6 +32,18 @@ class Tags_Model extends Abstract_Model
         return $result;
     }
 
+    public function delete_tag($tag_id){
+        self::$db->pdo_delete('tags',['id' => $tag_id]);
+        self::$db->pdo_delete('articles_tags',['tag_id' => $tag_id]);
+    }
 
+    public function change_tags($new_names,$hrefs){
+        $i = 0;
+        foreach($this->get_all_tags() as $key => $val){
+            self::$db->pdo_update('tags',['title'],[$new_names[$i]],['id' => $val['id']]);
+            self::$db->pdo_update('tags',['href'],[$hrefs[$i]],['id' => $val['id']]);
+            $i++;
+        }
+    }
 
 }

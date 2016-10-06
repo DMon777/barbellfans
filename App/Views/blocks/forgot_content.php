@@ -21,14 +21,14 @@
             <form method="post" action="#">
 
                 <input type="text" name="email"><br>
-                <span class = 'registration_error_message'>Сообщение об ошибке</span>
+                <span class = 'registration_error_message'></span>
 
-                <input type="submit" name="reconstruction" value="Отпрвавить" class="button">
+                <input type="button" name="reconstruction" value="Отпрвавить" class="button">
             </form>
 
         </div>
 
-        <p class="reconstruction_message">Сообщение об ошибке.</p>
+        <p class="reconstruction_message"><?=$message;?></p>
 
 
         <div class = "clear"></div>

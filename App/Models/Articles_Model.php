@@ -103,7 +103,7 @@ class Articles_Model extends Abstract_Model
 
     public function delete_article($article_id){
         $article = $this->get_article($article_id);
-        $image = 'images/articles_images/'.$article['image'];
+        $image = 'images/article_images/'.$article['image'];
 
         if(file_exists($image)){
             unlink($image);
@@ -119,10 +119,21 @@ class Articles_Model extends Abstract_Model
         return self::$db->pdo_insert('tags',['title','href'],[$new_tag,$tag_href]);
     }
 
-    public function delete_tag($tag_id){
-        self::$db->pdo_delete('tags',['id' => $tag_id]);
+
+    public function get_bookmarks($user_login){
+        $sql = "SELECT article_id FROM likers WHERE user_login='$user_login'";
+        $article_id = self::$db->prepared_select($sql);
+        if($article_id){
+
+            foreach($article_id as $key => $val){
+                $query = "SELECT * FROM articles WHERE id=".$val['article_id'];
+                $bookmarks[] = self::$db->prepared_select($query);
+            }
+            return $bookmarks;
+        }
+        else{
+            return false;
+        }
     }
-
-
 
 }

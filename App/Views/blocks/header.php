@@ -83,7 +83,7 @@
                     <a href="#"> <img src="/images/header_odnoklassniki.png"  alt = "odnoklassniki">  </a>
                 </li>
                 <li>
-                    <a href="#"> <img src="/images/header_rss.png"  alt = "rss">  </a>
+                    <a href="/rss"> <img src="/images/header_rss.png"  alt = "rss">  </a>
                 </li>
             </ul>
         </div>

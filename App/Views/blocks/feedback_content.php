@@ -13,17 +13,18 @@
             <form method="post" action="#">
                 <p>E-mail</p>
                 <input type="text" name="email"><br>
-                <span class = 'registration_error_message'>Сообщение об ошибке</span>
+                <span class = 'registration_error_message feedback_email_error'></span>
 
                 <p>Сообщение</p>
-                <textarea></textarea>
+                <textarea name = "feedback_message" ></textarea>
+                <span class = 'registration_error_message feedback_message_error'></span>
 
-                <input type="submit" name="reconstruction" value="Отпрвавить" class="button">
+                <input type="button" name="feedback" value="Отпрвавить" class="button">
             </form>
 
         </div>
 
-        <p class="reconstruction_message">Сообщение об ошибке.</p>
+        <p class="reconstruction_message feedback_message"><?=$message;?></p>
 
 
         <div class = "clear"></div>

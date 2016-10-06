@@ -6,6 +6,8 @@ use App\Models\User_Model;
 class Ajax_Controller extends Base_Controller
 {
 
+    protected $rand_code;
+
     protected function input($params = []){
         parent::input();
 
@@ -18,12 +20,6 @@ class Ajax_Controller extends Base_Controller
                 $this->validate_email($_POST['email']);
                 break;
 
-            case 'validate_captcha':
-                $this->validate_captcha($_POST['captcha']);
-                break;
-            case 'auth':
-            $this->ajax_auth($_POST['login'],$_POST['password']);
-            break;
             case 'upload_avatar':
                 $this->upload_avatar();
                 break;
@@ -75,33 +71,14 @@ class Ajax_Controller extends Base_Controller
             echo "этот почтовый ящик уже зарегестрирован!!!";
             return false;
         }
-
     }
 
-    public function validate_captcha($captcha){
-        if(strnatcasecmp ($captcha,$_SESSION['captcha'])){
-            echo "код с картинки введен не верно!!!";
-        }
-        return false;
-    }
-
-    public function ajax_auth($login,$password){
-        if(empty($login) || empty($password)){
-            echo "поля должны быть заполнены!!!";
-            return false;
-        }
-        if(User_Model::instance()->auth_user($login,$password)){
-            echo $login;
-        }
-        else{
-            echo "неверный логин или пароль!";
-        }
-
-    }
 
     public function upload_avatar(){
 
-        $upload_dir = "images/avatars/";
+        $this->rand_code = rand(100000,999999);
+
+
         $types = ["image/gif","image/png","image/jpeg","image/pjpeg","image/x-png"];
         $size = 2097152;
 
@@ -111,7 +88,7 @@ class Ajax_Controller extends Base_Controller
             if (preg_match($pattern, $_FILES['avatar']['name'])) {
                 $_FILES['avatar']['name'] = $this->translate_russian_words($_FILES['avatar']['name']);
             }
-            $file = $_FILES['avatar']['name'];
+            $file = $this->rand_code.$_FILES['avatar']['name'];
         }
 
         $result = [];
@@ -128,16 +105,18 @@ class Ajax_Controller extends Base_Controller
             exit(json_encode($result));
         }
 
-        if(move_uploaded_file($_FILES['avatar']['tmp_name'],$upload_dir.$_FILES['avatar']['name'])){
+        $upload_dir = "images/avatars/".$file;
+
+        if(move_uploaded_file($_FILES['avatar']['tmp_name'],$upload_dir)){
 
             $user = User_Model::instance()->get_user($_SESSION['auth']['user']);
 
             if(file_exists('images/avatars/'.$user['avatar']) && $user['avatar'] != 'default_avatar.jpg' ){
                 unlink('images/avatars/'.$user['avatar']);
             }
-            User_Model::instance()->change_avatar($user['id'],$file);
+            User_Model::instance()->change_avatar($user['login'],$file);
 
-            $result = ["answer" => "","file" => $_FILES['avatar']['name']];
+            $result = ["answer" => "","file" => $file];
             exit(json_encode($result));
         }
 

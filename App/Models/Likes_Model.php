@@ -51,7 +51,7 @@ class Likes_Model extends Abstract_Model
         return self::$db->prepared_select($sql);
     }
 
-    protected function delete_like($user_login,$article_id){
+    public function delete_like($user_login,$article_id){
        $sql = "DELETE FROM likers WHERE user_login='$user_login' AND article_id=$article_id";
        // self::$db->pdo_delete('likers',['user_login' => $user_login,'article_id' => $article_id],['=','AND']);
 
@@ -61,6 +61,7 @@ class Likes_Model extends Abstract_Model
         $count_likes -= 1;
         self::$db->pdo_update('likes',['count_likes'],[$count_likes],['article_id' => $article_id]);
     }
+
 
     protected function add_liker($like_id,$article_id,$user_login){
         return self::$db->pdo_insert('likers',['like_id','article_id','user_login'],

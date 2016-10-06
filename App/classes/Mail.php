@@ -18,7 +18,13 @@ class Mail{
         self:: $subject = "=?utf-8?B?".base64_encode($subject)."?=";
         self:: $headers = "From: $from\r\nReply-to:$from\r\nContent-type:text/plain;charset = utf-8\r\n";
 
-        mail(self::$to,self::$subject,self::$message,self::$headers);
+        if(mail(self::$to,self::$subject,self::$message,self::$headers)){
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
 

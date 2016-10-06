@@ -51,7 +51,7 @@ class Navigation {
     public function get_articles(){
         $shift = $this->posts_by_one_page*($this->current_page - 1);
         $sql = "SELECT id,title,small_article,quantity_views,publication_date,image,count_likes FROM articles RIGHT JOIN likes
-                ON articles.id = likes.article_id  LIMIT $shift,$this->posts_by_one_page";
+                ON articles.id = likes.article_id ORDER BY articles.id DESC LIMIT $shift,$this->posts_by_one_page ";
         $result = self::$db->prepared_select($sql);
         return $result;
     }
@@ -72,7 +72,7 @@ class Navigation {
         $shift = $this->posts_by_one_page*($this->current_page - 1);
         $sql2 = "SELECT id,title,small_article,quantity_views,publication_date,image,count_likes
         FROM articles RIGHT JOIN likes ON articles.id = likes.article_id
-          WHERE category = ".$category_id."  LIMIT $shift,$this->posts_by_one_page";
+          WHERE category = ".$category_id." ORDER BY articles.id DESC LIMIT $shift,$this->posts_by_one_page";
         $result = self::$db->prepared_select($sql2);
         return $result;
     }
@@ -97,7 +97,7 @@ class Navigation {
         $tag_id = $this->get_tag_id($tag_name);
         $tag_id = (int)$tag_id['id'];
         $sql = "SELECT * FROM articles JOIN articles_tags ON articles.id = articles_tags.article_id RIGHT JOIN likes ON articles.id = likes.article_id
-        WHERE articles_tags.tag_id=".$tag_id." LIMIT $shift,$this->posts_by_one_page";
+        WHERE articles_tags.tag_id=".$tag_id." ORDER BY articles.id DESC LIMIT $shift,$this->posts_by_one_page";
         $result = self::$db->prepared_select($sql);
 
         foreach($result as $key => $val){

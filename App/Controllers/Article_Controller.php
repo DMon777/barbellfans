@@ -15,6 +15,7 @@ class Article_Controller extends Base_Controller
     protected $article;
     protected $article_id;
     protected $user;
+    protected $user_id;
     protected $text_comment;
     protected $parent_id;
     protected $comments;
@@ -23,6 +24,7 @@ class Article_Controller extends Base_Controller
     protected $message;
     protected $user_login;
     protected $email;
+    protected $commentator_email;
     protected $avatar;
 
     protected function input($params = []){
@@ -41,17 +43,13 @@ class Article_Controller extends Base_Controller
        if(isset($_SESSION['auth']['user'])){
             $this->user = User_Model::instance()->get_user($_SESSION['auth']['user']);
         }
+        $this->send_comment();
 
-
-        if($_POST['send_comment']){
-            $this->send_comment();
-        }
-
-        if($_POST['send_answer']){
-           $this->send_answer();
-        }
+      //  $this->send_answer();
 
         $this->comments_map = Comments_Model::instance()->make_comments_tree($this->article_id);
+
+
 
         ob_start();
         Comments_Model::instance()->print_comments_map($this->comments_map);
@@ -73,24 +71,30 @@ class Article_Controller extends Base_Controller
         $this->page = parent::output();
     }
 
-    protected function send_answer(){
+  /*  protected function send_answer(){
         $this->parent_id    = $_POST['parent_id'];
-        $this->text_comment = $this->clean_str($_POST['answer_comment']);
+        $this->text_comment = $this->clean_str($_POST['text_comment']);
+
+        if($this->user){
+            $this->user_login = $this->user['login'];
+            $this->email = $this->user['email'];
+            $this->avatar = $this->user['avatar'];
+        }
+        else{
+            $this->user_login = "Гость";
+            $this->email = $this->clean_str($_POST['email']);
+            $this->avatar = 'default_avatar.jpg';
+        }
 
         if(strlen($this->text_comment) < 1){
             return false;
         }
 
-        Comments_Model::instance()->insert_comment($this->text_comment,$this->parent_id,$this->article_id,
-            $this->user['login'],$this->user['id'],$this->user['avatar']);
-        $user = Comments_Model::instance()->get_user_by_comment_id($this->parent_id);
+        Comments_Model::instance()->insert_comment($this->parent_id,$this->article_id,
+        $this->text_comment,$this->user_login,$this->email,$this->avatar);
 
-        $subject = "comments";
-        $email_message = "На ваш комментарий ответили для просмотра перейдите по ссылке - http://".SITE_NAME."/article/id/".$this->article_id;
-        $from = "d.mon110kg@gmail.com";
 
-        Mail::send_mail($user['mail'],$subject,$email_message,$from);
-    }
+    }*/
 
     protected function send_comment(){
         $this->parent_id    = $_POST['parent_id'] ?? 0;
@@ -105,20 +109,29 @@ class Article_Controller extends Base_Controller
             $this->user_login = $this->user['login'];
             $this->email = $this->user['email'];
             $this->avatar = $this->user['avatar'];
+            $this->user_id = $this->user['id'];
+
         }
         else{
-            $this->user_login = $this->clean_str($_POST['name']);
+            $this->user_login = "Гость";
             $this->email = $this->clean_str($_POST['email']);
-            if(!preg_match("/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/"
-                ,$this->email )){
-                $this->message = "Вы что-то напутали , не может быть такого email адреса.";
-                return false;
-            }
             $this->avatar = 'default_avatar.jpg';
+            $this->user_id = 0;
         }
 
         Comments_Model::instance()->insert_comment($this->parent_id,$this->article_id,
-            $this->text_comment,$this->user_login,$this->email,$this->avatar);
+            $this->text_comment,$this->user_login,$this->user_id,$this->email,$this->avatar);
+
+        if($this->parent_id != 0){
+            $this->commentator_email = Comments_Model::instance()->get_commentator_email($this->parent_id);
+
+            $subject = "comments";
+            $email_message = "На ваш комментарий ответили для просмотра перейдите по ссылке - http://".SITE_NAME."/article/id/".$this->article_id;
+            $from = "d.mon110kg@gmail.com";
+
+            Mail::send_mail($this->commentator_email,$subject,$email_message,$from);
+        }
+
     }
 
 

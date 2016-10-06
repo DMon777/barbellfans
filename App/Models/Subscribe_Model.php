@@ -15,7 +15,7 @@ class Subscribe_Model extends Abstract_Model
         return self::$instance = new self;
     }
 
-    public function add_subscriber($name,$email,$categories,$code){
+    public function add_subscriber($user_id,$name,$email,$categories,$code){
 
         $sql = "SELECT id,name,email FROM subscribers WHERE email='$email'";
         $subscriber = self::$db->prepared_select($sql);
@@ -24,7 +24,7 @@ class Subscribe_Model extends Abstract_Model
             self::$db->pdo_delete('subscribers',['id' => $subscriber[0]['id']]);
         }
 
-        self::$db->pdo_insert('subscribers',['email','name','code'],[$email,$name,$code]);
+        self::$db->pdo_insert('subscribers',['user_id','email','name','code'],[$user_id,$email,$name,$code]);
         $subscriber_id = self::$db->last_id();
         for($i = 0;$i <= count($categories);$i++){
             self::$db->pdo_insert('categories_subscribe',['subscriber_id','category_id'],[$subscriber_id,$categories[$i]]);
@@ -32,6 +32,18 @@ class Subscribe_Model extends Abstract_Model
         return true;
 
     }
+
+    public function update_subscriber($user_id,$categories){
+        $sql = "SELECT id FROM subscribers WHERE user_id=".$user_id;
+        $subscriber_id = self::$db->prepared_select($sql)[0]['id'];
+
+        self::$db->pdo_delete("categories_subscribe",['subscriber_id' => $subscriber_id]);
+
+        for($i = 0;$i <= count($categories);$i++){
+            self::$db->pdo_insert('categories_subscribe',['subscriber_id','category_id'],[$subscriber_id,$categories[$i]]);
+        }
+    }
+
 
 
     public function get_subscribers_emails(){
@@ -51,6 +63,25 @@ class Subscribe_Model extends Abstract_Model
     public function activate_subscriber($code){
         return self::$db->pdo_update('subscribers',['code','activate'],['',1],['code' => $code]);
     }
+
+    public function get_subscribe_categories($user_id){
+        $sql = "SELECT id FROM subscribers WHERE user_id=".$user_id;
+        $subscriber_id = self::$db->prepared_select($sql)[0]['id'];
+        $sql2 = "SELECT category_id FROM categories_subscribe WHERE subscriber_id=".$subscriber_id;
+        $categories_id = self::$db->prepared_select($sql2);
+        return $categories_id;
+    }
+
+    public function is_subscribed($name,$email){
+        $sql = "SELECT name FROM subscribers WHERE name='$name' AND email='$email'";
+        $result = self::$db->prepared_select($sql);
+        if($result){
+            return true;
+        }
+        return false;
+    }
+
+
 
 
 

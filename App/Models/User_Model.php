@@ -89,19 +89,23 @@ class User_Model extends Abstract_Model
         return self::$db->prepared_select($sql)[0];
     }
 
-    public function change_avatar($user_id,$new_avatar_name){
-         self::$db->pdo_update('users',['avatar'],[$new_avatar_name],['id' => $user_id]);
-        Comments_Model::instance()->change_avatar($new_avatar_name,$user_id);
+    public function change_avatar($user_login,$new_avatar_name){
+         self::$db->pdo_update('users',['avatar'],[$new_avatar_name],['login' => $user_login]);
+        Comments_Model::instance()->change_avatar($new_avatar_name,$user_login);
     }
 
-    public function edit_profile($login,$email,$user_id){
-        if( self::$db->pdo_update('users',['login','mail'],[$login,$email],['id' => $user_id])){
+    public function edit_login($login,$user_id){
+
+        if( self::$db->pdo_update('users',['login'],[$login],['id' => $user_id]) &&
+            Comments_Model::instance()->update_login($login,$user_id)
+        ){
             $_SESSION['auth']['user'] = $login;
         }
+
     }
 
     public function get_login_by_email($email){
-        $sql = "SELECT login FROM users WHERE mail='$email'";
+        $sql = "SELECT login FROM users WHERE email='$email'";
         return self::$db->prepared_select($sql)[0];
     }
 

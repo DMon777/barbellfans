@@ -14,7 +14,7 @@
         <?foreach($search_result as $key => $val):?>
             <h1><?=$val['title'];?></h1>
 
-            <p><?=$val['full_article'];?></p>
+            <p><?=$val['small_article'];?></p>
 
             <a href = "http://<?=SITE_NAME;?>/article/id/<?=$val['id']?>" class = "read_more button"> читать далее... </a>
             <div class="clear"></div>

@@ -23,18 +23,11 @@ class Forgot_Controller extends Base_Controller
         parent::input();
 
         $this->forgot_item = $params['item'];
-        $pattern           = "/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/";
-        $this->email       = $this->clean_str($_POST['recovery_email']);
 
         if($this->forgot_item == 'login'){
             $this->reconstruction_string = "Восстановление логина";
-
-            if($_POST['recovery_button']){
-                if(!preg_match($pattern,$this->email)){
-                    $this->recovery_message =  " не правильный формат ввода email";
-                    return false;
-                }
-
+            if($_POST['email']){
+                $this->email = $this->clean_str($_POST['email']);
                 $this->login = User_Model::instance()->get_login_by_email($this->email);
                 if($this->login){
                     $this->subject = "Восстановление логина";
@@ -50,12 +43,8 @@ class Forgot_Controller extends Base_Controller
 
         if($this->forgot_item == 'password'){
             $this->reconstruction_string = "Восстановление пароля";
-
-            if($_POST['recovery_button']){
-                if(!preg_match($pattern,$this->email)){
-                    $this->recovery_message =  " не правильный формат ввода email";
-                    return false;
-                }
+            if($_POST['email']){
+                $this->email = $this->clean_str($_POST['email']);
                 $this->login = User_Model::instance()->get_login_by_email($this->email);
                 if($this->login){
                     $this->subject = "Восстановление пароля";
@@ -71,8 +60,7 @@ class Forgot_Controller extends Base_Controller
                 }
             }
         }
-
-        $this->title = $this->reconstruction_string;
+        $this->title .= $this->reconstruction_string;
 
     }
 
@@ -80,7 +68,7 @@ class Forgot_Controller extends Base_Controller
 
         $this->content = $this->render([
             'reconstruction'   => $this->reconstruction_string,
-            'recovery_message' => $this->recovery_message
+            'message'          => $this->recovery_message
         ],'App/Views/blocks/forgot_content');
 
         $this->page = parent::output();
@@ -96,4 +84,6 @@ class Forgot_Controller extends Base_Controller
         }
         return $password;
     }
+
+
 }

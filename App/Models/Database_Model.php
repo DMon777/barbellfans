@@ -101,8 +101,7 @@ class Database_Model
             $sql .= " WHERE ".$k."="."'".$v."'";
         }
 
-
-        $result = $this->pdo->prepare($sql);
+       $result = $this->pdo->prepare($sql);
         for($i=1;$i<=count($values);$i++){
             $val_count = $i-1;
             $result->bindParam($i,$values[$val_count]);

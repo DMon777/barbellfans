@@ -15,9 +15,9 @@ class Comments_Model extends Abstract_Model
         return self::$instance = new self;
     }
 
-    public function insert_comment($parent_id,$article_id,$text_comment,$user_login,$email,$avatar){
-        return self::$db->pdo_insert('comments',['parent_id','article_id','text_comment','user_login','email','avatar'],
-            [$parent_id,$article_id,$text_comment,$user_login,$email,$avatar]);
+    public function insert_comment($parent_id,$article_id,$text_comment,$user_login,$user_id,$email,$avatar){
+        return self::$db->pdo_insert('comments',['parent_id','article_id','text_comment','user_login','user_id','date','email','avatar'],
+            [$parent_id,$article_id,$text_comment,$user_login,$user_id,time(),$email,$avatar]);
     }
 
     public function make_comments_tree($article_id,$start = 0){
@@ -42,38 +42,39 @@ class Comments_Model extends Abstract_Model
         if(!empty($map)){
             foreach($map as $val):?>
 
+
                 <div class="comment">
-                    <div class = "comments_left">
-                        <img src = "/images/avatars/<?=$val['avatar'];?>">
-                        <p class="login"><?=$val['user_login'];?></p>
+                    <div class = "comment_avatar">
+                    <img src="/images/avatars/<?=$val['avatar'];?>" class="user_avatar" alt = "avatar">
+                        <?if($val['user_login'] != $_SESSION['auth']['user']):?>
+                            <span class="answer">ответить</span>
+                        <?endif;?>
+                    </div>
+                    <div class = "text_comment">
+                        <span class = "user_login"> <?=$val['user_login'];?> </span> <span class="comment_date"> <?=date('d/m/Y',$val['date']);?></span>
+                        <p>
+                           <?=$val['text_comment'];?>
+                        </p>
+
                     </div>
 
-                    <div class="comments_right">
-                        <p class="comment_text"><?=$val['text_comment'];?></p>
+                    <div class="answer_form">
+                        <form method="post" action = "">
+                            <textarea name = "text_comment" placeholder="Комментарий..."></textarea><br>
+                            <input type="hidden" name="parent_id" value="<?=$val['comment_id']?>">
+                            <input type="hidden" name="user_login" value="<?=$val['user_login']?>">
 
-                        <?if(isset($_SESSION['auth']['user']) && $val['user_login'] != $_SESSION['auth']['user']):?>
-                            <button class = "add_answer answer_button button">Ответить</button>
-                        <?endif;?>
+                            <?if(!$_SESSION['auth']['user']):?>
+                                <input type="text" name = "email" placeholder = "e-mail"><br>
+                            <?endif;?>
 
-                        <div class = "answer_form">
-                            <form method="post" action="">
-                                <textarea name="answer_comment"></textarea>
-                                <input type="hidden" name="parent_id" value="<?=$val['comment_id']?>">
-                                <input type="hidden" name="user_login" value="<?=$val['user_login']?>">
-                                <span class="x_answer"><img src="/images/x.png"> </span>
-                                <input type="submit" name="send_answer" class="add_answer button" value = "Отправить">
-                            </form>
-                        </div>
-                        <?if($val['user_login'] == $_SESSION['auth']['user']):?>
-                            <span class="delete_comment"><a href = "" onclick="delete_comment(<?=$val['comment_id'];?>)">
-                                    <img src="/images/x.png" alt = "delete">
-                                </a> </span>
-                        <?endif;?>
-
-
+                            <input type="button" value = "опубликовать" name="send_comment" class="button">
+                        </form>
+                        <p class="comment_error_message"></p>
+                        <img src = "/images/close_icon2.png" alt = "close" class="close_icon">
                     </div>
-                    <div class = "clear"></div>
-                    <img class="separate_comments_line" src="/images/comments_separate_line.png">
+
+                    <div class="clear"></div>
                     <? $this->print_comments_map($val['children']); ?>
                 </div>
 
@@ -93,9 +94,10 @@ class Comments_Model extends Abstract_Model
                         <li><?=$val['text_comment'];?></li>
                            <li>
                                <a href = "" onclick="delete_comment(<?=$val['comment_id'];?>)">
-                                    <img src="/images/x.png" alt = "delete">
+                                    delete
                                </a>
                            </li>
+                    <hr>
                   <li> <? $this->print_admin_comments_map($val['children']); ?></li>
                 </ul>
                 <?php
@@ -105,10 +107,6 @@ class Comments_Model extends Abstract_Model
             return false;
         }
     }
-
-
-
-
 
 
     public function delete_comment($comment_id){
@@ -124,16 +122,24 @@ class Comments_Model extends Abstract_Model
         self::$db->pdo_delete('comments',['article_id' => $article_id]);
     }
 
-    public function change_avatar($new_avatar_name,$user_id){
-        self::$db->pdo_update('comments',['avatar'],[$new_avatar_name],['user_id' => $user_id]);
+    public function change_avatar($new_avatar_name,$user_login){
+        self::$db->pdo_update('comments',['avatar'],[$new_avatar_name],['user_login' => $user_login]);
     }
 
-    public function get_user_by_comment_id($comment_id){
+    public function get_user_by_comment_id($comment_id){//метод скорее всего не понадобиться
         $sql = "SELECT user_login FROM comments WHERE comment_id=".$comment_id;
         $result = self::$db->prepared_select($sql)[0];
         $user = User_Model::instance()->get_user($result['user_login']);
         return $user;
     }
 
+    public function get_commentator_email($comment_id){
+        $sql = "SELECT email FROM comments WHERE comment_id=".$comment_id;
+        return self::$db->prepared_select($sql)[0]['email'];
+    }
+
+    public function update_login($login,$user_id){
+       return self::$db->pdo_update('comments',['user_login',],[$login],['user_id' => $user_id]);
+    }
 
 }

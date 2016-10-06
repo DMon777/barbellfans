@@ -62,9 +62,9 @@
             <div class="comment_form">
                 <form method="post" action = "">
                     <textarea placeholder="Комментарий..." name="text_comment"></textarea><br>
-                    <input type="submit" value = "опубликовать" name="send_comment" class="button">
+                    <input type="button" value = "опубликовать" name="send_comment" class="button">
                 </form>
-                <p class="comment_error_message">сообщение об ошибке!!!</p>
+                <p class="comment_error_message"></p>
             </div>
 
         <?else:?>
@@ -72,124 +72,22 @@
             <div class="comment_form">
                 <form method="post" action = "">
                     <textarea placeholder="Комментарий..." name="text_comment"></textarea><br>
-                    <input type="text" name = "name" placeholder = "Имя"><br>
                     <input type="text" name = "email" placeholder = "e-mail"><br>
-                    <input type="submit" value = "опубликовать" name="send_comment" class="button">
+                    <input type="button" value = "опубликовать" name="send_comment" class="button">
                 </form>
-                <p class="comment_error_message">сообщение об ошибке!!!</p>
+                <p class="comment_error_message"></p>
             </div>
         <?endif;?>
 
         <div id = "comments">
-            <div class="comment">
-                <img src="/images/avatars/default_avatar.jpg" class="user_avatar" alt = "avatar">
-                <div class = "text_comment">
-                    <span class = "user_login"> Login </span> <span class="comment_date"> 12/06/2016</span>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <span class="answer">ответить</span>
-                </div>
 
-                <div class="answer_form">
-                    <form method="post" action = "">
-                        <textarea placeholder="Комментарий..."></textarea><br>
-                        <?if(!$_SESSION['auth']['user']):?>
-                            <input type="text" name = "name" placeholder = "Имя"><br>
-                            <input type="text" name = "email" placeholder = "e-mail"><br>
-                        <?endif;?>
-                        <input type="submit" value = "опубликовать" name="send_comment" class="button">
-                    </form>
-                    <p class="comment_error_message">сообщение об ошибке!!!</p>
-                    <img src = "/images/close_icon2.png" alt = "close" class="close_icon">
-                </div>
+            <? if($comments):?>
 
-                <div class="clear"></div>
+                <?=$comments; ?>
+            <?else:?>
+                <p> Комментариев пока нет </p>
+            <?endif;?>
 
-                <div class="comment">
-                    <img src="/images/avatars/default_avatar.jpg" class="user_avatar" alt = "avatar">
-                    <div class = "text_comment">
-                        <span class = "user_login"> Login </span> <span class="comment_date"> 12/06/2016</span>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <span class="answer">ответить</span>
-                    </div>
-
-                    <div class="answer_form">
-                        <form method="post" action = "">
-                            <textarea placeholder="Комментарий..." ></textarea><br>
-                            <input type="text" name = "name" placeholder = "Имя"><br>
-                            <input type="text" name = "email" placeholder = "e-mail"><br>
-                            <input type="submit" value = "опубликовать" name="send_comment" class="button">
-                        </form>
-                        <p class="comment_error_message">сообщение об ошибке!!!</p>
-                        <img src = "/images/close_icon2.png" alt = "close" class="close_icon">
-                    </div>
-
-                    <div class="clear"></div>
-
-                    <div class="comment">
-                        <img src="/images/avatars/default_avatar.jpg" class="user_avatar" alt = "avatar">
-                        <div class = "text_comment">
-                            <span class = "user_login"> Login </span> <span class="comment_date"> 12/06/2016</span>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                            <span class="answer">ответить</span>
-                        </div>
-
-                        <div class="answer_form">
-                            <form method="post" action = "">
-                                <textarea placeholder="Комментарий..."></textarea><br>
-                                <input type="text" name = "name" placeholder = "Имя"><br>
-                                <input type="text" name = "email" placeholder = "e-mail"><br>
-                                <input type="submit" value = "опубликовать" name="send_comment" class="button">
-                            </form>
-                            <p class="comment_error_message">сообщение об ошибке!!!</p>
-                            <img src = "/images/close_icon2.png" alt = "close" class="close_icon">
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="comment">
-                <img src="/images/avatars/default_avatar.jpg" class="user_avatar" alt = "avatar">
-                <div class = "text_comment">
-                    <span class = "user_login"> Login </span> <span class="comment_date"> 12/06/2016</span>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <span class="answer">ответить</span>
-                </div>
-
-
-                <div class="answer_form">
-                    <form method="post" action = "">
-                        <textarea placeholder="Комментарий..."></textarea><br>
-                        <input type="text" name = "name" placeholder = "Имя"><br>
-                        <input type="text" name = "email" placeholder = "e-mail"><br>
-                        <input type="submit" value = "опубликовать" name="send_comment" class="button">
-                    </form>
-                    <p class="comment_error_message">сообщение об ошибке!!!</p>
-                    <img src = "/images/close_icon2.png" alt = "close" class="close_icon">
-                </div>
-
-                <div class="clear"></div>
-            </div>
         </div>
     </div>
 
