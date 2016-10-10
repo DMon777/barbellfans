@@ -26,42 +26,53 @@
      </article>
     <? endfor; ?>
 
+
+            <?if($navigation):?>
+
+                <div id  = "navigation">
+                    <table>
+                        <tr>
+
+                            <?if($navigation['arrow_back']):?>
+                                <td> <a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['arrow_back'];?>" id = "arrow_left">  </a> </td>
+                            <?endif;?>
+
+                            <? if($navigation['previous']):?>
+                                <? foreach($navigation['previous'] as $val):?>
+                                    <td><a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$val;?>"><?=$val;?></a></td>
+                                <? endforeach;?>
+                            <? endif;?>
+
+                            <? if($navigation['current']):?>
+                                <td> <span class = "current_page"> <?=$navigation['current'];?> </span> </td>
+                            <? endif;?>
+
+                            <? if($navigation['next']):?>
+                                <? foreach($navigation['next'] as $val):?>
+                                    <td><a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$val;?>"><?=$val;?></a></td>
+                                <? endforeach;?>
+                            <? endif;?>
+
+                            <? if($navigation['arrow_forward']):?>
+                                <td>
+                                    <a href = "http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['arrow_forward'];?>" id = "arrow_right"></a>
+                                </td>
+                            <? endif;?>
+
+                        </tr>
+
+                    </table>
+                </div>
+
+            <?endif;?>
+
     <?else:?>
     <article class="content_block">
-      <p> В данной категории пока что нет ни одной статьи , но мы над этим усердно работаем , так что потерпи качок! </p>
+      <p> По данному адресу статей нет!!! </p>
     </article>
     <?endif;?>
 
 
-    <?if($navigation):?>
 
-        <div id  = "navigation">
-            <table>
-                <tr>
-                    <?if($navigation['arrow_back']):?>
-                    <td> <a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['arrow_back'];?>" id = "arrow_left">  </a> </td>
-                    <?endif;?>
-
-                    <? if($navigation['current']):?>
-                        <td> <span class = "current_page"> <?=$navigation['current'];?> </span> </td>
-                    <? endif;?>
-
-                    <? if($navigation['next']):?>
-                    <? foreach($navigation['next'] as $val):?>
-                        <td><a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$val;?>"><?=$val;?></a></td>
-                    <? endforeach;?>
-                    <? endif;?>
-
-                        <? if($navigation['arrow_forward']):?>
-                            <td>
-                                <a href = "http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['arrow_forward'];?>" id = "arrow_right"></a>
-                            </td>
-                        <? endif;?>
-                </tr>
-
-            </table>
-        </div>
-
-    <?endif;?>
 
 </main>

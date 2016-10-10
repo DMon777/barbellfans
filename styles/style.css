@@ -523,8 +523,12 @@ article ul,article ol{
         width:100%;height:150px;
     }
 
-
-
+    .bookmark_header{
+        position:absolute;bottom:30px;color:#fff;margin-left:20px;
+    }
+        .bookmark_header h3{
+            color: #e2e2e3;
+        }
 
 
 #page404{
@@ -532,6 +536,16 @@ article ul,article ol{
 
 }
 
+/* calculator */
+.rep_calculator{
+    width:50%;
+}
+    .rep_calculator td{
+        border: 1px solid #1b1d23; padding: 10px;text-align: center;
+    }
+    .rep_calculator input,select{
+        background: none;text-align:center;
+    }
 
                                             /*============================
                                                        SIDEBAR
@@ -564,27 +578,32 @@ aside{
                                              ============================*/
 
 #navigation{
-    width:300px;margin:0 auto 20px;
+    width:100%;margin:0 auto 20px;
 }
 #navigation a,#navigation span{
-    color:#e2e2e3;font-size:30px;border:3px solid #e2e2e3;border-radius: 100px;padding:7px 18px;
-    display:inline-block;margin:0 2px;
+    color:#e2e2e3;font-size:21px;border:3px solid #e2e2e3;border-radius: 100px; line-height: 38px;
+    display:inline-block;margin:0 2px;width:40px;height:40px;text-align:center;
 }
+
+#navigation #first_page,#navigation #last_page{
+    font-size:18px;
+}
+
 #navigation a:hover{
     color:#d1bf3c;border:3px solid #d1bf3c;
 }
 #navigation #arrow_left{
-    background-image: url("../images/arrow_left.png");background-position: 13px 12px;
-    background-repeat: no-repeat;background-size: 18px 26px;height: 34px;
-    margin-top: 4px;width: 12px;
+    background-image: url("../images/arrow_left.png");background-position: 11px 9px;
+    background-repeat: no-repeat;background-size:  15px 22px;margin-bottom:-4px;
+    width:40px;height:40px;
 }
 #navigation #arrow_left:hover{
     background-image:url("../images/arrow_left_hover.png");
 }
 #navigation #arrow_right{
-    background-image: url("../images/arrow_right.png");background-position: 17px 12px;
-    background-repeat: no-repeat;background-size: 18px 26px;height: 34px;
-    margin-top: 4px;width: 12px;
+    background-image: url("../images/arrow_right.png");background-position: 14px 9px;
+    background-repeat: no-repeat;background-size: 15px 22px;margin-bottom:-4px;
+    width:40px;height:40px;
 }
 #navigation #arrow_right:hover{
     background-image:url("../images/arrow_right_hover.png");
@@ -713,6 +732,7 @@ footer{
 
 @media screen and (max-width:480px){
 
+
     .social_icons{
         bottom:5px;
     }
@@ -757,6 +777,27 @@ footer{
     
     .bookmark{
         width:47%;
+    }
+
+    #navigation a,#navigation span{
+        font-size:18px;line-height: 24px;
+        display:inline-block;margin:0 2px;width:25px;height:25px;
+    }
+
+    #navigation #first_page,#navigation #last_page{
+        font-size:14px;
+    }
+
+    #navigation #arrow_left{
+        background-position: 6px 5px;
+        background-size: 10px 15px;
+        width:25px;height:25px;
+    }
+
+    #navigation #arrow_right{
+        background-position: 9px 6px;
+        background-size: 10px 15px;
+        width:25px;height:25px;
     }
 
     aside{
@@ -815,35 +856,9 @@ footer{
         position:relative;
     }
 
-    #navigation{
-        width:240px;
-    }
-
-    #navigation #arrow_left {
-        background-position: 9px 8px;
-        background-size: 14px 19px;
-        height: 22px;
-        width: 7px;
-    }
-
-
-
-    #navigation #arrow_right {
-        background-position: 12px 8px;
-        background-size: 14px 19px;
-        height: 22px;
-        width: 7px;
-    }
-
-    #navigation a, #navigation span {
-        font-size: 18px;
-        padding: 6px 14px;
-    }
-
     #search input[name="search_string"] {
         font-size: 14px;
         height: 36px;
-
     }
 
     #search input[name="search"] {

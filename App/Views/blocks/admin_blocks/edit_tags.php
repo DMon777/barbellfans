@@ -42,6 +42,7 @@
             <tr>
                 <th>Название</th>
                 <th>Ссылка</th>
+                <th>Удалить</th>
             </tr>
             <?foreach($tags as $key => $val):?>
                 <tr>
@@ -51,11 +52,12 @@
                     <td>
                         <input type="text" name = "tag_href[]" value="<?=$val['href'];?>">
                     </td>
+                    <td><a href = "" onclick="delete_tag(<?=$val['id'];?>)"> Удалить </a> </td>
                 </tr>
 
             <?endforeach;?>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     <input type="submit" name = "change_tag" value="Применить">
                 </td>
             </tr>
@@ -63,23 +65,5 @@
 
     </form>
 
-
-
-    <div id="tags">
-        <h3>Удалить тег : </h3>
-
-        <table>
-
-            <?foreach($tags as $key => $val):?>
-
-                <tr>
-                    <td><?=$val['title'];?> </td>
-                    <td><a href = "" onclick="delete_tag(<?=$val['id'];?>)"> Удалить </a> </td>
-
-                </tr>
-            <?endforeach;?>
-        </table>
-
-    </div>
 
 </main>

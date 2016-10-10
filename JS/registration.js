@@ -83,7 +83,6 @@ $(document).ready(function(){
         }
         else{
             $(".confirm_password_error").text("");
-
         }
     }
 

@@ -96,7 +96,7 @@
                             <a href = "http://<?=SITE_NAME;?>/article/id/<?=$v['id']?>">
                                 <img src="http://<?=SITE_NAME;?>/images/article_images/<?=$v['image'];?>" class="bookmark_image">
                             </a>
-                            <a href="http://<?=SITE_NAME;?>/article/id/<?=$v['id']?>">
+                            <a href="http://<?=SITE_NAME;?>/article/id/<?=$v['id']?>" class="bookmark_header">
                                 <h3><?=$v['title'];?></h3>
                             </a>
 

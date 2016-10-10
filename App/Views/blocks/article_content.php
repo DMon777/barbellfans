@@ -41,10 +41,10 @@
 
         <div id="share">
             <img src="/images/share_icon.png" alt="share" id="share_icon">
-            <a href = ""> <img src="/images/vk_share.png" alt="vk"></a>
-            <a href = ""> <img src="/images/facebook_share.png" alt="facebook"></a>
-            <a href = ""> <img src="/images/odnoklassniki_share.png" alt="odnoklassniki"></a>
-            <a href = ""> <img src="/images/google_share.png" alt="google+"></a>
+            <a href = "http://vkontakte.ru/share.php?url=http://<?=SITE_NAME;?> rel="nofollow" target="_blank"> <img src="/images/vk_share.png" alt="vk"></a>
+            <a href = "http://www.facebook.com/sharer.php?u=http://<?=SITE_NAME;?>/" rel="nofollow" target="_blank"> <img src="/images/facebook_share.png" alt="facebook"></a>
+            <a href = "http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl=http://<?=SITE_NAME;?>  rel="nofollow" target="_blank"> <img src="/images/odnoklassniki_share.png" alt="odnoklassniki"></a>
+            <a href = "https://plusone.google.com/_/+1/confirm?hl=ru&url=<?=SITE_NAME;?>" target="_blank"> <img src="/images/google_share.png" alt="google+"></a>
         </div>
 
         <?else:?>

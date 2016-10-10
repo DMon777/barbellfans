@@ -82,6 +82,10 @@ table{
         padding:10px;border:2px solid #1b1d23;text-align:center;
     }
 
+form{
+    margin-bottom:20px;
+}
+
 #navigation{
     width:105px;margin:10px auto;
 }

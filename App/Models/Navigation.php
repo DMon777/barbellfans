@@ -3,6 +3,8 @@
 namespace App\Models;
 
 
+use App\Controllers\Controller_Exception;
+
 class Navigation {
 
     protected  $posts_by_one_page = 3;
@@ -26,9 +28,25 @@ class Navigation {
 
         $total_pages = ceil($total_posts/$this->posts_by_one_page);
 
+        if($total_pages < $this->current_page){
+            throw new Controller_Exception();
+        }
+
         $navigation_array  = [];
         if($this->current_page != 1){
             $navigation_array['arrow_back'] = $this->current_page-1;
+        }
+
+        if($this->current_page > $this->links_by_sides + 1){
+            for($i = $this->current_page - $this->links_by_sides;$i < $this->current_page;$i++){
+                $navigation_array['previous'][] = $i;
+            }
+        }
+
+        else{
+            for($i = 1;$i < $this->current_page;$i++){
+                $navigation_array['previous'][] = $i;
+            }
         }
 
         $navigation_array['current'] = (int)$this->current_page;

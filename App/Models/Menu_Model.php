@@ -128,7 +128,8 @@ class Menu_Model extends Abstract_Model
 
 
     public function get_categories(){
-        $sql = "SELECT * FROM menu WHERE parent_id > 0";
+       // $sql = "SELECT * FROM menu WHERE parent_id > 0";
+        $sql = "SELECT * FROM menu WHERE href LIKE 'categories%'";
         return self::$db->prepared_select($sql);
     }
 

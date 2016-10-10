@@ -71,30 +71,6 @@ class Article_Controller extends Base_Controller
         $this->page = parent::output();
     }
 
-  /*  protected function send_answer(){
-        $this->parent_id    = $_POST['parent_id'];
-        $this->text_comment = $this->clean_str($_POST['text_comment']);
-
-        if($this->user){
-            $this->user_login = $this->user['login'];
-            $this->email = $this->user['email'];
-            $this->avatar = $this->user['avatar'];
-        }
-        else{
-            $this->user_login = "Гость";
-            $this->email = $this->clean_str($_POST['email']);
-            $this->avatar = 'default_avatar.jpg';
-        }
-
-        if(strlen($this->text_comment) < 1){
-            return false;
-        }
-
-        Comments_Model::instance()->insert_comment($this->parent_id,$this->article_id,
-        $this->text_comment,$this->user_login,$this->email,$this->avatar);
-
-
-    }*/
 
     protected function send_comment(){
         $this->parent_id    = $_POST['parent_id'] ?? 0;

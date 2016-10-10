@@ -24,6 +24,11 @@ class Tags_Controller extends Base_Controller
         $this->bread_crubms = Tags_Model::instance()->get_tag_title($this->tag);
         $this->href = 'tags/title/'.$this->tag;
         $this->current_page = $params['page'] ?? 1;
+
+        if(!is_numeric($this->current_page)){
+            throw new Controller_Exception();
+        }
+
         $this->navigation_object = new Navigation($this->current_page,$this->table_name);
         $this->total_posts = $this->navigation_object->count_articles_by_tags($this->tag);
         $this->articles = $this->navigation_object->get_articles_by_tag($this->tag);

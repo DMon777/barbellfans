@@ -20,6 +20,10 @@ class Index_Controller extends Base_Controller
         $this->current_page = $params['page'] ?? 1;
         $this->href = 'index';
 
+        if(!is_numeric($this->current_page)){
+            throw new Controller_Exception();
+        }
+
         $this->navigation_object = new Navigation($this->current_page,$this->table_name);
         $this->total_posts = $this->navigation_object->count_articles();
 

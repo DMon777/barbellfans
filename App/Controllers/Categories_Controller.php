@@ -21,6 +21,11 @@ class Categories_Controller extends Base_Controller
         parent::input();
 
         $this->current_page = $params['page'] ?? 1;
+
+        if(!is_numeric($this->current_page)){
+            throw new Controller_Exception();
+        }
+
         $this->navigation_object = new Navigation($this->current_page,$this->table_name);
         $this->category_name = $params['id'];
         $this->title .= Menu_Model::instance()->get_category_title($this->category_name);

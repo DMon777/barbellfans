@@ -73,6 +73,7 @@
             <tr>
                 <th>Название</th>
                 <th>Ссылка</th>
+                <th>Удалить</th>
             </tr>
             <?foreach($menu as $key => $val):?>
                 <tr>
@@ -82,31 +83,17 @@
                     <td>
                         <input type="text" name = "menu_href[]" value="<?=$val['category_name'];?>">
                     </td>
+                    <td><a href = "" onclick="delete_category(<?=$val['id'];?>)"> Удалить </a> </td>
                 </tr>
 
             <?endforeach;?>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     <input type="submit" name = "change_menu_name" value="Применить">
                 </td>
             </tr>
         </table>
-
     </form>
-
-    <h2>Удалить категорию</h2>
-    <table>
-
-        <?foreach($menu as $key => $val):?>
-
-            <tr>
-                <td><?=$val['title'];?> </td>
-                <td><a href = "" onclick="delete_category(<?=$val['id'];?>)"> Удалить </a> </td>
-
-            </tr>
-        <?endforeach;?>
-    </table>
-
 
     <h2>Добавить категорию</h2>
     <h3>Родительская категория:</h3>

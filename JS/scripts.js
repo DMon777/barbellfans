@@ -272,24 +272,29 @@ $(document).ready(function(){
 
     $("[name=feedback]").bind("click",function(){
 
-        var email = $(this).siblings("[name=email]").val();
         var message = $(this).siblings("[name=feedback_message]").val();
 
-        if(email.length == 0 ){
-            $(this).siblings(".feedback_email_error").hide().fadeIn(500).text("вы забыли ввести email!");
-            return false;
-        }
+        if($("[name=email]").length == 1){
 
-        else{
-            $(this).siblings(".feedback_email_error").hide();
-        }
+            var email = $(this).siblings("[name=email]").val();
 
-        var emailPattern = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+            if(email.length == 0 ){
 
-        if(email.search(emailPattern) != 0){
+                $(".feedback_email_error").hide().fadeIn(500).text("вы забыли ввести email!");
+                return false;
+            }
 
-            $(this).siblings(".feedback_email_error").hide().fadeIn(500).text("Вы что-то напутали,не может быть такого email адреса.");
-            return false;
+            else{
+                $(this).siblings(".feedback_email_error").hide();
+            }
+
+            var emailPattern = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+
+            if(email.search(emailPattern) != 0){
+
+                $(this).siblings(".feedback_email_error").hide().fadeIn(500).text("Вы что-то напутали,не может быть такого email адреса.");
+                return false;
+            }
         }
 
         if(message.length == 0){
@@ -304,11 +309,24 @@ $(document).ready(function(){
             $(this).siblings(".feedback_message_error").hide().fadeIn(500).text("Слишком короткое сообщение!");
             return false;
         }
+
         else{
             $(this).siblings(".feedback_message_error").hide();
+        }
+
+        var rand_number = $("#rand_number").val();
+        var number = 21 - rand_number;
+        var captcha = $("#captcha").val();
+
+        if(captcha != number){
+            $(".captcha_error").hide().fadeIn(100).text("научись считать качок!!!");
+        }
+
+        else {
+            $(".captcha_error").text('');
             $(this).parent("form").submit();
         }
 
-    })
+    });
 
 });
