@@ -19,13 +19,11 @@ $(document).ready(function(){
 
          else if(login.length < 1 || password.length < 1 || confirm_password.length < 1 || email.length < 1 || captcha.length < 1){
             $("#registration_submit").attr('type','button');
-             $("#registration_message").text('все поля обязательны для заполнения!');
             return false;
         }
 
         else{
             $("#registration_submit").attr('type','submit');
-             $("#registration_message").text('');
             return true;
         }
     });

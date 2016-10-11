@@ -107,7 +107,6 @@ abstract class Main_Controller
             return false;
         }
 
-
         if(User_Model::instance()->auth_user($login,$password)){
             unset($_SESSION['auth']['error_message']);
             $_SESSION['auth']['user'] = $login;

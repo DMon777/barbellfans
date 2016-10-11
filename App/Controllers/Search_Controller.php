@@ -13,7 +13,7 @@ class Search_Controller extends Base_Controller
 
     protected function input($params = []){
         parent::input();
-        $this->title = "Результаты поиска";
+        $this->title = "Результаты поиска | Barbellfans";
         $this->search_string = $_GET['search_string'];
         $this->search_result = Articles_Model::instance()->get_search_results($this->search_string);
 

@@ -2,9 +2,7 @@
 
 namespace App\Controllers;
 
-
 use App\Models\Articles_Model;
-use App\Models\Category_Model;
 use App\Models\Comments_Model;
 use App\Models\Menu_Model;
 use App\Models\Tags_Model;
@@ -27,6 +25,7 @@ class Edit_Article_Controller extends Base_Admin_Controller
     protected $full_article_text;
     protected $article_category;
     protected $article_tags;
+    protected $article_title;
 
     protected function input($params = []){
         parent::input();
@@ -105,6 +104,7 @@ class Edit_Article_Controller extends Base_Admin_Controller
         $this->key_words  = $_POST['keywords'];
         $this->description  = $_POST['description'];
         $this->headline  = $_POST['headline'];
+        $this->article_title  = $_POST['title'];
         $this->small_article_text  = $_POST['small_article'];
         $this->full_article_text  = $_POST['full_article'];
         $this->article_category = $_POST['category'];
@@ -114,7 +114,7 @@ class Edit_Article_Controller extends Base_Admin_Controller
 
         Articles_Model::instance()->edit_article
         (
-            $this->headline,$this->key_words,$this->description,
+            $this->article_title,$this->key_words,$this->description,$this->headline,
             $this->small_article_text,$this->full_article_text,
             $this->article_category,$this->image,$this->article_tags,
             $this->article_id

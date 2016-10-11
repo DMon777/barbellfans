@@ -19,7 +19,7 @@ class Feedback_Controller extends Base_Controller
     protected function input($params = []){
         parent::input();
 
-        $this->title .= "Обратная связь";
+        $this->title = "Обратная связь | Barbellfans";
 
 
         if($_SESSION['auth']['user']){

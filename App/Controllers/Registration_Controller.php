@@ -18,7 +18,7 @@ class Registration_Controller extends Base_Controller
     protected function input($params = []){
         parent::input();
 
-        $this->title      .= "Регистрация";
+        $this->title       = "Регистрация | Barbellfans";
         $this->scripts[]   = 'registration';
         $this->rand_number = rand(1,10);
 

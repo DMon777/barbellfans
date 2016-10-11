@@ -68,7 +68,7 @@ class Navigation {
 
     public function get_articles(){
         $shift = $this->posts_by_one_page*($this->current_page - 1);
-        $sql = "SELECT id,title,small_article,quantity_views,publication_date,image,count_likes FROM articles RIGHT JOIN likes
+        $sql = "SELECT id,title,header,small_article,quantity_views,publication_date,image,count_likes FROM articles RIGHT JOIN likes
                 ON articles.id = likes.article_id ORDER BY articles.id DESC LIMIT $shift,$this->posts_by_one_page ";
         $result = self::$db->prepared_select($sql);
         return $result;
@@ -88,7 +88,7 @@ class Navigation {
     public function get_articles_by_category($category_name){
        $category_id = Menu_Model::instance()->get_category_id($category_name);
         $shift = $this->posts_by_one_page*($this->current_page - 1);
-        $sql2 = "SELECT id,title,small_article,quantity_views,publication_date,image,count_likes
+        $sql2 = "SELECT id,title,header,small_article,quantity_views,publication_date,image,count_likes
         FROM articles RIGHT JOIN likes ON articles.id = likes.article_id
           WHERE category = ".$category_id." ORDER BY articles.id DESC LIMIT $shift,$this->posts_by_one_page";
         $result = self::$db->prepared_select($sql2);
@@ -96,7 +96,7 @@ class Navigation {
     }
 
 
-    protected function get_tag_id($tag_name){
+    private function get_tag_id($tag_name){
         $sql = "SELECT id FROM tags WHERE href='$tag_name'";
         $result = self::$db->prepared_select($sql);
         return $result[0];

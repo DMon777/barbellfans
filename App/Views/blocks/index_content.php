@@ -7,7 +7,7 @@
         <?if($articles):?>
     <? for($i = 0;$i < count($articles);$i++):?>
      <article class="content_block">
-         <h1><?=$articles[$i]['title'];?></h1>
+         <h1><?=$articles[$i]['header'];?></h1>
          <p class  = "publication_date">
              Дата публикации : <?=date('d/m/Y',$articles[$i]['publication_date']);?>
          </p>

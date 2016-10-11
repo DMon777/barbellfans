@@ -16,8 +16,8 @@
 
         <table>
             <tr>
-                <td> Заголовок </td>
-                <td> <input type="text" name="headline" value="<?=$article['title'];?>"> </td>
+                <td> title </td>
+                <td> <input type="text" name="title" value="<?=$article['title'];?>"> </td>
             </tr>
             <tr>
                 <td> keywords </td>
@@ -26,6 +26,10 @@
             <tr>
                 <td> description </td>
                 <td> <input type="text" name="description" value="<?=$article['description'];?>"> </td>
+            </tr>
+            <tr>
+                <td> Заголовок </td>
+                <td> <input type="text" name="headline" value="<?=$article['header'];?>"> </td>
             </tr>
             <tr>
                 <td> Вступительная статья </td>

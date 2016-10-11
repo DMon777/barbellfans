@@ -53,10 +53,7 @@ class Likes_Model extends Abstract_Model
 
     public function delete_like($user_login,$article_id){
        $sql = "DELETE FROM likers WHERE user_login='$user_login' AND article_id=$article_id";
-       // self::$db->pdo_delete('likers',['user_login' => $user_login,'article_id' => $article_id],['=','AND']);
-
         self::$db->query($sql);
-
         $count_likes = $this->count_likes($article_id);
         $count_likes -= 1;
         self::$db->pdo_update('likes',['count_likes'],[$count_likes],['article_id' => $article_id]);

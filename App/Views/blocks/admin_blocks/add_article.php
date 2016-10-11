@@ -11,16 +11,20 @@
             </tr>
 
             <tr>
-                <td> Заголовок </td>
-                <td> <input type="text" name="headline"> </td>
-            </tr>
-            <tr>
                 <td> keywords </td>
                 <td> <input type="text" name="keywords" > </td>
             </tr>
             <tr>
                 <td> description </td>
                 <td> <input type="text" name="description" > </td>
+            </tr>
+            <tr>
+                <td> title </td>
+                <td> <input type="text" name="title" > </td>
+            </tr>
+            <tr>
+                <td> Заголовок </td>
+                <td> <input type="text" name="headline"> </td>
             </tr>
             <tr>
                 <td> Вступительная статья </td>

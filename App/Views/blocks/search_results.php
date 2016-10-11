@@ -12,7 +12,7 @@
         <?if($search_result):?>
 
         <?foreach($search_result as $key => $val):?>
-            <h1><?=$val['title'];?></h1>
+            <h1><?=$val['header'];?></h1>
 
             <p><?=$val['small_article'];?></p>
 

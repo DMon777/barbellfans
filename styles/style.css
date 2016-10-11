@@ -314,9 +314,12 @@ article ul,article ol{
     margin-left:20px;font-size:18px;color: #2f303b;
 }
 
-
 .full_article_image{
     width:80%;margin:0 auto;display:block;
+}
+
+.content_image{
+    width:30%;margin:0 auto;display:block;
 }
 
 #article_tags p{

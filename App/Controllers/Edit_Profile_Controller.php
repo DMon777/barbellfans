@@ -21,7 +21,7 @@ class Edit_Profile_Controller extends Base_Controller
     protected function input($params = []){
         parent::input();
 
-        $this->title .= "Редактировать профиль";
+        $this->title = "Редактировать профиль | Barbellfans";
         $this->scripts[] = 'ajax_upload';
         $this->scripts[] = 'upload';
         $this->user = User_Model::instance()->get_user($_SESSION['auth']['user']);

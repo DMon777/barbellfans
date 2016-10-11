@@ -31,7 +31,7 @@ class Activate_Controller extends Base_Controller
 
 
     protected function activate_subscriber(){
-        $this->title = 'Активация подписки';
+        $this->title = 'Активация подписки | Barbellfans';
         $this->keywords = 'активация нового подписчика';
         $this->description = 'активация нового подписчика';
 

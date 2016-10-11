@@ -14,14 +14,14 @@ class Tags_Controller extends Base_Controller
     protected $total_posts;
     protected $navigation_object;
     protected $table_name = 'articles';
-    protected $bread_crubms;
+    protected $bread_crumbs;
 
     protected function input($params = array()){
         parent::input();
 
         $this->tag = $params['title'];
-        $this->title .= Tags_Model::instance()->get_tag_title($this->tag);
-        $this->bread_crubms = Tags_Model::instance()->get_tag_title($this->tag);
+        $this->title = Tags_Model::instance()->get_tag_title($this->tag)." | Barbellfans";
+        $this->bread_crumbs = Tags_Model::instance()->get_tag_title($this->tag);
         $this->href = 'tags/title/'.$this->tag;
         $this->current_page = $params['page'] ?? 1;
 
@@ -41,7 +41,7 @@ class Tags_Controller extends Base_Controller
             'articles' => $this->articles,
             'navigation' => $this->navigation,
             'href' => $this->href,
-            'bread_crumbs' => $this->bread_crubms
+            'bread_crumbs' => $this->bread_crumbs
             ],
             'App/Views/blocks/index_content');
 

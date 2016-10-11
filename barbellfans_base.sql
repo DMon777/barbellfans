@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 10 2016 г., 13:10
+-- Время создания: Окт 11 2016 г., 21:43
 -- Версия сервера: 5.5.48
 -- Версия PHP: 7.0.4
 
@@ -28,33 +28,33 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(11) unsigned NOT NULL,
-  `title` varchar(55) NOT NULL,
+  `title` varchar(255) NOT NULL,
   `keywords` text NOT NULL,
   `description` text NOT NULL,
+  `header` varchar(55) NOT NULL,
   `category` int(11) NOT NULL,
   `small_article` text NOT NULL,
   `full_article` text NOT NULL,
   `quantity_views` int(11) unsigned NOT NULL DEFAULT '0',
   `publication_date` int(11) unsigned NOT NULL,
   `image` varchar(100) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `articles`
 --
 
-INSERT INTO `articles` (`id`, `title`, `keywords`, `description`, `category`, `small_article`, `full_article`, `quantity_views`, `publication_date`, `image`) VALUES
-(12, 'test', 'test', 'test', 10, '         test test vtestvtesttest testtest v testtesttest test testtest test test testtest      ', '<p>&nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest</p>\r\n\r\n<p>test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest</p>\r\n\r\n<p>test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest</p>\r\n', 23, 1475085126, 'admin_header.jpg'),
-(2, 'Как накачать пресс 1', 'как накачать пресс', 'как накачать пресс', 5, '  вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс  ', '<p>Gjполная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс</p>\r\n', 69, 1468867443, 'press.jpg'),
-(3, 'Как накачать бицепс', 'Как накачать бицепс', 'Как накачать бицепс', 5, 'Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс ', 'Полная статья о том как накачать бицепс Полная статья о том как накачать бицепс Полная статья о том как накачать бицепс Полная статья о том как накачать бицепс Полная статья о том как накачать бицепс Полная статья о том как накачать бицепсПолная статья о том как накачать бицепс Полная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепс м Полная статья о том как накачать бицепс', 34, 1468867443, 'biceps.jpg'),
-(4, 'Жим лежа', 'Жим лежа', 'Жим лежа', 3, '    Вводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежам  Вводаня статья о жиме лежа Вводаня статья о жиме лежаВводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежаВводаня статья о жиме лежа    ', '<p>Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежаПолная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежаПолная статья о жиме лежаПолная статья о жиме лежа Полная статья о жиме лежаПолная статья о жиме лежа</p>\r\n', 7, 1468867443, 'bench_press.jpg'),
-(5, 'Статья о подтягиваниях', 'Статья о подтягиваниях', 'Статья о подтягиваниях', 3, 'Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях ', 'Полная статья о подтягиваниях олная статья о подтягиваниях  олная статья о подтягиваниях м м олная статья о подтягиваниях олная статья о подтягиваниях олная статья о подтягиваниях олная статья о подтягиванияхолная статья о подтягиванияхолная статья о подтягиваниях олная статья о подтягиваниях олная статья о подтягиваниях олная статья о подтягиваниях', 4, 1468867443, 'pullups_back.jpg'),
-(6, 'Отжимания на брусьях', 'Отжимания на брусьях', 'Отжимания на брусьях', 3, ' Вводная статья о отжиманиях на брусьях Вводная статья о отжиманиях на брусьях Вводная статья о отжиманиях на брусьях  Вводная статья о отжиманиях на брусьях Вводная статья о отжиманиях на брусьях  м м м Вводная статья о отжиманиях на брусьях м Вводная статья о отжиманиях на брусьяхВводная статья о отжиманиях на брусьях', 'Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях', 2, 1468867443, 'brusiya1.jpeg'),
-(7, 'Жима стоя', 'Жима стоя', 'Жима стоя', 3, 'Вводная статя о жииме стоя Вводная статя о жииме стоя Вводная статя о жииме стоя Вводная статя о жииме стоя Вводная статя о жииме стоя Вводная статя о жииме стоя Вводная статя о жииме стоя', 'Полная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стояПолная статя о жииме стоя Полная статя о жииме стояПолная статя о жииме стояПолная статя о жииме стояПолная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стояПолная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стоя', 4, 1468867443, 'Zhim_stoja.jpg'),
-(8, 'Жим лежа узким хватом', 'Жим лежа узким хватом', 'Жим лежа узким хватом', 3, 'Вводная статья о жиме лежа узким хватомм Вводная статья о жиме лежа узким хватомм Вводная статья о жиме лежа узким хватомм Вводная статья о жиме лежа узким хватомм Вводная статья о жиме лежа узким хватомм Вводная статья о жиме лежа узким хватомм Вводная статья о жиме лежа узким хватомм', 'Полная статья о жиме лежа узким хватомм Полная статья о жиме лежа узким хватомм Полная статья о жиме лежа узким хватомм Полная статья о жиме лежа узким хватомм Полная статья о жиме лежа узким хватоммПолная статья о жиме лежа узким хватоммПолная статья о жиме лежа узким хватомм Полная статья о жиме лежа узким хватомм Полная статья о жиме лежа узким хватоммПолная статья о жиме лежа узким хватоммПолная статья о жиме лежа узким хватоммПолная статья о жиме лежа узким хватомм', 0, 1468867443, 'jim_uzkim.jpg'),
-(9, 'Жим лежа на наклонной скамье', 'Жим лежа на наклонной скамье', 'Жим лежа на наклонной скамье', 3, 'Вводная статья о жиме лежа на наклонной скамье Вводная статья о жиме лежа на наклонной скамье Вводная статья о жиме лежа на наклонной скамье Вводная статья о жиме лежа на наклонной скамье Вводная статья о жиме лежа на наклонной скамье', 'Полная статья о жиме лежа на наклонной скамье Полная статья о жиме лежа на наклонной скамье Полная статья о жиме лежа на наклонной скамьеПолная статья о жиме лежа на наклонной скамьеПолная статья о жиме лежа на наклонной скамьеПолная статья о жиме лежа на наклонной скамье Полная статья о жиме лежа на наклонной скамьемПолная статья о жиме лежа на наклонной скамьеПолная статья о жиме лежа на наклонной скамье Полная статья о жиме лежа на наклонной скамье', 1, 1468867443, 'program05.jpg'),
-(10, 'Жим гантелей лежа', 'Жим гантелей лежа', 'Жим гантелей лежа', 3, 'Ввожная статья о жиме гантелей лежа Ввожная статья о жиме гантелей лежа Ввожная статья о жиме гантелей лежа Ввожная статья о жиме гантелей лежаВвожная статья о жиме гантелей лежа', 'Полная статья о жиме гантелей лежа Полная статья о жиме гантелей лежа Полная статья о жиме гантелей лежаПолная статья о жиме гантелей лежа м Полная статья о жиме гантелей лежаПолная статья о жиме гантелей лежа мПолная статья о жиме гантелей лежа Полная статья о жиме гантелей лежа Полная статья о жиме гантелей лежа Полная статья о жиме гантелей лежаПолная статья о жиме гантелей лежа', 2, 1468867443, 'jim_ganteleyjpg.jpg'),
-(11, 'test', 'test', 'test', 10, '   test test vtestvtesttest testtest v testtesttest test testtest test test testtest', '<p>&nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest</p>\r\n\r\n<p>test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest</p>\r\n\r\n<p>test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest &nbsp;&nbsp; test test vtestvtesttest testtest v testtesttest test testtest test test testtest</p>\r\n', 7, 1475084925, 'admin_header.jpg');
+INSERT INTO `articles` (`id`, `title`, `keywords`, `description`, `header`, `category`, `small_article`, `full_article`, `quantity_views`, `publication_date`, `image`) VALUES
+(2, 'title |Как накачать пресс 1', 'как накачать пресс', 'как накачать пресс', 'Как накачать пресс 1', 5, '  вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс вводная статья про пресс  ', '<p>Gjполная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс полная статья про пресс</p>\r\n', 70, 1468867443, 'press.jpg'),
+(3, 'title |Как накачать бицепс', 'Как накачать бицепс', 'Как накачать бицепс', 'Как накачать бицепс', 5, 'Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс Вводная статья о том как накачать бицепс ', 'Полная статья о том как накачать бицепс Полная статья о том как накачать бицепс Полная статья о том как накачать бицепс Полная статья о том как накачать бицепс Полная статья о том как накачать бицепс Полная статья о том как накачать бицепсПолная статья о том как накачать бицепс Полная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепсПолная статья о том как накачать бицепс м Полная статья о том как накачать бицепс', 38, 1468867443, 'biceps.jpg'),
+(4, 'title |Жим лежа', 'Жим лежа', 'Жим лежа', 'Жим лежа', 3, '    Вводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежам  Вводаня статья о жиме лежа Вводаня статья о жиме лежаВводаня статья о жиме лежа Вводаня статья о жиме лежа Вводаня статья о жиме лежаВводаня статья о жиме лежа    ', '<p>Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежаПолная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежа Полная статья о жиме лежаПолная статья о жиме лежаПолная статья о жиме лежа Полная статья о жиме лежаПолная статья о жиме лежа</p>\r\n', 8, 1468867443, 'bench_press.jpg'),
+(5, 'title |Статья о подтягиваниях', 'Статья о подтягиваниях', 'Статья о подтягиваниях', ' 	Статья о подтягиваниях', 3, 'Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях Вводная статья о подтягиваниях ', 'Полная статья о подтягиваниях олная статья о подтягиваниях  олная статья о подтягиваниях м м олная статья о подтягиваниях олная статья о подтягиваниях олная статья о подтягиваниях олная статья о подтягиванияхолная статья о подтягиванияхолная статья о подтягиваниях олная статья о подтягиваниях олная статья о подтягиваниях олная статья о подтягиваниях', 7, 1468867443, 'pullups_back.jpg'),
+(6, 'title |Отжимания на брусьях', 'Отжимания на брусьях', 'Отжимания на брусьях', 'Отжимания на брусьях', 3, ' Вводная статья о отжиманиях на брусьях Вводная статья о отжиманиях на брусьях Вводная статья о отжиманиях на брусьях  Вводная статья о отжиманиях на брусьях Вводная статья о отжиманиях на брусьях  м м м Вводная статья о отжиманиях на брусьях м Вводная статья о отжиманиях на брусьяхВводная статья о отжиманиях на брусьях', 'Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях Полная статья о отжиманиях на брусьях', 3, 1468867443, 'brusiya1.jpeg'),
+(7, 'title |Жима стоя', 'Жима стоя', 'Жима стоя', 'Жима стоя', 3, 'Вводная статя о жииме стоя Вводная статя о жииме стоя Вводная статя о жииме стоя Вводная статя о жииме стоя Вводная статя о жииме стоя Вводная статя о жииме стоя Вводная статя о жииме стоя', 'Полная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стояПолная статя о жииме стоя Полная статя о жииме стояПолная статя о жииме стояПолная статя о жииме стояПолная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стояПолная статя о жииме стоя Полная статя о жииме стоя Полная статя о жииме стоя', 4, 1468867443, 'Zhim_stoja.jpg'),
+(8, 'title |Жим лежа узким хватом', 'Жим лежа узким хватом', 'Жим лежа узким хватом', 'Жим лежа узким хватом', 3, 'Вводная статья о жиме лежа узким хватомм Вводная статья о жиме лежа узким хватомм Вводная статья о жиме лежа узким хватомм Вводная статья о жиме лежа узким хватомм Вводная статья о жиме лежа узким хватомм Вводная статья о жиме лежа узким хватомм Вводная статья о жиме лежа узким хватомм', 'Полная статья о жиме лежа узким хватомм Полная статья о жиме лежа узким хватомм Полная статья о жиме лежа узким хватомм Полная статья о жиме лежа узким хватомм Полная статья о жиме лежа узким хватоммПолная статья о жиме лежа узким хватоммПолная статья о жиме лежа узким хватомм Полная статья о жиме лежа узким хватомм Полная статья о жиме лежа узким хватоммПолная статья о жиме лежа узким хватоммПолная статья о жиме лежа узким хватоммПолная статья о жиме лежа узким хватомм', 0, 1468867443, 'jim_uzkim.jpg'),
+(9, 'title |Жим лежа на наклонной скамье', 'Жим лежа на наклонной скамье', 'Жим лежа на наклонной скамье', 'Жим лежа на наклонной скамье', 3, 'Вводная статья о жиме лежа на наклонной скамье Вводная статья о жиме лежа на наклонной скамье Вводная статья о жиме лежа на наклонной скамье Вводная статья о жиме лежа на наклонной скамье Вводная статья о жиме лежа на наклонной скамье', 'Полная статья о жиме лежа на наклонной скамье Полная статья о жиме лежа на наклонной скамье Полная статья о жиме лежа на наклонной скамьеПолная статья о жиме лежа на наклонной скамьеПолная статья о жиме лежа на наклонной скамьеПолная статья о жиме лежа на наклонной скамье Полная статья о жиме лежа на наклонной скамьемПолная статья о жиме лежа на наклонной скамьеПолная статья о жиме лежа на наклонной скамье Полная статья о жиме лежа на наклонной скамье', 1, 1468867443, 'program05.jpg'),
+(10, 'title |Жим гантелей лежа', 'Жим гантелей лежа', 'Жим гантелей лежа', 'Жим гантелей лежа', 3, 'Ввожная статья о жиме гантелей лежа Ввожная статья о жиме гантелей лежа Ввожная статья о жиме гантелей лежа Ввожная статья о жиме гантелей лежаВвожная статья о жиме гантелей лежа', 'Полная статья о жиме гантелей лежа Полная статья о жиме гантелей лежа Полная статья о жиме гантелей лежаПолная статья о жиме гантелей лежа м Полная статья о жиме гантелей лежаПолная статья о жиме гантелей лежа мПолная статья о жиме гантелей лежа Полная статья о жиме гантелей лежа Полная статья о жиме гантелей лежа Полная статья о жиме гантелей лежаПолная статья о жиме гантелей лежа', 9, 1468867443, 'jim_ganteleyjpg.jpg'),
+(23, 'about me', 'test', 'tsets', 'header about me', 12, 'Статья про лучшего в мире программист - Бессаловва Дмитрия Игоревича  ', '<p>Полная <img alt="" class="content_image" src="/images/article_images/lolly_ink_901789.jpg" />Статья про лучшего в мире программист - Бессаловва Дмитрия Игоревича&nbsp;</p>\r\n', 12, 1476203394, '232083WIN_20161006_160339.JPG');
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `articles_tags` (
   `articles_tags_id` int(11) unsigned NOT NULL,
   `article_id` int(11) unsigned NOT NULL,
   `tag_id` int(11) unsigned NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `articles_tags`
@@ -75,7 +75,6 @@ CREATE TABLE IF NOT EXISTS `articles_tags` (
 INSERT INTO `articles_tags` (`articles_tags_id`, `article_id`, `tag_id`) VALUES
 (18, 2, 1),
 (3, 3, 3),
-(54, 12, 7),
 (52, 4, 8),
 (6, 5, 3),
 (7, 6, 8),
@@ -90,37 +89,7 @@ INSERT INTO `articles_tags` (`articles_tags_id`, `article_id`, `tag_id`) VALUES
 (16, 10, 6),
 (17, 10, 8),
 (51, 4, 4),
-(37, 11, 7);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `categories`
---
-
-CREATE TABLE IF NOT EXISTS `categories` (
-  `category_id` int(11) unsigned NOT NULL,
-  `category_name` varchar(55) NOT NULL,
-  `title_in_menu` varchar(55) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `categories`
---
-
-INSERT INTO `categories` (`category_id`, `category_name`, `title_in_menu`) VALUES
-(1, 'exercises', 'Упражнения'),
-(2, 'natural_training', 'Натуральный тренинг'),
-(3, 'training_system', 'Системы тренировок'),
-(4, 'for_girls', 'Для девушек'),
-(5, 'diets', 'Диеты'),
-(6, 'supplements', 'Добавки'),
-(7, 'weight_loss', 'Для похудения'),
-(8, 'biography', 'Биографии спортсменов'),
-(9, 'motivation', 'Мотивация'),
-(10, 'psychology', 'Психология'),
-(11, 'news', 'Новости'),
-(12, 'calculators', 'Калькуляторы');
+(70, 23, 5);
 
 -- --------------------------------------------------------
 
@@ -187,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `date` int(12) unsigned NOT NULL,
   `email` varchar(55) NOT NULL,
   `avatar` varchar(100) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `comments`
@@ -198,6 +167,7 @@ INSERT INTO `comments` (`comment_id`, `article_id`, `parent_id`, `text_comment`,
 (3, 2, 0, 'test2', 'Dimon', 0, 1468867443, 'bessalov88@mail.ru', '669091WIN_20161006_160339.JPG'),
 (7, 2, 0, 'dg', 'dgdg', 0, 1468867443, 'dg@sfsfs.dg', 'default_avatar.jpg'),
 (11, 3, 0, 'привет', 'дима', 0, 1473861706, 'bwerew@sljf.eu', 'default_avatar.jpg'),
+(49, 3, 37, 'gdfg', 'Гость', 0, 1476210639, 'ghyys@dfgd.re', 'default_avatar.jpg'),
 (30, 3, 0, 'просто коммент', 'Гость', 0, 1473867855, 'bksfsa@amol.ru', 'default_avatar.jpg'),
 (31, 3, 30, 'ответ на просто коммент', 'Гость', 0, 1473867874, 'tester@mail.ru', 'default_avatar.jpg'),
 (32, 3, 31, 'приветЁЁЁ', 'Dimon', 0, 1473867922, 'bessalov88@mail.ru', '669091WIN_20161006_160339.JPG'),
@@ -226,7 +196,6 @@ CREATE TABLE IF NOT EXISTS `likers` (
 --
 
 INSERT INTO `likers` (`like_id`, `article_id`, `user_login`) VALUES
-(12, 12, 'Dimon'),
 (2, 2, 'Dimon'),
 (2, 2, 'tolik'),
 (3, 3, 'tolik'),
@@ -244,14 +213,14 @@ CREATE TABLE IF NOT EXISTS `likes` (
   `like_id` int(11) unsigned NOT NULL,
   `article_id` int(11) unsigned NOT NULL,
   `count_likes` int(11) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `likes`
 --
 
 INSERT INTO `likes` (`like_id`, `article_id`, `count_likes`) VALUES
-(11, 11, 0),
+(23, 23, 0),
 (2, 2, 2),
 (3, 3, 1),
 (4, 4, 1),
@@ -260,8 +229,7 @@ INSERT INTO `likes` (`like_id`, `article_id`, `count_likes`) VALUES
 (7, 7, 0),
 (8, 8, 0),
 (9, 9, 0),
-(10, 10, 0),
-(12, 12, 1);
+(10, 10, 0);
 
 -- --------------------------------------------------------
 
@@ -276,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `href` varchar(55) NOT NULL,
   `parent_id` int(11) unsigned NOT NULL DEFAULT '0',
   `sorting` int(11) unsigned NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `menu`
@@ -298,7 +266,7 @@ INSERT INTO `menu` (`id`, `title`, `category_name`, `href`, `parent_id`, `sortin
 (13, 'Мотивация', 'motivation', 'categories/id/motivation', 11, 12),
 (14, 'Психология', 'psychology', 'categories/id/psychology', 11, 15),
 (15, 'Новости', 'news', 'categories/id/news', 11, 13),
-(16, 'Калькулятор повторений', 'rep_calculator', 'rep_calculator', 11, 16),
+(16, 'Калькулятор повторений', 'rep_calculator', 'categories/id/rep_calculator', 11, 16),
 (28, 'test', 'test', 'categories/id/test', 7, 10);
 
 -- --------------------------------------------------------
@@ -417,18 +385,22 @@ ALTER TABLE `articles`
   ADD FULLTEXT KEY `title_7` (`title`,`small_article`,`full_article`);
 ALTER TABLE `articles`
   ADD FULLTEXT KEY `title_8` (`title`,`full_article`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `header` (`header`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `header_2` (`header`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `full_article_5` (`full_article`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `header_3` (`header`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `header_4` (`header`,`full_article`);
 
 --
 -- Индексы таблицы `articles_tags`
 --
 ALTER TABLE `articles_tags`
   ADD PRIMARY KEY (`articles_tags_id`);
-
---
--- Индексы таблицы `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`category_id`);
 
 --
 -- Индексы таблицы `categories_subscribe`
@@ -481,17 +453,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT для таблицы `articles_tags`
 --
 ALTER TABLE `articles_tags`
-  MODIFY `articles_tags_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=62;
---
--- AUTO_INCREMENT для таблицы `categories`
---
-ALTER TABLE `categories`
-  MODIFY `category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `articles_tags_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT для таблицы `categories_subscribe`
 --
@@ -501,17 +468,17 @@ ALTER TABLE `categories_subscribe`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
+  MODIFY `comment_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT для таблицы `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `like_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `like_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT для таблицы `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT для таблицы `subscribers`
 --

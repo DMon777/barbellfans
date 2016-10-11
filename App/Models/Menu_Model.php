@@ -128,7 +128,6 @@ class Menu_Model extends Abstract_Model
 
 
     public function get_categories(){
-       // $sql = "SELECT * FROM menu WHERE parent_id > 0";
         $sql = "SELECT * FROM menu WHERE href LIKE 'categories%'";
         return self::$db->prepared_select($sql);
     }
@@ -140,10 +139,6 @@ class Menu_Model extends Abstract_Model
 
     public function category_sorting($sorting,$categories){
 
-       /* for($i = 0;$i < count($categories);$i++){
-           // echo "сортировка - ".$sorting[$i]." -  id -".$categories[$i]['id']."<br>";
-            self::$db->pdo_update('menu',['sorting'],[$sorting[$i]],['id' => $categories[$i]['id']]);
-        }*/
         if(!empty($categories)){
             for($i = 0;$i < count($categories);$i++){
                 self::$db->pdo_update('menu',['sorting'],[$sorting[$i]],['id' => $categories[$i]['id']]);
@@ -209,7 +204,6 @@ class Menu_Model extends Abstract_Model
             $this->delete_category($category_child['id']);
         }
     }
-
 
     public function get_parent_categories(){
         $sql = "SELECT * FROM menu WHERE parent_id=0";

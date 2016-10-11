@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Дима
- * Date: 08.10.2016
- * Time: 20:36
- */
 
 namespace App\Controllers;
 
@@ -15,7 +9,9 @@ class Rep_Calculator_Controller extends Base_Controller
     protected function input($params = []){
         parent::input();
 
-        $this->title.= "Калькулятор повторений";
+        $this->title.= "Калькулятор повторений | Barbellfans";
+        $this->keywords = "Калькулятор повторений";
+        $this->description = "Калькулятор повторений поможет вам узнать с каким весом вы способны выполнить одно повторение в жиме,приседаниях и становой тяге.";
         $this->scripts[] = "rep_calculator";
 
     }

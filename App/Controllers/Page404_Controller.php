@@ -9,6 +9,8 @@ class Page404_Controller extends Base_Controller
     protected function input($params = array()){
         parent::input();
 
+        $this->title = "page 404";
+
     }
 
     protected function output(){

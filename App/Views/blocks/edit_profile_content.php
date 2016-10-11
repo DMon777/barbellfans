@@ -97,7 +97,7 @@
                                 <img src="http://<?=SITE_NAME;?>/images/article_images/<?=$v['image'];?>" class="bookmark_image">
                             </a>
                             <a href="http://<?=SITE_NAME;?>/article/id/<?=$v['id']?>" class="bookmark_header">
-                                <h3><?=$v['title'];?></h3>
+                                <h3><?=$v['header'];?></h3>
                             </a>
 
                             <img src="images/delete_icon.png" onclick="delete_bookmark(<?=$v['id'];?>)" class = "delete_bookmark">

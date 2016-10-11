@@ -1,6 +1,6 @@
 <?php
 namespace App\Controllers;
-use App\Models\Articles_Model;
+
 use App\Models\Menu_Model;
 use App\Models\Tags_Model;
 
@@ -24,8 +24,6 @@ abstract class Base_Controller extends Main_Controller
 
     protected function input($params = []){
             parent::input();
-
-        $this->title = "Barbellfans.ru | ";
 
         $this->scripts = ['jQuery','scripts'];
 

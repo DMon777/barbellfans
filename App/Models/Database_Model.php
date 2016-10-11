@@ -28,37 +28,18 @@ class Database_Model
     }
 
 
-    public function query($sql)
-    {
+    public function query($sql){
         return $this->pdo->query($sql);
     }
 
-    public function prepared_select($sql,$params = []){
-        $pattern = "/\?/";
+    public function prepared_select($sql){
         $arr = [];
-        if(preg_match_all($pattern,$sql,$matches)){
-
-
-            $result = $this->pdo->prepare($sql);
-
-            for($i=1;$i<=count($matches[0]);$i++){
-                $result->bindParam($i,$params[$i-1]);
-            }
-            $result->execute();
-
-            while($row = $result->fetch(\PDO::FETCH_ASSOC)){
-                $arr[] = $row;
-            }
-            return $arr;
-        }
-        else{
             $result = $this->pdo->prepare($sql);
             $result->execute();
             while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
                 $arr[] = $row;
             }
             return $arr;
-        }
     }
 
     public function pdo_insert($table_name,$fields,$values){

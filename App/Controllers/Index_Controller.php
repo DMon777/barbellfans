@@ -16,7 +16,9 @@ class Index_Controller extends Base_Controller
     protected function input($params = []){
         parent::input();
 
-        $this->title .= "Главная";
+        $this->title = "Главная | Barbellfans.ru - сайт для любителей бодибилдинга!";
+        $this->keywords = "Бодибилдинг,как накачать мышцы";
+        $this->description = "Barbellfans.ru - сайт для любителей бодибилдинга и о том как накачать мышцы";
         $this->current_page = $params['page'] ?? 1;
         $this->href = 'index';
 

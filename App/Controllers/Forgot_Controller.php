@@ -16,7 +16,6 @@ class Forgot_Controller extends Base_Controller
     protected $subject;
     protected $message;
     protected $recovery_message;
-    protected $from = "d.mon110kg@gmail.com";
     protected $new_password;
 
     protected function input($params = []){
@@ -32,7 +31,7 @@ class Forgot_Controller extends Base_Controller
                 if($this->login){
                     $this->subject = "Восстановление логина";
                     $this->message = "Ваш логин на сайте ".SITE_NAME." - ".$this->login['login']." спасибо что остаетесь с нами!!!";
-                    Mail::send_mail($this->email,$this->subject,$this->message,$this->from);
+                    Mail::send_mail($this->email,$this->subject,$this->message,ADMIN_EMAIL);
                     $this->recovery_message = "На ваш почтовый ящик отправлено письмо с вашим логином , проверьте почту!!!";
                 }
                 else{
@@ -51,7 +50,7 @@ class Forgot_Controller extends Base_Controller
                     $this->new_password = $this->generate_password();
                     $this->message = "Здравствуйте ".$this->login['login']."! Вот ваш новый пароль - ".$this->new_password;
 
-                    Mail::send_mail($this->email,$this->subject,$this->message,$this->from);
+                    Mail::send_mail($this->email,$this->subject,$this->message,ADMIN_EMAIL);
                     User_Model::instance()->update_password($this->login['login'],$this->new_password);
                     $this->recovery_message = "На ваш почтовый ящик отправлено письмо с вашим новым паролем , проверьте почту!!!";
                 }
@@ -60,7 +59,7 @@ class Forgot_Controller extends Base_Controller
                 }
             }
         }
-        $this->title .= $this->reconstruction_string;
+        $this->title .= $this->reconstruction_string." | Barbellfans";
 
     }
 

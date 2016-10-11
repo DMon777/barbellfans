@@ -3,10 +3,10 @@ namespace App\Controllers;
 
 use App\Models\Likes_Model;
 use App\Models\User_Model;
+
 class Ajax_Controller extends Base_Controller
 {
 
-    protected $rand_code;
 
     protected function input($params = []){
         parent::input();
@@ -76,8 +76,7 @@ class Ajax_Controller extends Base_Controller
 
     public function upload_avatar(){
 
-        $this->rand_code = rand(100000,999999);
-
+        $rand_code = rand(100000,999999);
 
         $types = ["image/gif","image/png","image/jpeg","image/pjpeg","image/x-png"];
         $size = 2097152;
@@ -88,7 +87,7 @@ class Ajax_Controller extends Base_Controller
             if (preg_match($pattern, $_FILES['avatar']['name'])) {
                 $_FILES['avatar']['name'] = $this->translate_russian_words($_FILES['avatar']['name']);
             }
-            $file = $this->rand_code.$_FILES['avatar']['name'];
+            $file = $rand_code.$_FILES['avatar']['name'];
         }
 
         $result = [];

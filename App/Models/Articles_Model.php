@@ -16,22 +16,13 @@ class Articles_Model extends Abstract_Model
     }
 
 
-    public function get_all_categories(){//функуция не понадобиться но пока не удаляю
-        $sql = "SELECT * FROM categories";
-        $categories = self::$db->prepared_select($sql);
-        foreach ($categories as $key => $val) {
-            $categories[$key]['articles'] = $this->get_articles_by_category_id($val['category_id']);
-        }
-        return $categories;
-    }
-
     public function get_articles_by_category_id($category_id){
         $sql = "SELECT id,title FROM articles WHERE category=".$category_id;
         return self::$db->prepared_select($sql);
     }
 
     public function get_search_results($search_string){
-        $sql = "SELECT id,title,small_article,full_article FROM articles WHERE MATCH (title,full_article) AGAINST('$search_string')";
+        $sql = "SELECT id,header,small_article,full_article FROM articles WHERE MATCH (header,full_article) AGAINST('$search_string')";
         return self::$db->prepared_select($sql);
     }
 
@@ -53,12 +44,12 @@ class Articles_Model extends Abstract_Model
         return self::$db->prepared_select($sql);
     }
 
-    public function edit_article($headline,$key_words,$description,
-                                 $small_article,$full_article,$category,$image,$tags,$article_id){//добавить тэги
+    public function edit_article($title,$key_words,$description,$headline,
+                                 $small_article,$full_article,$category,$image,$tags,$article_id){
 
      self::$db->pdo_update('articles',
-                            ['title','keywords','description','small_article','full_article','category','image'],
-                            [$headline,$key_words,$description,$small_article,$full_article,$category,$image],
+                            ['title','keywords','description','header','small_article','full_article','category','image'],
+                            [$title,$key_words,$description,$headline,$small_article,$full_article,$category,$image],
                             ['id' => $article_id] );
 
         $this->edit_tags($tags,$article_id);
@@ -74,12 +65,12 @@ class Articles_Model extends Abstract_Model
 
     }
 
-    public function add_article($headline,$key_words,$description,$small_article,
+    public function add_article($title,$key_words,$description,$headline,$small_article,
                                 $full_article,$category,$image,$tags){
 
         self::$db->pdo_insert('articles',
-                    ['title','keywords','description','category','small_article','full_article','publication_date','image'],
-            [$headline,$key_words,$description,$category,$small_article,$full_article,time(),$image]
+                    ['title','keywords','description','header','category','small_article','full_article','publication_date','image'],
+            [$title,$key_words,$description,$headline,$category,$small_article,$full_article,time(),$image]
             );
 
         $article_id = self::$db->last_id();
@@ -88,7 +79,6 @@ class Articles_Model extends Abstract_Model
         for($i = 0;$i <= count($tags);$i++){
             self::$db->pdo_insert('articles_tags',['article_id','tag_id'],[$article_id,$tags[$i]]);
         }
-
     }
 
     public function get_last_article_category(){

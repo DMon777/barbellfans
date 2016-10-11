@@ -2,7 +2,7 @@
     <a href = "http://<?=SITE_NAME;?>/index">главная /</a>
     <?if($bread_crumbs):?>
     <a href = "http://<?=SITE_NAME;?>/<?=$bread_crumbs['href'];?>">  <?=$bread_crumbs['title'];?> /</a>
-    <span><?=$article['title'];?></span>
+    <span><?=$article['header'];?></span>
     <?endif;?>
 </div>
 
@@ -10,7 +10,7 @@
 
     <article class="content_block">
         <?if(count($article) > 1 ):?>
-        <h1><?=$article['title'];?></h1>
+        <h1><?=$article['header'];?></h1>
         <p class  = "publication_date">
             Дата публикации : <?=date('d/m/Y',$article['publication_date']);?>
         </p>

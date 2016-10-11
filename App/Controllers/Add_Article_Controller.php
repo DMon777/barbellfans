@@ -23,6 +23,7 @@ class Add_Article_Controller extends Base_Admin_Controller
     protected $tags;
     protected $categories;
     protected $rand_code;
+    protected $article_title;
 
     protected function input($params = []){
         parent::input();
@@ -33,14 +34,10 @@ class Add_Article_Controller extends Base_Admin_Controller
         $this->categories = Menu_Model::instance()->get_categories();
 
         if($_POST['add_article']){
-
             if($this->add_article()){
                 $this->send_mail_to_subscribers();
             }
         }
-
-
-
     }
 
     protected function output(){
@@ -76,6 +73,7 @@ class Add_Article_Controller extends Base_Admin_Controller
 
         $this->key_words  = $_POST['keywords'];
         $this->description  = $_POST['description'];
+        $this->article_title  = $_POST['title'];
         $this->headline  = $_POST['headline'];
         $this->small_article_text  = $_POST['small_article'];
         $this->full_article_text  = $_POST['full_article'];
@@ -86,7 +84,7 @@ class Add_Article_Controller extends Base_Admin_Controller
 
         Articles_Model::instance()->add_article
         (
-            $this->headline,$this->key_words,$this->description,
+            $this->article_title,$this->key_words,$this->description,$this->headline,
             $this->small_article_text,$this->full_article_text,
             $this->article_category,$this->image,$this->article_tags
         );
@@ -97,13 +95,12 @@ class Add_Article_Controller extends Base_Admin_Controller
 
         $emails = Subscribe_Model::instance()->get_subscribers_emails();
         $article_id = Articles_Model::instance()->get_last_article_id();
-        $from = "d.mon110kg@gmail.com";
         $subject = "Рассылка";
         $message = "На нашем сайте вышла новая статья -".$this->headline.".
         перейдите по ссылке - http://".SITE_NAME."/article/id/".$article_id;
 
         for($i = 0;$i < count($emails);$i++){
-            Mail::send_mail($emails[$i],$subject,$message,$from);
+            Mail::send_mail($emails[$i],$subject,$message,ADMIN_EMAIL);
             sleep(1);
         }
     }

@@ -21,13 +21,12 @@ class Subscribe_Controller extends Base_Controller
     protected $user_id;
     protected $rand_code;
     protected $subject = "активация подписки";
-    protected $from = 'd.mon110kg@gmail.com';
     protected $email_message;
 
     protected function input($params = []){
         parent::input();
 
-        $this->title = "Подписка на обновления";
+        $this->title = "Подписка на обновления | Barbellfans";
         $this->categories = Menu_Model::instance()->get_categories();
 
         if($_SESSION['auth']['user']){
@@ -79,7 +78,7 @@ class Subscribe_Controller extends Base_Controller
             $this->email_message = "Вы подали заявку на рассылку новостей на сайте - ".SITE_NAME." ,для активации
                                 перейдите по ссылке  -  http://".SITE_NAME."/activate/item/subscriber/code/".$this->rand_code.".Если вы не подписывались на
                                 новости просто проигнорируйте данное письмо.";
-            Mail::send_mail($this->email,$this->subject,$this->email_message,$this->from);
+            Mail::send_mail($this->email,$this->subject,$this->email_message,ADMIN_EMAIL);
             $this->message = $this->subscriber_name.", на ваш email было отправлено письмо с сылкой для активации подписки, проверьте ваш почтовый ящик.";
             return true;
         }
