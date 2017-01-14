@@ -112,11 +112,8 @@ class Menu_Model extends Abstract_Model
         if(!empty($map)){
             echo "<ul class='sortable'>";
             foreach($map as $val):?>
-
-
                     <li id = "<?=$val['id'];?>"><?=$val['title'];?>
                      <? $this->print_sorting_menu_tree($val['children']); ?></li>
-
                 <?php
             endforeach;
             echo "</ul >";

@@ -72,7 +72,14 @@ $(document).ready(function(){
             data:{article_id:article_id},
             success:function(result){
                 if(result == "Извини,но нужно авторизоваться,иначе никак."){
-                    alert(result);
+                    $(".modal_message").text(result);
+                    $(".js-modal,.overlay").fadeIn(500);
+                    $("body").addClass('modal-open');
+                    $("#modal-close,.overlay").bind('click',function(e){
+                        e.preventDefault();
+                        $('body').removeClass('modal-open');
+                        $(".js-modal,.overlay").fadeOut(100);
+                    })
                 }
                 else{
                     that.siblings('.count_likes').html(result);
@@ -153,8 +160,9 @@ $(document).ready(function(){
         $(this).next("form").slideToggle();
     });
 
-    $("#show_bookmarks").bind("click",function(){
-        $(this).next("div").slideToggle();
+    $("#show_bookmarks").on("click",function(){
+
+        $("#bookmarks_list").slideToggle();
     });
 
     $("[name=edit_login]").bind("click",function(){
@@ -328,5 +336,23 @@ $(document).ready(function(){
         }
 
     });
+
+    $(".delete_bookmark").bind('click',function(){
+
+        var article_id = $(this).attr('id');
+
+        $(".js-modal,.overlay").fadeIn(500);
+        $("body").addClass('modal-open');
+        $("#modal-confirm").attr('href','/delete/item/bookmark/id/'+article_id);
+        $("#modal-close,.overlay").bind('click',function(e){
+            e.preventDefault();
+            $('body').removeClass('modal-open');
+            $(".js-modal,.overlay").fadeOut(100);
+        });
+
+    });
+
+
+
 
 });

@@ -81,7 +81,14 @@ class Subscribe_Model extends Abstract_Model
         return false;
     }
 
+    public function delete_subscriber($subscriber_email){
 
+        $sql = "SELECT id FROM subscribers WHERE email='$subscriber_email'";
+        $subscriber_id = (int)self::$db->prepared_select($sql)[0]['id'];
+        self::$db->pdo_delete('categories_subscribe',['subscriber_id' => $subscriber_id]);
+        self::$db->pdo_delete('subscribers',['id' => $subscriber_id]);
+
+    }
 
 
 

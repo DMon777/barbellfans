@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-
 use App\Models\Menu_Model;
 
 
@@ -20,7 +19,7 @@ class Edit_Category_Controller extends Base_Admin_Controller
         parent::input();
 
         $this->title = "Редактировать категории";
-        $this->scripts = ['jQuery','jquery-ui-1.10.1.custom.min','sort'];
+        $this->scripts = ['jQuery','jquery-ui-1.10.1.custom.min','sort','bootstrap.min','admin_scripts'];
 
         if ($_POST['sort']) {
             Menu_Model::instance()->menu_sorting($_POST['sorting']);

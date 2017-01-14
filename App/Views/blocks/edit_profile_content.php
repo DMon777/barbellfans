@@ -1,21 +1,6 @@
-<script type="text/javascript">
-
-    function delete_bookmark(article_id){
-
-        if(confirm("Вы действительно хотите удалить эту закладку?")){
-            window.location='http://<?=SITE_NAME;?>/delete/item/bookmark/id/'+article_id;
-        }
-        else{
-            return false;
-        }
-    }
-
-</script>
-
-
 
 <div id = "bread_crumbs">
-    <a href = "#">главная /</a>  <span>Редактировать профиль</span>
+    <a href = "/index">главная /</a>  <span>Редактировать профиль</span>
 </div>
 
 <main>
@@ -26,11 +11,11 @@
 
             <h1>Редактировать профиль</h1>
 
-            <div id="form">
+            <div id ="form">
                 <form method="post" action="#" enctype="multipart/form-data">
 
                     <p>Аватар</p>
-                    <img src="http://<?=SITE_NAME;?>/images/avatars/<?=$user['avatar'];?>" id="edit_avatar"  alt = "avatar"><br>
+                    <img src="images/avatars/<?=$user['avatar'];?>" id="edit_avatar"  alt = "avatar"><br>
                     <span class = 'registration_error_message avatar_error'></span>
 
                     <p>Логин</p>
@@ -73,45 +58,57 @@
 
                     <?else:?>
                     <p>Вы еще не подписаны на рассылку , для того что-бы подписаться перейдите по
-                        <a href="http://<?=SITE_NAME;?>/subscribe"> ссылке.</a>
+                        <a href="/subscribe"> ссылке.</a>
                     </p>
 
                     <?endif;?>
-                </div>
+                </div> <!-- end subscribtion menegment  -->
 
+            </div><!-- end #form  -->
+
+                              <!-- modal -->
+            <div class="overlay" id="modal-overlay"></div>
+            <div class="modal js-modal">
+                <p class="modal_message"> Вы действительно хотите удалить эту закладку? </p>
+                <a id="modal-confirm" class="button">да</a>
+                <a href="#"  id="modal-close" class="button">нет</a href="#" >
             </div>
 
 
             <div id = "bookmarks">
                 <div id = "show_bookmarks" >
-                    <img src="images/bookmark_icon2.png">
+                    <img src="/images/bookmark_icon2.png">
                     <h3>Закладки</h3>
                 </div>
+            </div>
 
-                <div>
-                    <?if($bookmarks):?>
+
+            <div id = "bookmarks_list">
+                <?if($bookmarks):?>
+
                     <?foreach($bookmarks as $key => $val):?>
                         <?foreach ($val as $k => $v):?>
-                        <div class = "bookmark">
-                            <a href = "http://<?=SITE_NAME;?>/article/id/<?=$v['id']?>">
-                                <img src="http://<?=SITE_NAME;?>/images/article_images/<?=$v['image'];?>" class="bookmark_image">
-                            </a>
-                            <a href="http://<?=SITE_NAME;?>/article/id/<?=$v['id']?>" class="bookmark_header">
-                                <h3><?=$v['header'];?></h3>
-                            </a>
+                            <div class = "bookmark">
 
-                            <img src="images/delete_icon.png" onclick="delete_bookmark(<?=$v['id'];?>)" class = "delete_bookmark">
+                                <a href = "/article/id/<?=$v['id']?>">
+                                    <img src="/images/article_images/<?=$v['image'];?>" class="bookmark_image">
+                                </a>
+                                <a href="/article/id/<?=$v['id']?>" class="bookmark_header">
+                                    <h3><?=$v['header'];?></h3>
+                                </a>
 
-                        </div>
+                                <img src="/images/delete_icon.png" class = "delete_bookmark" id = "<?=$v['id']?>">
+
+
+                            </div>
                         <?endforeach;?>
                     <?endforeach;?>
 
-                    <?else:?>
-                       <p>Закладок пока что нет.</p>
+                <?else:?>
+                    <p>Закладок пока что нет.</p>
                 <?endif;?>
-                </div>
-
             </div>
+
 
 
         <?else:?>

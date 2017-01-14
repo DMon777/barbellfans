@@ -1,7 +1,6 @@
 <?php
 namespace App\Controllers;
 
-
 use App\Models\Navigation;
 
 class Index_Controller extends Base_Controller
@@ -17,7 +16,7 @@ class Index_Controller extends Base_Controller
         parent::input();
 
         $this->title = "Главная | Barbellfans.ru - сайт для любителей бодибилдинга!";
-        $this->keywords = "Бодибилдинг,как накачать мышцы";
+        $this->keywords = "Бодибилдинг,как накачать мышцы,как накачаться,упражнения";
         $this->description = "Barbellfans.ru - сайт для любителей бодибилдинга и о том как накачать мышцы";
         $this->current_page = $params['page'] ?? 1;
         $this->href = 'index';
@@ -32,7 +31,6 @@ class Index_Controller extends Base_Controller
         $this->navigation = $this->navigation_object->get_navigation($this->total_posts);
 
         $this->articles = $this->navigation_object->get_articles();
-
     }
 
     protected function output(){

@@ -18,15 +18,19 @@ class Delete_Controller extends Base_Controller
         switch($params['item']){
             case 'comment':
                 Comments_Model::instance()->delete_comment($params['id']);
+                $this->redirect();
                 break;
             case 'article':
                 Articles_Model::instance()->delete_article($params['id']);
+                $this->redirect();
                 break;
             case 'tag':
                 Tags_Model::instance()->delete_tag($params['id']);
+                $this->redirect();
                 break;
             case'category':
                 Menu_Model::instance()->delete_category($params['id']);
+                $this->redirect();
                 break;
             case'bookmark':
                 Likes_Model::instance()->delete_like($_SESSION['auth']['user'],$params['id']);

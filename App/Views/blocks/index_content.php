@@ -1,5 +1,5 @@
 <div id = "bread_crumbs">
-    <a href = "http://<?=SITE_NAME;?>/index">главная /</a><span> <?=$bread_crumbs;?> </span>
+    <a href = "/index">главная /</a><span> <?=$bread_crumbs;?> </span>
 </div>
 
 <main>
@@ -21,10 +21,16 @@
              <img src="/images/count_views.png" alt = "views">  <span><?=$articles[$i]['quantity_views'];?></span>
          </div>
 
-         <a href = "http://<?=SITE_NAME;?>/article/id/<?=$articles[$i]['id'];?>" class = "read_more button"> читать далее... </a>
+         <a href = "/article/id/<?=$articles[$i]['id'];?>" class = "read_more button"> читать далее... </a>
          <div class = "clear"></div>
      </article>
     <? endfor; ?>
+
+    <div class="overlay" id="modal-overlay"></div>
+    <div class="modal js-modal">
+        <p class="modal_message"></p>
+        <a href="#"  id="modal-close" class="button">Закрыть</a href="#" >
+    </div>
 
 
             <?if($navigation):?>
@@ -34,12 +40,22 @@
                         <tr>
 
                             <?if($navigation['arrow_back']):?>
-                                <td> <a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['arrow_back'];?>" id = "arrow_left">  </a> </td>
+                                <? if($navigation['arrow_back'] == 1 ): ?>
+                                    <td> <a href="/<?=$href;?>" id = "arrow_left">  </a> </td>
+                                 <?else:?>
+                                    <td> <a href="/<?=$href;?>/page/<?=$navigation['arrow_back'];?>" id = "arrow_left">  </a> </td>
+                                <?endif;?>
                             <?endif;?>
 
                             <? if($navigation['previous']):?>
                                 <? foreach($navigation['previous'] as $val):?>
-                                    <td><a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$val;?>"><?=$val;?></a></td>
+
+                                    <? if($val == 1 ): ?>
+                                        <td> <a href="/<?=$href;?>"> <?=$val;?> </a> </td>
+                                    <?else:?>
+                                        <td><a href="/<?=$href;?>/page/<?=$val;?>"><?=$val;?></a></td>
+                                    <?endif;?>
+
                                 <? endforeach;?>
                             <? endif;?>
 
@@ -49,13 +65,13 @@
 
                             <? if($navigation['next']):?>
                                 <? foreach($navigation['next'] as $val):?>
-                                    <td><a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$val;?>"><?=$val;?></a></td>
+                                    <td><a href="/<?=$href;?>/page/<?=$val;?>"><?=$val;?></a></td>
                                 <? endforeach;?>
                             <? endif;?>
 
                             <? if($navigation['arrow_forward']):?>
                                 <td>
-                                    <a href = "http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['arrow_forward'];?>" id = "arrow_right"></a>
+                                    <a href = "/<?=$href;?>/page/<?=$navigation['arrow_forward'];?>" id = "arrow_right"></a>
                                 </td>
                             <? endif;?>
 

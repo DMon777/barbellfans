@@ -1,7 +1,7 @@
 <div id = "bread_crumbs">
-    <a href = "http://<?=SITE_NAME;?>/index">главная /</a>
+    <a href = "/index">главная /</a>
     <?if($bread_crumbs):?>
-    <a href = "http://<?=SITE_NAME;?>/<?=$bread_crumbs['href'];?>">  <?=$bread_crumbs['title'];?> /</a>
+    <a href = "/<?=$bread_crumbs['href'];?>">  <?=$bread_crumbs['title'];?> /</a>
     <span><?=$article['header'];?></span>
     <?endif;?>
 </div>
@@ -24,9 +24,9 @@
             <p>Теги :
             <?for($i = 0;$i < count($article['tags']);$i++):?>
                 <?if(count($article['tags']) - 1 > $i):?>
-                    <a href="http://<?=SITE_NAME;?>/tags/title/<?=$article['tags'][$i]['href'];?>"> <?=$article['tags'][$i]['title'];?> </a>,
+                    <a href="/tags/title/<?=$article['tags'][$i]['href'];?>"> <?=$article['tags'][$i]['title'];?> </a>,
                     <?else:?>
-                    <a href="http://<?=SITE_NAME;?>/tags/title/<?=$article['tags'][$i]['href'];?>"> <?=$article['tags'][$i]['title'];?> </a>
+                    <a href="/tags/title/<?=$article['tags'][$i]['href'];?>"> <?=$article['tags'][$i]['title'];?> </a>
                  <?endif;?>
             <?endfor;?>
             </p>
@@ -37,6 +37,13 @@
             <img src="/images/count_likes.png" alt = "likes" class = "likes_img">  <span class = "count_likes"><?=$article['count_likes'];?></span>
             <img src="/images/count_views.png" alt = "views">  <span><?=$article['quantity_views'];?></span>
         </div>
+
+<!-- Modals-->
+            <div class="overlay" id="modal-overlay"></div>
+            <div class="modal js-modal">
+                <p class="modal_message"></p>
+                <a href="#"  id="modal-close">Закрыть</a href="#" >
+            </div>
 
 
         <div id="share">

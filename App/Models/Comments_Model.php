@@ -74,9 +74,15 @@ class Comments_Model extends Abstract_Model
                         <img src = "/images/close_icon2.png" alt = "close" class="close_icon">
                     </div>
 
+
+
                     <div class="clear"></div>
+                    <hr class="comment_separator">
                     <? $this->print_comments_map($val['children']); ?>
+
+
                 </div>
+
 
                 <?php
             endforeach;
@@ -89,13 +95,15 @@ class Comments_Model extends Abstract_Model
     public function print_admin_comments_map($map){
         if(!empty($map)){
             foreach($map as $val):?>
-                <ul class="comments_list">
+                <ul class="list-unstyled comments_list">
                     <li><?=$val['user_login'];?></li>
                         <li><?=$val['text_comment'];?></li>
-                           <li>
-                               <a href = "" onclick="delete_comment(<?=$val['comment_id'];?>)">
-                                    delete
-                               </a>
+                           <li class="text-right">
+
+                               <button type="button" value="<?=$val['comment_id']?>" class="btn btn-default delete_comment" aria-label="Left Align">
+                                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                               </button>
+
                            </li>
                     <hr>
                   <li> <? $this->print_admin_comments_map($val['children']); ?></li>

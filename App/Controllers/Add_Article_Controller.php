@@ -29,7 +29,7 @@ class Add_Article_Controller extends Base_Admin_Controller
         parent::input();
 
         $this->title = "добавление статьи";
-        $this->scripts = ['jQuery','ckeditor/ckeditor','AjexFileManager/ajex','ckeditor_inclusion'];
+        $this->scripts = ['jQuery','bootstrap.min','ckeditor/ckeditor','AjexFileManager/ajex','ckeditor_inclusion'];
         $this->tags = Tags_Model::instance()->get_all_tags();
         $this->categories = Menu_Model::instance()->get_categories();
 
@@ -94,17 +94,31 @@ class Add_Article_Controller extends Base_Admin_Controller
     protected function send_mail_to_subscribers(){
 
         $emails = Subscribe_Model::instance()->get_subscribers_emails();
+
+
         $article_id = Articles_Model::instance()->get_last_article_id();
         $subject = "Рассылка";
-        $message = "На нашем сайте вышла новая статья -".$this->headline.".
-        перейдите по ссылке - http://".SITE_NAME."/article/id/".$article_id;
+//        $message = "На нашем сайте вышла новая статья -".$this->headline.".
+//        перейдите по ссылке - http://".SITE_NAME."/article/id/".$article_id;
+
+
 
         for($i = 0;$i < count($emails);$i++){
+
+            $message = $this->render([
+                'headline' => $this->headline,
+                'article_id' => $article_id,
+                'subscriber_email' => $emails[$i]
+            ],'App/Views/blocks/email_body');
+
+          //  $message = "hello ".$emails[$i];
+
+
+
             Mail::send_mail($emails[$i],$subject,$message,ADMIN_EMAIL);
             sleep(1);
         }
     }
-
 
 
 }

@@ -17,7 +17,9 @@ class Edit_Tags_Controller extends Base_Admin_Controller
     public function input($params = []){
         parent::input();
 
-        $this->title = "Добавить тег";
+        $this->title = "Редактировать теги";
+
+        $this->scripts = ['jQuery','bootstrap.min','admin_scripts'];
 
         if($_POST['add_new_tag']){
             $this->add_new_tag();

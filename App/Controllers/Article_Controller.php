@@ -97,7 +97,7 @@ class Article_Controller extends Base_Controller
 
             $subject       = "comments";
             $email_message = "На ваш комментарий ответили для просмотра перейдите по ссылке - http://".SITE_NAME."/article/id/".$this->article_id;
-            $from          = "d.mon110kg@gmail.com";
+            $from          = ADMIN_EMAIL;
 
             Mail::send_mail($this->commentator_email,$subject,$email_message,$from);
         }

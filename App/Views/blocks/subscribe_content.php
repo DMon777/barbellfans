@@ -1,5 +1,5 @@
 <div id = "bread_crumbs">
-    <a href = "http://<?=SITE_NAME;?>/index">главная /</a>  <span>Подписка</span>
+    <a href = "/index">главная /</a>  <span>Подписка</span>
 </div>
 
 <main>
@@ -16,7 +16,7 @@
 
                 <?if($is_subscribed):?>
                     <p>Привет <?=$_SESSION['auth']['user'];?> , вы уже подписаны на рассылку , для управления рассылкой зайдите в
-                    свой <a href = "http://<?=SITE_NAME;?>/edit_profile">аккаунт.</a>
+                    свой <a href = "/edit_profile">аккаунт.</a>
                     </p>
 
 

@@ -1,5 +1,5 @@
 <div id = "bread_crumbs">
-    <a href = "http://<?=SITE_NAME;?>/index">главная /</a>  <span>Калькулятор повторений</span>
+    <a href = "/index">главная /</a>  <span>Калькулятор повторений</span>
 </div>
 
 <main>

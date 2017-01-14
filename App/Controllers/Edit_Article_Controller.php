@@ -32,7 +32,7 @@ class Edit_Article_Controller extends Base_Admin_Controller
 
         $this->title = "редактирование статьи";
         $this->article_id = $params['id'];
-        $this->scripts = ['jQuery','ckeditor/ckeditor','AjexFileManager/ajex','ckeditor_inclusion'];
+        $this->scripts = ['jQuery','bootstrap.min','admin_scripts','ckeditor/ckeditor','AjexFileManager/ajex','ckeditor_inclusion'];
 
         if($_POST['save_changes']){
             $this->edit_article();
@@ -53,7 +53,6 @@ class Edit_Article_Controller extends Base_Admin_Controller
     }
 
     protected function output(){
-
         $this->content = $this->render([
             'categories' => $this->categories,
             'article' => $this->article,
@@ -62,7 +61,6 @@ class Edit_Article_Controller extends Base_Admin_Controller
         ],'App/Views/blocks/admin_blocks/edit_article_content');
 
         $this->page = parent::output();
-
     }
 
     protected function change_image(){

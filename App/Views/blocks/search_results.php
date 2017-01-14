@@ -1,5 +1,5 @@
 <div id = "bread_crumbs">
-    <a href = "http://<?=SITE_NAME;?>/index">главная / </a><span>результаты поиска</span>
+    <a href = "/index">главная / </a><span>результаты поиска</span>
 </div>
 
 <main>
@@ -16,7 +16,7 @@
 
             <p><?=$val['small_article'];?></p>
 
-            <a href = "http://<?=SITE_NAME;?>/article/id/<?=$val['id']?>" class = "read_more button"> читать далее... </a>
+            <a href = "/article/id/<?=$val['id']?>" class = "read_more button"> читать далее... </a>
             <div class="clear"></div>
 
         <?endforeach;?>

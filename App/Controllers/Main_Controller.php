@@ -52,7 +52,7 @@ abstract class Main_Controller
         }
         ob_start();
 
-        if(!require_once $path.'.php'){
+        if(!require $path.'.php'){
             throw new Controller_Exception();
         }
 

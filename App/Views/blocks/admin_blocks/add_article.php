@@ -1,66 +1,89 @@
-<main>
+<div class="container" id="main">
+    <h2 class="text-center">Добавить статью</h2>
+    <div class="row">
 
-    <h1>Добавить статью</h1>
 
-    <form method="post" action="" enctype="multipart/form-data">
+        <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="inputFile" class="col-sm-2 control-label">Изображение</label>
+                <div class="col-sm-10">
+                    <input type="file" name="article_image"  id="inputFile" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputkeywords" class="col-sm-2 control-label">keywords</label>
+                <div class="col-sm-10">
+                    <input type="text" name = "keywords" class="form-control" id="inputkeywords" placeholder="keywords">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputdescription" class="col-sm-2 control-label">description</label>
+                <div class="col-sm-10">
+                    <input type="text" name="description" class="form-control" id="inputdescription" placeholder="description">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputtitle" class="col-sm-2 control-label">title</label>
+                <div class="col-sm-10">
+                    <input type="text" name = "title" class="form-control" id="inputtitle" placeholder="title">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputheader" class="col-sm-2 control-label">Заголовок</label>
+                <div class="col-sm-10">
+                    <input type="text" name="headline" class="form-control" id="inputheader" placeholder="Заголовок">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputshorttext" class="col-sm-2 control-label">Вступительная статья</label>
+                <div class="col-sm-10">
+                    <textarea name="small_article"  id="inputshorttext" class="form-control"  rows="3" ></textarea>
 
-        <table>
-            <tr>
-                <td> загрузить изображение</td>
-                <td><input type="file" name="article_image" id="article_image"></td>
-            </tr>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputfulltext" class="col-sm-2 control-label">Полная статья</label>
+                <div class="col-sm-10">
+                    <textarea name="full_article" id="inputfulltext" class="form-control" rows="5" ></textarea>
+                </div>
+            </div>
 
-            <tr>
-                <td> keywords </td>
-                <td> <input type="text" name="keywords" > </td>
-            </tr>
-            <tr>
-                <td> description </td>
-                <td> <input type="text" name="description" > </td>
-            </tr>
-            <tr>
-                <td> title </td>
-                <td> <input type="text" name="title" > </td>
-            </tr>
-            <tr>
-                <td> Заголовок </td>
-                <td> <input type="text" name="headline"> </td>
-            </tr>
-            <tr>
-                <td> Вступительная статья </td>
-                <td><textarea name="small_article" class = "small_article" >  </textarea></td>
-            </tr>
-            <tr>
-                <td> Полная статья </td>
-                <td> <textarea name="full_article"> </textarea></td>
-            </tr>
-
-            <tr>
-                <td>Категория</td>
-                <td>
-                    <select name = "category">
-                        <?foreach($categories as $key => $val):?>
-                            <option  value="<?=$val['id'];?>">
-                                <?=$val['title'];?></option>
-                        <?endforeach;?>
-                    </select>
-                </td>
-            </tr>
-
-            <tr>
-                <td>tags</td>
-                <td>
-                    <?foreach($tags as $key => $val):?>
-                        <input type="checkbox" value = "<?=$val['id'];?>" name="tags[]"> <?=$val['title'];?>&nbsp;|
+            <div class="form-group">
+                <label for="inputcategory" class="col-sm-2 control-label">Категории</label>
+                <div class="col-sm-10">
+                    <select name = "category" id="inputcategory" class="form-control">
+                    <?foreach($categories as $key => $val):?>
+                        <option  value="<?=$val['id']?>">
+                            <?=$val['title'];?>
+                        </option>
                     <?endforeach;?>
-                </td>
+                    </select>
+                </div>
+            </div>
 
 
-            <tr>
-                <td colspan="2"> <input type="submit" name="add_article" value="Сохранить статью"> </td>
-            </tr>
-        </table>
-    </form>
 
+            <div class="form-group">
+                <label  class="col-sm-2 control-label">tags</label>
+                <div class="col-sm-10">
+                    <div class="checkbox">
 
-</main>
+                        <?foreach($tags as $key => $val):?>
+                        <label>
+                            <input type="checkbox" value="<?=$val['id']?>" name="tags[]"> <?=$val['title'];?>
+                        </label>
+                    <?endforeach;?>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input type="submit" name="add_article" value="Сохранить" class="btn btn-default text-center submit_button">
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+

@@ -25,12 +25,12 @@
                    <?=$val['title'];?>
                    <ul class = "inner_menu">
                     <?foreach ($val['children'] as $k => $v):?>
-                        <li> <a href="http://<?=SITE_NAME;?>/<?=$v['href']?>"> <?=$v['title'];?></a></li>
+                        <li> <a href="/<?=$v['href']?>"> <?=$v['title'];?></a></li>
                     <?endforeach;?>
                        </ul>
                </li>
             <?else:?>
-                <li> <a href="http://<?=SITE_NAME;?>/<?=$val['href']?>"> <?=$val['title'];?></a></li>
+                <li> <a href="/<?=$val['href']?>"> <?=$val['title'];?></a></li>
            <?endif;?>
         <?endforeach;?>
             </ul>
@@ -47,12 +47,12 @@
                        <span> <?=$val['title'];?> </span>
                         <ul class = "inner_menu">
                             <?foreach ($val['children'] as $k => $v):?>
-                                <li> <span> <a href="http://<?=SITE_NAME;?>/<?=$v['href']?>"> <?=$v['title'];?></a> </span> </li>
+                                <li> <span> <a href="/<?=$v['href']?>"> <?=$v['title'];?></a> </span> </li>
                             <?endforeach;?>
                         </ul>
                     </li>
                 <?else:?>
-                    <li> <span> <a href="http://<?=SITE_NAME;?>/<?=$val['href']?>"> <?=$val['title'];?></a> </span> </li>
+                    <li> <span> <a href="/<?=$val['href']?>"> <?=$val['title'];?></a> </span> </li>
                 <?endif;?>
             <?endforeach;?>
 
@@ -61,7 +61,7 @@
     </nav>
 
     <div id = "logo">
-        <a href = "http://<?=SITE_NAME;?>/index"><img src="/images/logo.png" alt = "barbellfans"></a>
+        <a href = "/index"><img src="/images/logo.png" alt = "barbellfans"></a>
     </div>
 
     <div class = "clear"></div>
@@ -76,13 +76,13 @@
         <div class = "social_icons">
             <ul>
                 <li>
-                    <a href="#"> <img src="/images/header_vk.png" alt = "vk"> </a>
+                    <a href="#" class="social_href"> <img src="/images/header_vk.png" alt = "vk"> </a>
                 </li>
                 <li>
-                    <a href="#"> <img src="/images/header_facebook.png"  alt = "facebook">  </a>
+                    <a href="#" class="social_href"> <img src="/images/header_facebook.png"  alt = "facebook">  </a>
                 </li>
                 <li>
-                    <a href="#"> <img src="/images/header_odnoklassniki.png"  alt = "odnoklassniki">  </a>
+                    <a href="#" class="social_href"> <img src="/images/header_odnoklassniki.png"  alt = "odnoklassniki">  </a>
                 </li>
                 <li>
                     <a href="/rss"> <img src="/images/header_rss.png"  alt = "rss">  </a>
@@ -95,8 +95,8 @@
         <?if($_SESSION['auth']['user']):?>
             <div class = "auth_user">
                 <p>Добро пожаловать на сайт <br><?=$_SESSION['auth']['user']?></p>
-                <a href="http://<?=SITE_NAME;?>/edit_profile" class = "edit_profile"> редактировать профиль </a>
-                <a href = "http://<?=SITE_NAME;?>/logout" class = "exit" > выйти </a>
+                <a href="/edit_profile" class = "edit_profile"> редактировать профиль </a>
+                <a href = "/logout" class = "exit" > выйти </a>
 
             </div>
 
@@ -115,9 +115,9 @@
 
                 </form>
                 <div id="forgot">
-                    <a href="http://<?=SITE_NAME;?>/forgot/item/login">Забыли логин</a> |
-                    <a href="http://<?=SITE_NAME;?>/forgot/item/password">Забыли пароль</a> |
-                    <a href="http://<?=SITE_NAME;?>/registration">Регистрация</a>
+                    <a href="/forgot/item/login">Забыли логин</a> |
+                    <a href="/forgot/item/password">Забыли пароль</a> |
+                    <a href="/registration">Регистрация</a>
                 </div>
             </div>
         <?endif;?>
@@ -131,8 +131,8 @@
             <?if($_SESSION['auth']['user']):?>
                 <div class = "auth_user">
                     <p>Добро пожаловать на сайт<br> <?=$_SESSION['auth']['user'];?></p>
-                    <a href="http://<?=SITE_NAME;?>/edit_profile" class = "edit_profile"> редактировать профиль </a>
-                    <a href = "http://<?=SITE_NAME;?>/logout" class = "exit" > выйти </a>
+                    <a href="/edit_profile" class = "edit_profile"> редактировать профиль </a>
+                    <a href = "/logout" class = "exit" > выйти </a>
 
                 </div>
             <?else:?>
@@ -149,17 +149,15 @@
 
                     </form>
                     <div id="adaptive_forgot">
-                        <a href="http://<?=SITE_NAME;?>/forgot/item/login">Забыли логин</a> |
-                        <a href="http://<?=SITE_NAME;?>/forgot/item/password">Забыли пароль</a> |
-                        <a href="http://<?=SITE_NAME;?>/registration">Регистрация</a>
+                        <a href="/forgot/item/login">Забыли логин</a> |
+                        <a href="/forgot/item/password">Забыли пароль</a> |
+                        <a href="/registration">Регистрация</a>
                     </div>
                 </div>
 
             <?endif;?>
 
         </div>
-
-
 
     </div>
 
